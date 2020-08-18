@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/jasolovioff/lilli_proto_2#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.0"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",

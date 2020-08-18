@@ -47,10 +47,21 @@ class MasterForm extends Component {
 
     get nextButton() {
         let currentStep = this.state.currentStep;
-        if (currentStep < 4) {
+        let buttonLabel = "Siguiente";
+        switch (currentStep){
+            case 3:
+                buttonLabel = "¡Quiero inscribirme!";
+                break;
+            case 4:
+                buttonLabel = "Enviar mis datos";
+                break;
+            default:
+                break;
+        }
+        if (currentStep <= 4) {
             return (
                 <Button className="btn btn-primary float-right" type="button" onClick={this._next}>
-                    Siguiente
+                    {buttonLabel}
                 </Button>
             )
         }

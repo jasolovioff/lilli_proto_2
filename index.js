@@ -1,6 +1,17 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
-const PORT = process.env.PORT;
+const keys = require('./config/keys');
+
+mongoose.connect(keys.mongoURI, {
+    useNewUrlParser: true
+})
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log("Connected to MongoDB.");
+});
 
 if (process.env.NODE_ENV == 'production'){
     //Express will serve up production assets
@@ -11,7 +22,7 @@ if (process.env.NODE_ENV == 'production'){
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
 }
-
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log("Server running on port " + PORT);
 });
