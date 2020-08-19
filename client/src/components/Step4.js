@@ -34,30 +34,76 @@ class Step4 extends Component{
                         </div>
 
                         <div className="d-block w-100 mb-3">
-                            <div className="row">
-                                <div className="col-3">
+                            <Row>
+                                <Col xs={3}>
                                     <span className="h5">Deducible anual</span>
                                     <h3 className="font-weight-bold mb-0">UF 10</h3>
                                     <h4>$287.000 <small>(individual)</small></h4>
-                                </div>
-                                <div className="col-9">
+                                </Col>
+                                <Col xs={9}>
                                     <span className="h5 text-muted">Monto de copago acumulado que tienes que pagar por persona antes de que se activen las coberturas.</span>
-                                </div>
-                            </div>
+                                </Col>
+                            </Row>
                         </div>
 
                         <div className="d-block w-100 mb-3">
-                            <div className="row">
-                                <div className="col-3">
+                            <Row>
+                                <Col xs={3}>
                                     <span className="h5">Tope anual</span>
                                     <h3 className="font-weight-bold mb-0">UF 200</h3>
                                     <h4>$5.740.000 <small>(individual)</small></h4>
-                                </div>
-                                <div className="col-9">
+                                </Col>
+                                <Col xs={9}>
                                     <span className="h5 text-muted">Monto máximo de copago anual por persona. Una vez alcanzado el tope, la cobertura será del 100%, solo en Red.</span>
-                                </div>
-                            </div>
+                                </Col>
+                            </Row>
                         </div>
+
+                        <div className="d-block w-100 mb-3">
+                            <Row>
+                                <Col xs={3}><h3 className="font-weight-bold mb-0">100%</h3></Col>
+                                <Col xs={9}>
+                                    Médico de cabecera
+                                    Atención personalizada y sin costo de un médico de familia (antes y después del
+                                    deducible)
+                                </Col>
+                            </Row>
+                        </div>
+
+                        <div className="d-block w-100 mb-3">
+                            <Row>
+                                <Col xs={3}><h3 className="font-weight-bold mb-0">70%</h3></Col>
+                                <Col xs={9}>
+                                    Consultas, exámenes y procedimientos ambulatorios
+                                    Después deducible y en Red
+                                </Col>
+                            </Row>
+                        </div>
+
+
+                        <div className="d-block w-100 mb-3">
+                            <Row>
+                                <Col xs={3}><h3 className="font-weight-bold mb-0">80%</h3></Col>
+                                <Col xs={9}>
+                                    Hospitalizaciones
+                                    Después deducible y en Red
+                                </Col>
+                            </Row>
+                        </div>
+
+                        <div className="d-block w-100 mb-3">
+                            <Row>
+                                <Col xs={3}><h3 className="font-weight-bold mb-0">20%</h3></Col>
+                                <Col xs={9}>
+                                    Derivaciones médico de cabecera
+                                    Cobertura adicional después deducible
+                                </Col>
+                            </Row>
+                        </div>
+
+                        <Form.Group className="mt-5">
+                            {this.props.nextButton}
+                        </Form.Group>
 
                     </Col>
                 </Row>
@@ -65,3 +111,5 @@ class Step4 extends Component{
         )
     }
 }
+
+export default Step4;

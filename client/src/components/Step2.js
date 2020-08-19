@@ -33,7 +33,7 @@ class Step2 extends Component {
                                 <a className="h5 float-right btn text-col5 text-hv-col pr-0" data-toggle="collapse"
                                    href="#collapsesumarcargas" role="button" aria-expanded="false"
                                    aria-controls="collapseExample">
-                                    Si, Tiengo cargas
+                                    Si, Tengo cargas
                                 </a>
                             </Form.Group>
 
@@ -53,4 +53,5 @@ class Step2 extends Component {
         )
     }
 }
+
 export default Step2;

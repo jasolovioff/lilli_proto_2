@@ -2,14 +2,14 @@ import React, {Component} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Welcome from "./Welcome";
-import LiliRequest from "./LiliRequest";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import NavbarBrand from "react-bootstrap/NavbarBrand";
 import logoLili from "../static/images/lilichile.png";
+import Welcome from "./Welcome";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
+import Step4 from "./Step4";
 
 class MasterForm extends Component {
     constructor(props) {
@@ -121,9 +121,10 @@ class MasterForm extends Component {
                             handleChange={this.handleChange}
                             nextButton={this.nextButton}
                         />
-                        <LiliRequest
+                        <Step4
                             currentStep={this.state.currentStep}
                             handleChange={this.handleChange}
+                            nextButton={this.nextButton}
                         />
                     </Form>
                 </Container>
