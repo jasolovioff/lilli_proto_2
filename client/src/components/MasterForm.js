@@ -59,7 +59,6 @@ class MasterForm extends Component {
                 buttonClass = "btn btn-primary float-right"
                 break;
             case 3:
-                buttonLabel = "¡Quiero inscribirme!";
                 break;
             case 4:
                 buttonLabel = "Enviar mis datos";
