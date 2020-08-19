@@ -1,0 +1,70 @@
+/*++++++++++++++++++++++++++++++++++++*/
+/*Colores del sistema (Cursos)*/
+.bg-col1 { background-color: #05787e; } /*Azul oscuro*/
+.bg-col2 { background-color: #; }
+.bg-col3 { background-color: #; }
+.bg-col4 { background-color: #; }
+.bg-col5 { background-color: #ff6002; } /*Naranjo*/
+
+.text-col1 { color: #05787e; }
+.text-col2 { color: #; }
+.text-col3 { color: #; }
+.text-col4 { color: #; }
+.text-col5 { color: #ff6002; }
+
+
+.text-hv-col1:hover { color: #05787e; }
+.text-hv-col2:hover { color: #; }
+.text-hv-col3:hover { color: #; }
+.text-hv-col4:hover { color: #; }
+.text-hv-col5:hover { color: #ff6002; }
+
+
+.border-col1 { border-color:#05787e; }
+.border-col2 { border-color:#; }
+.border-col3 { border-color:#; }
+.border-col4 { border-color:#; }
+.border-col5 { border-color:#ff6002; }
+
+
+
+
+
+
+
+/*****************************/
+/*Radio button - Sistema de desempeño */
+/*****************************/
+.sd-option .ado-a { 
+     min-height: 40px; 
+}
+
+@media ( min-width: 576px ) {
+    .sd-option .ado-a {  width: 19%; min-height: 80px;  }
+}       
+
+.sd-option .btn-secondary {
+    background-color: #cdd3d8!important;
+    border: solid 8px #FFF!important;
+}
+
+.sd-option-list .custom-control-label, 
+.sd-option-list  .custom-control-label {
+    padding-left: 1.5em;
+ }
+
+.sd-option-list .custom-control-label::before, 
+.sd-option-list  .custom-control-label::after {
+    width: 1.8rem;
+    height: 1.8rem;
+ }
+
+
+ .control-animate { position: relative; }
+ .control-animate::after { position: absolute; content: ''; bottom: 0px; left: 0px; height:3px; width: 100%; background-color: red;  }
+
+
+/*****************************/
+/*Radio button - Sistema de desempeño */
+/*****************************/
+.list-inputradio li {display: block; padding-left: 1rem; padding-bottom: .25rem; width: 100%;}
