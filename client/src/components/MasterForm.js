@@ -3,9 +3,13 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Welcome from "./Welcome";
-import ConfigureLili from "./ConfigureLili";
-import LiliProduct from "./LiliProduct";
 import LiliRequest from "./LiliRequest";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import NavbarBrand from "react-bootstrap/NavbarBrand";
+import logoLili from "../static/images/lilichile.png";
+import Step2 from "./Step2";
+import Step3 from "./Step3";
 
 class MasterForm extends Component {
     constructor(props) {
@@ -48,7 +52,12 @@ class MasterForm extends Component {
     get nextButton() {
         let currentStep = this.state.currentStep;
         let buttonLabel = "Siguiente";
+        let buttonClass = "btn btn-primary btn-lg btn-block";
         switch (currentStep){
+            case 1:
+                buttonLabel = "Comienza a configurar";
+                buttonClass = "btn btn-primary float-right"
+                break;
             case 3:
                 buttonLabel = "¡Quiero inscribirme!";
                 break;
@@ -60,7 +69,7 @@ class MasterForm extends Component {
         }
         if (currentStep <= 4) {
             return (
-                <Button className="btn btn-primary float-right" type="button" onClick={this._next}>
+                <Button className={buttonClass} type="button" onClick={this._next}>
                     {buttonLabel}
                 </Button>
             )
@@ -83,21 +92,35 @@ class MasterForm extends Component {
 
     render() {
         return(
-            <Container>
-                <React.Fragment>
-                    <h1>Lili</h1>
+            <React.Fragment>
+                <header className="container-fluid bg-white fixed-top pt-3">
+                    <Container>
+                        <Row>
+                            <Col xs={6}>
+                                <NavbarBrand href="/">
+                                    <img src={logoLili} alt="Logo Lili"/>
+                                </NavbarBrand>
+                            </Col>
+                        </Row>
+                    </Container>
+                </header>
+
+                <Container fluid as="section" style={{paddingTop: "100px", height: "100vh"}}>
                     <Form onSubmit={this.handleSubmit}>
                         <Welcome
                             currentStep={this.state.currentStep}
                             handleChange={this.handleChange}
+                            nextButton={this.nextButton}
                         />
-                        <ConfigureLili
+                        <Step2
                             currentStep={this.state.currentStep}
                             handleChange={this.handleChange}
+                            nextButton={this.nextButton}
                         />
-                        <LiliProduct
+                        <Step3
                             currentStep={this.state.currentStep}
                             handleChange={this.handleChange}
+                            nextButton={this.nextButton}
                         />
                         <LiliRequest
                             currentStep={this.state.currentStep}
@@ -106,8 +129,8 @@ class MasterForm extends Component {
                         {this.previousButton}
                         {this.nextButton}
                     </Form>
-                </React.Fragment>
-            </Container>
+                </Container>
+            </React.Fragment>
         )
     }
 }
