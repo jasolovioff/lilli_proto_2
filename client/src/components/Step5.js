@@ -33,7 +33,6 @@ class Step5 extends Component{
                         <Form.Group className="mt-5">
                             <a href="index.html" className="btn btn-primary btn-lg btn-block">Gracias por
                                 contactarse</a>
-                            <!-- <button type="button" class="btn btn-secondary btn-lg btn-block">Siguente</button> -->
                         </Form.Group>
 
                     </Col>

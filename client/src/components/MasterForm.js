@@ -10,6 +10,7 @@ import Welcome from "./Welcome";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
+import Step5 from "./Step5";
 
 class MasterForm extends Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class MasterForm extends Component {
 
     _next() {
         let currentStep = this.state.currentStep
-        currentStep = currentStep >= 3 ? 4 : currentStep + 1;
+        currentStep = currentStep >= 4 ? 5 : currentStep + 1;
         this.setState({
             currentStep
         });
@@ -122,6 +123,11 @@ class MasterForm extends Component {
                             nextButton={this.nextButton}
                         />
                         <Step4
+                            currentStep={this.state.currentStep}
+                            handleChange={this.handleChange}
+                            nextButton={this.nextButton}
+                        />
+                        <Step5
                             currentStep={this.state.currentStep}
                             handleChange={this.handleChange}
                             nextButton={this.nextButton}
