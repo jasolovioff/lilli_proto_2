@@ -125,8 +125,6 @@ class MasterForm extends Component {
                             currentStep={this.state.currentStep}
                             handleChange={this.handleChange}
                         />
-                        {this.previousButton}
-                        {this.nextButton}
                     </Form>
                 </Container>
             </React.Fragment>
