@@ -1,0 +1,355 @@
+/*https://onlinefontconverter.com*/
+/*http://www.umsiko.co.za/links/specchar.html*/
+
+@font-face {
+    font-family: 'ico';
+    src: url('../ico/icon.eot');
+    src: url('../ico/icon.eot?#ico') format('embedded-opentype'), 
+         url('../ico/icon.woff2') format('woff2'), 
+         url('../ico/icon.woff') format('woff'), 
+         url('../ico/icon.ttf') format('truetype'), 
+         url('../ico/icon.svg#icon') format('svg');
+}
+
+.ic {
+    content: '';
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'ico';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*!*/
+.ic-clock-bold:before {content: "\0021";}
+
+/*"*/
+.ic-user-bold:before {content: "\0022";}
+
+/*#*/
+.ic-statistics-bold:before {content: "\0023";}
+
+/*$*/
+.ic-medal-bold:before {content: "\0024";}
+
+/*%*/
+.ic-trash-bold:before {content: "\0025";}
+
+/*&*/
+.ic-padlock-bold:before {content: "\0026";}
+
+/*'*/
+.ic-optionnav-bold:before {content: "\0027";}
+
+
+
+
+/*A*/
+.ic-bell:before {content: "\0041";}
+
+/*B*/
+.ic-book:before {content: "\0042";}
+
+/*C*/
+.ic-clock:before {content: "\0043";}
+
+/*D*/
+.ic-curse:before {content: "\0044";}
+
+/*E*/
+.ic-dashboard:before {content: "\0045";}
+
+/*F*/
+.ic-message:before {content: "\0046";}
+
+/*G*/
+.ic-eye:before {content: "\0047";}
+
+/*H*/
+.ic-hiddeneye:before {content: "\0048";}
+
+/*I*/
+.ic-gridblock:before {content: "\0049";}
+
+/*J*/
+.ic-gridlist:before {content: "\004A";}
+
+/*K*/
+.ic-link:before {content: "\004B";}
+
+/*L*/
+.ic-padlock:before {content: "\004C";}
+
+/*M*/
+.ic-photo:before {content: "\004D";}
+
+/*N*/
+.ic-fullscreen:before {content: "\004E";}
+
+/*O*/
+.ic-minimizescreen:before {content: "\004F";}
+
+/*P*/
+.ic-slider:before {content: "\0050";}
+
+/*Q*/
+.ic-data:before {content: "\0051";}
+
+/*R*/
+.ic-dowloaddocument:before {content: "\0052";}
+
+/*S*/
+.ic-updocument:before {content: "\0053";}
+
+/*T*/
+.ic-updocumentfull:before {content: "\0054";}
+
+/*U*/
+.ic-user:before {content: "\0055";}
+
+/*V*/
+.ic-word:before {content: "\0056";}
+
+/*W*/
+.ic-close:before {content: "\0057";}
+
+/*X*/
+.ic-statistics:before {content: "\0058";}
+
+/*Y*/
+.ic-play:before {content: "\0059";}
+
+/*Z*/
+.ic-audio:before {content: "\005A";}
+
+/*[*/
+.ic-check:before {content: "\005B";}
+
+/*]*/
+.ic-medal:before {content: "\005C";}
+
+/*]*/
+.ic-dowloadbox:before {content: "\005D";}
+
+/*^*/
+.ic-arrowright:before {content: "\005E";}
+
+/*_*/
+.ic-arrowleft:before {content: "\005F";}
+
+
+
+
+
+/*a*/
+.ic-rewind:before {content: "\0061";}
+
+/*b*/
+.ic-nule:before {content: "\0062";}
+
+/*c*/
+.ic-star:before {content: "\0063";}
+
+/*d*/
+.ic-home:before {content: "\0064";}
+
+/*e*/
+.ic-search:before {content: "\0065";}
+
+/*f*/
+.ic-heart:before {content: "\0066";}
+
+/*g*/
+.ic-dowload:before {content: "\0067";}
+
+/*h*/
+.ic-rewindlight:before {content: "\0068";}
+
+/*i*/
+.ic-like:before {content: "\0069";}
+
+/*j*/
+.ic-print:before {content: "\006A";}
+
+/*k*/
+.ic-email:before {content: "\006B";}
+
+/*l*/
+.ic-engine:before {content: "\006C";}
+
+/*m*/
+.ic-trash:before {content: "\006D";}
+
+/*n*/
+.ic-bubbleinfo:before {content: "\006E";}
+
+/*o*/
+.ic-clockbold:before {content: "\006F";}
+
+/*p*/
+/*.ic-epigrafe:before {content: "\0070";}*/
+
+/*q*/
+.ic-control:before {content: "\0071";}
+
+/*r*/
+.ic-grillablocklight:before {content: "\0072";}
+
+/*s*/
+.ic-listalight:before {content: "\0073";}
+
+/*t*/
+.ic-location:before {content: "\0074";}
+
+/*u*/
+.ic-bubbleuparrow:before {content: "\0075";}
+
+/*v*/
+.ic-bubbledownarrow:before {content: "\0076";}
+
+/*w*/
+.ic-bubbleleftarrow:before {content: "\0077";}
+
+/*x*/
+.ic-bubblerightarrow:before{content: "\0078";}
+
+/*y*/
+.ic-folder:before {content: "\0079";}
+
+/*z*/
+.ic-notebook:before {content: "\007A";}
+
+
+
+
+/*{*/
+.ic-pen:before {content: "\007B";}
+
+/*|*/
+.ic-thickpen:before {content: "\007C";}
+
+/*}*/
+.ic-calculator:before {content: "\007D";}
+
+/*~*/
+.ic-mobile:before {content: "\007E";}
+
+
+
+
+/*¢*/
+.ic-clouddownload:before {content: "\00A2";}
+
+/*£*/
+.ic-searchdocument:before {content: "\00A3";}
+
+/*¤*/
+.ic-searchcloud:before {content: "\00A4";}
+
+/*¥*/
+.ic-filter:before {content: "\00A5";}
+
+/*¦*/
+.ic-minilink:before {content: "\00A6";}
+
+/*§*/
+.ic-oldpen:before {content: "\00A7";}
+
+/*¨*/
+.ic-pcdata:before {content: "\00A8";}
+
+/*©*/
+.ic-photo:before {content: "\00A9";}
+
+/*ª*/
+.ic-joystick:before {content: "\00AA";}
+
+/*«*/
+.ic-openbook:before {content: "\00AB";}
+
+/*¬*/
+.ic-closebook:before {content: "\00AC";}
+
+
+
+/*®*/
+.ic-map:before {content: "\00AE";}
+
+/*¯*/
+.ic-highlighter:before {content: "\00AF";}
+
+/*°*/
+.ic-starmedal:before {content: "\00B0";}
+
+/*±*/
+.ic-ribbonmedal:before {content: "\00B1";}
+
+/*²*/
+.ic-bubblemessage:before {content: "\00B2";}
+
+/*³*/
+.ic-bubblemessagehappy:before {content: "\00B3";}
+
+/*´*/
+.ic-textbubblemessage:before {content: "\00B4";}
+
+/*µ*/
+.ic-microphonecable:before {content: "\00B5";}
+
+/*¶*/
+.ic-microphone:before {content: "\00B6";}
+
+/*·*/
+.ic-mouse:before {content: "\00B7";}
+
+/*¸*/
+.ic-fulladdress:before {content: "\00B8";}
+
+/*¹*/
+.ic-mogicmouse:before {content: "\00B9";}
+
+/*º*/
+.ic-musicnote:before {content: "\00BA";}
+
+/*»*/
+.ic-uploadcloud:before {content: "\00BB";}
+
+/*¼*/
+.ic-securescreen:before {content: "\00BC";}
+
+/*½*/
+.ic-papyrus:before {content: "\00BD";}
+
+/*¾*/
+.ic-pc:before {content: "\00BE";}
+
+/*¿*/
+.ic-responsive:before {content: "\00BF";}
+
+/*À*/
+.ic-evaluation:before {content: "\00C0";}
+
+/*Á*/
+.ic-speaker:before {content: "\00C1";}
+
+/*Â*/
+.ic-musicscreen:before {content: "\00C2";}
+
+/*Ã*/
+.ic-focus:before {content: "\00C3";}
+
+/*Ä*/
+.ic-filmpalette:before {content: "\00C4";}
+
+/*Å*/
+.ic-userscreen:before {content: "\00C5";}
+
+/*Æ*/
+.ic-vr:before {content: "\00C6";}
+
+/*-*/
+.ic-appliedbook:before {content: "\00C7";}
