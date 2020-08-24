@@ -39,7 +39,15 @@ class MasterForm extends Component {
         currentStep = currentStep <= 0 ? 0 : currentStep - 1;
         this.setState({
             currentStep
-        })
+        });
+    }
+
+    goToStep(step) {
+        step = step < 0 ? 0 : step;
+        step = step >= 4 ? 4 : step;
+        this.setState({
+            currentStep: step
+        });
     }
 
     get previousButton() {
@@ -165,6 +173,7 @@ class MasterForm extends Component {
                         nextButton={this.nextButton}
                         handleSubmit={this.handleSubmit}
                         previousButton={this.previousButton}
+                        goToStep={this.goToStep}
                     />
                 </Form>
             </React.Fragment>

@@ -12,19 +12,30 @@ class Step4 extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            showModalSiLoQuiero : false,
+            showModalLoQuiero : false,
             showModalNoLoQuiero : false
         }
     }
 
-    handleShow() {
+    handleShowLoQuiero() {
         this.setState({
-            showModalSiLoQuiero : true
+            showModalLoQuiero : true
         });
     }
-    handleHide() {
+    handleHideLoQuiero() {
         this.setState({
-            showModalSiLoQuiero : false
+            showModalLoQuiero : false
+        });
+    }
+
+    handleShowNoLoQuiero() {
+        this.setState({
+            showModalNoLoQuiero : true
+        });
+    }
+    handleHideNoLoQuiero() {
+        this.setState({
+            showModalNoLoQuiero : false
         });
     }
 
@@ -210,10 +221,10 @@ class Step4 extends Component{
 
                                 <div className="form-group mt-5">
                                     <a className="btn bg-col5 text-white d-block mx-auto float-md-right my-2 mr-1 py-3 px-4 shadow-lg btn-bubble"
-                                       data-toggle="modal" data-target="#siLoQuieroModal" onClick={() => this.handleShow()}>Sí, lo quiero</a>
+                                       data-toggle="modal" data-target="#siLoQuieroModal" onClick={() => this.handleShowLoQuiero()}>Sí, lo quiero</a>
                                     <a className="btn border-col5 float-md-right text-col5 text-hv-col5 d-block mx-auto my-2 mr-lg-3 py-3 px-4 btn-bubble"
-                                       data-toggle="modal" data-target="#nointeresa">No me interesa</a>
-                                    <a className="btn float-md-right text-col5 text-hv-col5 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble">Volver</a>
+                                       data-toggle="modal" data-target="#noLoQuieroModal" onClick={() => this.handleShowNoLoQuiero()}>No me interesa</a>
+                                    <a className="btn float-md-right text-col5 text-hv-col5 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</a>
                                 </div>
 
 
@@ -221,12 +232,12 @@ class Step4 extends Component{
                                 Modal - Lo quiero
                                     ************************************************************** --*/}
                                    
-                                <Modal className="fade" id="siLoQuieroModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" show={this.state.showModalSiLoQuiero} >
+                                <Modal className="fade" id="siLoQuieroModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" show={this.state.showModalLoQuiero} onHide={() => this.handleHideLoQuiero()}>
                                     <Modal.Dialog className="modal-dialog">
                                         <div className="modal-content">
 
                                             <Modal.Header className="modal-header border-0">
-                                                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => this.handleHide()}>
+                                                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => this.handleHideLoQuiero()}>
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </Modal.Header>
@@ -254,7 +265,7 @@ class Step4 extends Component{
                                             <Modal.Footer className="modal-footer border-0">
                                                 <a href="#"
                                                    className="btn bg-col5 text-white d-block mx-auto my-2 py-2 px-4 btn-bubble"
-                                                   data-dismiss="modal" onClick={() => this.handleHide()}>Enviar</a>
+                                                   data-dismiss="modal" onClick={() => this.handleHideLoQuiero()}>Enviar</a>
                                             </Modal.Footer>
                                         </div>
                                     </Modal.Dialog>
@@ -264,13 +275,13 @@ class Step4 extends Component{
                                 {/*!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
                                 Modal - No me interesa
                                     ************************************************************** --*/}
-                                <Modal className="fade" id="nointeresa" tabIndex="-1" aria-hidden="true">
+                                <Modal className="fade" id="noLoQuieroModal" tabIndex="-1" aria-hidden="true" show={this.state.showModalNoLoQuiero}  onHide={() => this.handleHideNoLoQuiero()}>
                                     <Modal.Dialog>
                                         <div className="modal-content">
 
                                             <Modal.Header className="border-0">
                                                 <button type="button" className="close" data-dismiss="modal"
-                                                        aria-label="Close">
+                                                        aria-label="Close" onClick={() => this.handleHideNoLoQuiero()}>
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </Modal.Header>
@@ -299,7 +310,7 @@ class Step4 extends Component{
                                                                        className="custom-control-input"/>
                                                                     <Form.Label
                                                                         className="custom-control-label text-secondary h5 pt-2"
-                                                                        htmlFor="nomeinteresa2">
+                                                                        htmlFor="nomeinteresa2" onClick={() => this.handleHideNoLoQuiero()}>
                                                                         Lorem ipsum in dore ement
                                                                     </Form.Label>
                                                             </div>
