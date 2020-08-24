@@ -68,8 +68,10 @@ class Step1 extends Component {
                                     </Form.Group>
 
                                     <Form.Group className="mt-5">
-                                        <Button as="a" href="#" className="bg-col5 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</Button>
-                                        <Button as="a" href="#" className="float-md-right text-col5 text-hv-col5 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</Button>
+                                        {/*<Button as="a" href="#" className="bg-col5 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</Button>*/}
+                                        <a href="#" className="btn bg-col5 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</a>
+                                        {/*<Button as="a" href="#" className="float-md-right text-col5 text-hv-col5 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</Button>*/}
+                                        <a href="#" className="btn float-md-right text-col5 text-hv-col5 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</a>
                                     </Form.Group>
 
                                 </Form.Group>

@@ -101,12 +101,11 @@ class MasterForm extends Component {
     get renderStartButton(){
         if (this.state.currentStep === 0){
             return (
-                <Button
-                    as="a"
-                   className="float-right border-col5 bg-white text-col5 text-hv-col5 px-4"
+                <a
+                   className="btn float-right border-col5 bg-white text-col5 text-hv-col5 px-4"
                    onClick={this._next}>
                     Comienza ahora
-                </Button>
+                </a>
             )
         }
         return null;

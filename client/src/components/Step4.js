@@ -209,14 +209,11 @@ class Step4 extends Component{
                                 </div>
 
                                 <div className="form-group mt-5">
-                                    <Button as="a"
-                                       className="bg-col5 text-white d-block mx-auto float-md-right my-2 mr-1 py-3 px-4 shadow-lg btn-bubble"
-                                       data-toggle="modal" data-target="#siLoQuieroModal" onClick={() => this.handleShow()}>Sí, lo quiero</Button>
-                                    <a href="#"
-                                       className="btn border-col5 float-md-right text-col5 text-hv-col5 d-block mx-auto my-2 mr-lg-3 py-3 px-4 btn-bubble"
+                                    <a className="btn bg-col5 text-white d-block mx-auto float-md-right my-2 mr-1 py-3 px-4 shadow-lg btn-bubble"
+                                       data-toggle="modal" data-target="#siLoQuieroModal" onClick={() => this.handleShow()}>Sí, lo quiero</a>
+                                    <a className="btn border-col5 float-md-right text-col5 text-hv-col5 d-block mx-auto my-2 mr-lg-3 py-3 px-4 btn-bubble"
                                        data-toggle="modal" data-target="#nointeresa">No me interesa</a>
-                                    <a href="configura-2.html"
-                                       className="btn float-md-right text-col5 text-hv-col5 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble">Volver</a>
+                                    <a className="btn float-md-right text-col5 text-hv-col5 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble">Volver</a>
                                 </div>
 
 
