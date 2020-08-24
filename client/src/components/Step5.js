@@ -3,6 +3,9 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+//import * as actions from "../actions";
+//import {submitSimulation} from "../actions";
 
 class Step5 extends Component{
     render() {
@@ -31,8 +34,7 @@ class Step5 extends Component{
 
 
                         <Form.Group className="mt-5">
-                            <a href="index.html" className="btn btn-primary btn-lg btn-block">Gracias por
-                                contactarse</a>
+                            <Button className="btn btn-primary btn-lg btn-block" type="submit">Enviar</Button>
                         </Form.Group>
 
                     </Col>

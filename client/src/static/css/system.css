@@ -1,39 +1,69 @@
 /*++++++++++++++++++++++++++++++++++++*/
 /*Colores del sistema (Cursos)*/
-.bg-col1 { background-color: #05787e; } /*Azul oscuro*/
-.bg-col2 { background-color: #; }
-.bg-col3 { background-color: #; }
-.bg-col4 { background-color: #; }
-.bg-col5 { background-color: #ff6002; } /*Naranjo*/
+.bg-col1 { background-color: #80aede; } /*Azul oscuro*/
+.bg-col2 { background-color: #ffc107cc } /*Celeste claro*/
+.bg-col3 { background-color: #79cbde; }   /*Celeste oscuro*/
+/*.bg-col4 { background-color: #; }*/
+.bg-col5 { background-color: #ff8700; } /*Naranjo*/
+.bg-col6 { background-color: #ff394e; } /*Rojo*/
 
-.text-col1 { color: #05787e; }
-.text-col2 { color: #; }
-.text-col3 { color: #; }
-.text-col4 { color: #; }
-.text-col5 { color: #ff6002; }
+.text-col1 { color: #006aff; } /*Naranjo---*/
+.text-col2 { color: #eaf2f7 }
+.text-col3 { color: #79cbde; }
+/*.text-col4 { color: #; }*/
+.text-col5 { color: #ff8700; }
+.text-col6 { color: #ff394e; }
+
+.text-hv-col1:hover { color: #80aede; }
+.text-hv-col2:hover { color: #ffc107cc}
+.text-hv-col3:hover { color: #79cbde;}
+/*.text-hv-col4:hover { color: #; }*/
+.text-hv-col5:hover { color: #ff8700; }
+.text-hv-col6:hover { color: #ff394e; }
+
+.border-col1 { border-color:#80aede; }
+.border-col2 { border-color:#ffc107cc; }
+.border-col3 { border-color:#79cbde; }
+/*.border-col4 { border-color:#; }*/
+.border-col5 { border-color:#ff8700; }
+.border-col6 { border-color:#ff394e; }
 
 
-.text-hv-col1:hover { color: #05787e; }
-.text-hv-col2:hover { color: #; }
-.text-hv-col3:hover { color: #; }
-.text-hv-col4:hover { color: #; }
-.text-hv-col5:hover { color: #ff6002; }
+input { height: 55px!important; }
 
+/*****************************/
+/*Row - margin negativo doble*/
+/*****************************/
+.row-fluid {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -24px;
+    margin-left: -24px;
+}
 
-.border-col1 { border-color:#05787e; }
-.border-col2 { border-color:#; }
-.border-col3 { border-color:#; }
-.border-col4 { border-color:#; }
-.border-col5 { border-color:#ff6002; }
-
-
-
-
-
+/*****************************/
+/*Rotacion */
+/*****************************/
+/*
+.arrow:after { content: '';
+        posi
+       }
+*/
 
 
 /*****************************/
-/*Radio button - Sistema de desempeño */
+/*Rotacion */
+/*****************************/
+.rotate-m90 {
+	-ms-transform: rotate(-90deg); /* IE 9 */
+     transform: rotate(-90deg);
+}
+
+
+/*****************************/
+/*Radio button Boostrap */
 /*****************************/
 .sd-option .ado-a { 
      min-height: 40px; 
@@ -59,12 +89,183 @@
     height: 1.8rem;
  }
 
+.custom-control-input:checked~.custom-control-label::before {
+    border-color: #ff8700!important;
+    background-color: #ff8700!important;
+}
+
+
 
  .control-animate { position: relative; }
  .control-animate::after { position: absolute; content: ''; bottom: 0px; left: 0px; height:3px; width: 100%; background-color: red;  }
 
 
 /*****************************/
-/*Radio button - Sistema de desempeño */
+/*Radio button Boostrap  */
 /*****************************/
 .list-inputradio li {display: block; padding-left: 1rem; padding-bottom: .25rem; width: 100%;}
+
+
+/*****************************/
+/* Boton acua */
+/*****************************/
+.btn-bubble { position: relative; overflow: hidden;  }
+.btn-bubble::before {   content: ''; 
+						position: absolute; 
+						display: block; 
+						height: 5px; 
+						width: 5px; 
+						z-index: 1; 
+						background-color: rgba(0,0,0,0.0);
+						left: 50%;
+						bottom: 0%;
+						transform: translate(-50%, -0%);
+						-webkit-transform: translate(-50%, -0%); 
+                        -webkit-border-radius:  50%;
+                        -moz-border-radius:    50%;
+                        border-radius:         50%;
+                        transition-duration: 0.20s, 0.20s, 0.20s;
+                        transition-timing-function: linear, linear;
+                        transition-delay: 0.20s, 0.20s, 0.20s;
+
+                        
+                    }
+.btn-bubble:hover::before { 
+						background-color: rgba(0,0,0,0.25);
+                        height: 100%; 
+                        width: 100%; 
+                        -webkit-border-radius: 0%;
+                        -moz-border-radius:    0%;
+                        border-radius:         0%;	
+                        animation: bubble-animate;
+                    }
+
+
+/*.btn-bubble         {
+						position: absolute; 
+						display: block; 
+						height: 5px; 
+						width: 5px; 
+						z-index: 1; 
+						background-color: rgba(0,0,0,0.30);
+						left: 50%;
+						bottom: 0%;
+						transform: translate(-50%, -0%);
+						-webkit-transform: translate(-50%, -0%); 
+                        -webkit-border-radius:  50%;
+                        -moz-border-radius:    50%;
+                        border-radius:         50%;
+						animation-duration: 0.20s;
+						animation: bubble-animate;
+                    }*/
+
+
+/*.btn-bubble { position: relative; overflow: hidden; animation: bubble-animate; }*/
+
+
+@-webkit-keyframes bubble-animate {
+  0%    { background-color: rgba(0,0,0,0.0); }
+  75%   { background-color: rgba(0,0,0,0.35); }
+  100%  { background-color: rgba(0,0,0,0.0); }
+}
+@-moz-keyframes bubble-animate {
+  0%    { background-color: rgba(0,0,0,0.0); }
+  75%   { background-color: rgba(0,0,0,0.35); }
+  100%  { background-color: rgba(0,0,0,0.0); }
+}
+@-o-keyframes bubble-animate {
+  0%    { background-color: rgba(0,0,0,0.0); }
+  75%   { background-color: rgba(0,0,0,0.35); }
+  100%  { background-color: rgba(0,0,0,0.0); }
+}
+@keyframes bubble-animate {
+  0%    { background-color: rgba(0,0,0,0.0); }
+  75%   { background-color: rgba(0,0,0,0.35); }
+  100%  { background-color: rgba(0,0,0,0.0); }
+}
+
+
+
+
+/*****************************/
+/* Forma SVG */
+/*****************************/
+.label-hv-animate { position: relative; display: block; height: auto; min-height: 55px; width: auto;  }
+.label-hv-animate::before  {  content: ''; 
+							  position: absolute; 
+							  bottom: 0px;  
+							  display: block; 
+							  height: 3px; 
+							  width: 100%; 
+							  transition-duration: 0.20s, 0.20s, 0.20s;
+							  transition-timing-function: linear, linear;
+							  transition-delay: 0.20s, 0.20s, 0.20s;
+							  background-color: rgba(0,0,0,0.15);   
+						    }
+.label-hv-animate:hover::before { background-color: #ff8700; /*rgba(0,123,255,1);*/  }
+
+
+/*
+.label-hv-animate { position: relative; display: block; height: 41px; width: 100%;  }
+.label-hv-animate::before  { content: ''; position: absolute; bottom: 0px;  display: block; height: 3px; width: 100%; background-color: rgba(0,0,0,0.15);   }
+.label-hv-animate:hover::before { background-color: rgba(255,153,56,1); animation-duration: 4s; animation: label-animate; }
+
+@-webkit-keyframes label-animate {
+  0%    { background-color: rgba(0,0,0,0.15); }
+  100%  { background-color: rgba(255,153,56,1); }
+}
+@-moz-keyframes label-animate {
+  0%    { background-color: rgba(0,0,0,0.15); }
+  100%  { background-color: rgba(255,153,56,1); }
+}
+@-o-keyframes label-animate {
+  0%    { background-color: rgba(0,0,0,0.15); }
+  100%  { background-color: rgba(255,153,56,1); }
+}
+@keyframes label-animate {
+  0%    { background-color: rgba(0,0,0,0.15); }
+  100%  { background-color: rgba(255,153,56,1); }
+}
+*/
+
+/*****************************/
+/* Forma SVG */
+/*****************************/
+.shape-before {
+    position: relative;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    margin: 0 -15px;
+}
+
+.shape-after {
+	position: relative;
+    top: -50px;
+    left: 0;
+    right: 0;
+    margin: 0 -15px;
+}
+
+/*****************************/
+/* Ancla dinamica */
+/*****************************/
+.dynamicanchor-header  {
+	bottom: 20px; right: 20px;
+}
+.dynamicanchor-footer  {
+	bottom: 40px; right: 0px; height: 40px; width: 40px; line-height: 35px;
+}
+
+
+.divisor-right:before { 
+	             content: "\0077";
+	             position: absolute;
+	             top: 5px;
+	             left:-25px;
+	             font-family: 'ico';
+	             color: #80aede;
+	             font-size:1.25em;
+
+               }

@@ -1,14 +1,14 @@
 /*Font family*/
 
-/*@font-face {
-    font-family: 'OpenSans';
-        src: url('../fonts/HelveticaNeue.eot');
-        src: url('../fonts/HelveticaNeue.eot?#HelveticaNeue') format('embedded-opentype'), 
-        url('../fonts/HelveticaNeue.woff2') format('woff2'), 
-        url('../fonts/HelveticaNeue.woff') format('woff'), 
-        url('../fonts/HelveticaNeue.ttf') format('truetype'), 
-        url('../fonts/HelveticaNeue.svg#HelveticaNeue') format('svg');
-}*/
+@font-face {
+    font-family: 'Baloo';
+        src: url('../fonts/BalooTamma2-Regular.eot');
+        src: url('../fonts/BalooTamma2-Regular.eot?#BalooTamma2-Regular') format('embedded-opentype'), 
+        url('../fonts/BalooTamma2-Regular.woff2') format('woff2'), 
+        url('../fonts/BalooTamma2-Regular.woff') format('woff'), 
+        url('../fonts/BalooTamma2-Regular.ttf') format('truetype'), 
+        url('../fonts/BalooTamma2-Regular.svg#BalooTamma2-Regular') format('svg');
+}
 
 @font-face {
     font-family: 'Mirage';
@@ -64,15 +64,15 @@ html {
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: rgba(0,46,109,1.0);
 }
-
+/*
 @-ms-viewport {
   width: device-width;
 }
-
+*/
 
 
 body {
-  font-family: 'OpenSans', sans-serif;
+  font-family: 'Baloo', 'OpenSans', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
@@ -139,7 +139,7 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: 1.50em;
+  font-size: 1.75em;
 }
 
 h3, .h3 {
@@ -168,11 +168,11 @@ p. .p {
   }
 
   h2, .h2 {
-    font-size: 1.50em;
+    font-size: 2.75em;
   }
 
   h3, .h3 {
-    font-size: 1.25em;
+    font-size: 1.55em;
   }
 
   h4, .h4 {

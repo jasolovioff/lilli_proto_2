@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const app = express();
 const keys = require('./config/keys');
 
+require('./models/Simulation');
+
 mongoose.connect(keys.mongoURI, {
     useNewUrlParser: true
 })
@@ -13,6 +15,7 @@ db.once('open', function() {
     console.log("Connected to MongoDB.");
 });
 
+require('./routes/simulationRoutes')(app);
 if (process.env.NODE_ENV == 'production'){
     //Express will serve up production assets
     app.use(express.static('client/build'));
