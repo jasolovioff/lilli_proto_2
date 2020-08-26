@@ -254,7 +254,7 @@ class Step4 extends Component{
                                             <Modal.Footer className="modal-footer border-0">
                                                 <a href="#"
                                                    className="btn bg-col1 text-white d-block mx-auto my-2 py-2 px-4 btn-bubble"
-                                                   data-dismiss="modal" onClick={() => this.props.handleSubmitSimulation()}>Enviar</a>
+                                                   data-dismiss="modal"  onClick={() => this.handleHideLoQuiero()}>Enviar</a>
                                             </Modal.Footer>
                                         </div>
                                     </Modal.Dialog>
