@@ -98,9 +98,6 @@ class MasterForm extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        //const state = this.state;
-        //console.log(state.toString());
-        console.log(this.state);
     }
 
     get renderStartButton(){

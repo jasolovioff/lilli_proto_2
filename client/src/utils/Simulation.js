@@ -1,7 +1,7 @@
 const planParams = require('./planParams');
 
 class Simulation {
-    GES = 0.66;
+    GES = 0.69;
 
     getAgeRange(age){
         const ranges = planParams.factors.ranges;

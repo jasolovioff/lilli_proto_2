@@ -85,7 +85,6 @@ class Step2 extends Component {
             }
             )
         );
-        console.log(this.state);
     }
     handleCargaInput(event){
         console.log(event);
