@@ -10,7 +10,7 @@ import whatif07 from "../static/images/whatif07.png";
 class LiliCarousel extends Component{
     render() {
         return(
-            <Carousel>
+            <Carousel className="h-carrusel">
                 <Carousel.Item className="px-5">
                     <Row className="px-5">
                         <Col xs={12} sm={{span: 6, order: 1}} lg={5}>
@@ -31,10 +31,10 @@ class LiliCarousel extends Component{
                 </Carousel.Item>
                 <Carousel.Item className="px-5">
                     <Row className="px-5">
-                        <Col xs={12} sm={{span:6, order:2}} lg={5}>
+                        <Col xs={12} sm={{span: 6, order: 1}} lg={5}>
                             <img src={whatif06} className="d-block w-100" alt="Tu Salud, Simple, Conmigo"/>
                         </Col>
-                        <Col xs={12} sm={{span:6, order: 1}} lg={7} className="text-center text-md-left align-self-center text-white">
+                        <Col xs={12} sm={{span: 6, order: 2}} lg={7} className="text-center text-md-left align-self-center text-white">
                             <span className="d-block pb-4 h2 title">A través de tu cuenta podrás:</span>
                             <ul className="h4">
                                 <li>Agendar las consultas con tu médico de cabecera en modo

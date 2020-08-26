@@ -13,7 +13,7 @@ import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
 //import Step5 from "./Step5";
-//import Simulation from "../utils/Simulation";
+import Simulation from "../utils/Simulation";
 
 class MasterForm extends Component {
     state = {};
@@ -36,7 +36,6 @@ class MasterForm extends Component {
         });
     }
     _prev() {
-        console.log("preving!")
         let currentStep = this.state.currentStep
         currentStep = currentStep <= 0 ? 0 : currentStep - 1;
         this.setState({
@@ -77,6 +76,15 @@ class MasterForm extends Component {
                 break;
             case 4:
                 buttonLabel = "Enviar mis datos";
+                const simulation = new Simulation();
+                const age = this.state.age;
+                const red = this.state.eligered;
+                const deductible = this.state.deducible;
+                const cargas = [];
+                const monthlyPayment = simulation.calculateTotalPrice(age,red, deductible, cargas)
+                this.setState({
+                    monthlyPayment
+                });
                 break;
             default:
                 break;
@@ -94,13 +102,9 @@ class MasterForm extends Component {
     handleChange(event) {
         const {name, value} = event.target;
         this.setState({
-            simulation :{
                 [name] : value
-            }
         });
-        //let sim = new Simulation();
     }
-
     handleSubmit(event) {
         event.preventDefault();
         //const state = this.state;
@@ -142,8 +146,7 @@ class MasterForm extends Component {
                         </Row>
                     </Container>
                 </header>
-
-                <Form onSubmit={this.handleSubmit}>
+                <Form onChange={console.log(this.state)}>
                     <Step0
                         currentStep={this.state.currentStep}
                         handleChange={this.handleChange}
@@ -182,6 +185,7 @@ class MasterForm extends Component {
                         goToStep={this.goToStep}
                         _prev={this._prev}
                         handleSubmitSimulation={this.handleSubmitSimulation}
+                        monthlyPayment={this.state.monthlyPayment}
                     />
                 </Form>
             </React.Fragment>

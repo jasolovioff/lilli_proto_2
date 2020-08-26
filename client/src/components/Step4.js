@@ -7,6 +7,7 @@ import Modal from "react-bootstrap/Modal";
 //import Simulation from "../utils/Simulation";
 import diamond from "../static/images/diamond.svg";
 import DetalleCobro from "./DetalleCobro";
+import Collapse from "react-bootstrap/cjs/Collapse";
 
 class Step4 extends Component{
     state = {}
@@ -17,6 +18,7 @@ class Step4 extends Component{
             showModalNoLoQuiero : false,
             showDetalleCobro : false
         }
+        this.toogleDetalleCobro = this.toogleDetalleCobro.bind(this);
     }
 
     handleShowLoQuiero() {
@@ -42,10 +44,9 @@ class Step4 extends Component{
     }
 
     toogleDetalleCobro = () => {
-        console.log("toolging")
-        this.setState({
-            showDetalleCobro : !this.state.showDetalleCobro
-        });
+        this.setState(prevState => ({
+            showDetalleCobro : !prevState.showDetalleCobro
+        }));
     }
 
     render() {
@@ -91,7 +92,7 @@ class Step4 extends Component{
                                     <Row>
                                         <Col xs={12} className="text-col1"><span className="h5">Prima</span></Col>
                                         <Col xs={3}>
-                                            <h3 className="font-weight-bold title text-col1 mb-0">UF 6,87</h3>
+                                            <h3 className="font-weight-bold title text-col1 mb-0">UF {this.props.monthlyPayment}</h3>
                                             <h4 className="text-black-50">$197.169</h4>
                                         </Col>
                                         <Col xs={9} className="divisor-right">
@@ -100,13 +101,16 @@ class Step4 extends Component{
                                             </p>
                                         </Col>
                                         <Col xs={12} className="text-left">
-                                            <a className="h6 text-right text-col5" data-toggle="collapse"
-                                               href="#detallecobro" role="button" aria-expanded="false"
+                                            <a className="h6 text-right text-col5" data-toggle="collapse" role="button" aria-expanded="false"
                                                aria-controls="detallecobro" onClick={this.toogleDetalleCobro}>Ver
                                                 detalle</a>
                                         </Col>
                                     </Row>
-                                    <DetalleCobro active={this.state.showDetalleCobro}/>
+                                    <Collapse in={this.state.showDetalleCobro}>
+                                        <div id="detallecobro">
+                                            <DetalleCobro />
+                                        </div>
+                                    </Collapse>
                                 </div>
 
                                 <div className="d-block w-100 pb-3 mb-3">

@@ -34,7 +34,7 @@ class Step3 extends Component{
                                 </Form.Group>
                                 <Form.Group className="mb-3 pb-4">
                                     <div className="custom-control custom-radio sd-option-list mb-3">
-                                        <Form.Control type="radio" id="red1" name="eligered" className="custom-control-input"/>
+                                        <Form.Control type="radio" id="red1" name="eligered" className="custom-control-input" value="red1" onChange={this.props.handleChange}/>
                                             <Form.Label className="custom-control-label text-col1 font-weight-bold h4" htmlFor="red1">
                                                 RED 1
                                                 <ul className="row h5 text-black-50 font-weight-lighter list-inputradio">
@@ -46,7 +46,7 @@ class Step3 extends Component{
                                     </div>
 
                                     <div className="custom-control custom-radio sd-option-list mb-3">
-                                        <Form.Control type="radio" id="red2" name="eligered" className="custom-control-input"/>
+                                        <Form.Control type="radio" id="red2" name="eligered" className="custom-control-input" value="red2" onChange={this.props.handleChange}/>
                                             <Form.Label className="custom-control-label text-col1 font-weight-bold h4" htmlFor="red2">
                                                 RED 2
                                                 <ul className="row h5 text-black-50 font-weight-lighter list-inputradio">
@@ -59,7 +59,7 @@ class Step3 extends Component{
                                     </div>
 
                                     <div className="custom-control custom-radio sd-option-list mb-3">
-                                        <Form.Control type="radio" id="red3" name="eligered" className="custom-control-input"/>
+                                        <Form.Control type="radio" id="red3" name="eligered" className="custom-control-input" value="red3" onChange={this.props.handleChange}/>
                                             <Form.Label className="custom-control-label text-col1 font-weight-bold h4" htmlFor="red3">
                                                 RED 3
                                                 <ul className="row h5 text-black-50 font-weight-lighter list-inputradio">
@@ -71,7 +71,7 @@ class Step3 extends Component{
                                     </div>
 
                                     <div className="custom-control custom-radio sd-option-list mb-3">
-                                        <Form.Control type="radio" id="red4" name="eligered" className="custom-control-input"/>
+                                        <Form.Control type="radio" id="red4" name="eligered" className="custom-control-input" value="red4" onChange={this.props.handleChange}/>
                                             <Form.Label className="custom-control-label text-col1 font-weight-bold h4" htmlFor="red4">
                                                 RED 4
                                                 <ul className="row h5 text-black-50 font-weight-lighter list-inputradio">
@@ -90,7 +90,7 @@ class Step3 extends Component{
                                 </Form.Group>
                                 <Form.Group className="mb-3">
                                     <div className="custom-control custom-radio sd-option-list mb-3">
-                                        <Form.Control type="radio" id="deducible1" name="deducible" className="custom-control-input"/>
+                                        <Form.Control type="radio" id="deducible1" name="deducible" className="custom-control-input" value="10" onChange={this.props.handleChange}/>
                                             <Form.Label className="custom-control-label text-col1 font-weight-bold h4" htmlFor="deducible1">
                                                 UF 10
                                                 <small className="row h5 text-black-50 font-weight-lighter pl-3">
@@ -100,7 +100,7 @@ class Step3 extends Component{
                                     </div>
 
                                     <div className="custom-control custom-radio sd-option-list mb-3">
-                                        <Form.Control type="radio" id="deducible2" name="deducible" className="custom-control-input"/>
+                                        <Form.Control type="radio" id="deducible2" name="deducible" className="custom-control-input" value="15" onChange={this.props.handleChange}/>
                                             <Form.Label className="custom-control-label text-col1 font-weight-bold h4" htmlFor="deducible2">
                                                 UF 15
                                                 <small className="row h5 text-black-50 font-weight-lighter pl-3">
@@ -110,7 +110,7 @@ class Step3 extends Component{
                                     </div>
 
                                     <div className="custom-control custom-radio sd-option-list mb-3">
-                                        <Form.Control type="radio" id="deducible3" name="deducible" className="custom-control-input"/>
+                                        <Form.Control type="radio" id="deducible3" name="deducible" className="custom-control-input" value="20" onChange={this.props.handleChange}/>
                                             <Form.Label className="custom-control-label text-col1 font-weight-bold h4" htmlFor="deducible3">
                                                 UF 20
                                                 <small className="row h5 text-black-50 font-weight-lighter pl-3">

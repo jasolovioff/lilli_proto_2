@@ -23,10 +23,10 @@ class Simulation {
         console.log("price: " + price);
         return price;
     }
-    calculateTotalPrice(type, age, red, deductible, cargas){
-        let totalPrice = this.calculatePrice(type, age, red, deductible);
+    calculateTotalPrice(age, red, deductible, cargas){
+        let totalPrice = this.calculatePrice("cotizante", age, red, deductible);
         for(let key in cargas){
-            totalPrice += this.calculatePrice(type, cargas[key], red, deductible);
+            totalPrice += this.calculatePrice("carga", cargas[key], red, deductible);
         }
         return totalPrice;
     }
