@@ -47,7 +47,7 @@ class Step1 extends Component {
                                         <Form.Group className="mb-3">
 
                                             <Form.Group className="custom-control custom-radio sd-option-list mb-3">
-                                                <Form.Control type="radio" id="currentPayment1" value="currentPayment1" name="currentPayment"
+                                                <Form.Control type="radio" id="currentPayment1" value="bottom" name="currentPayment"
                                                                className="custom-control-input" onChange={this.props.handleChange}/>
                                                 {/*<Field type="radio" name="currentPayment" id="currentPayment1" component={MyRadio} valor="currentPayment1"/>*/}
                                                 <Form.Label className="custom-control-label text-col5 font-weight-bold" htmlFor="currentPayment1">
@@ -58,7 +58,7 @@ class Step1 extends Component {
                                             </Form.Group>
 
                                             <Form.Group className="custom-control custom-radio sd-option-list mb-3">
-                                                <Form.Control type="radio" id="currentPayment2" value="currentPayment2" name="currentPayment"
+                                                <Form.Control type="radio" id="currentPayment2" value="middle" name="currentPayment"
                                                                className="custom-control-input" onChange={this.props.handleChange}/>
                                                 {/*<Field type="radio" name="currentPayment" id="currentPayment2" component={MyRadio} valor="currentPayment2"/>*/}
                                                 <Form.Label className="custom-control-label text-col5 font-weight-bold" htmlFor="currentPayment2">
@@ -69,7 +69,7 @@ class Step1 extends Component {
                                             </Form.Group>
 
                                             <Form.Group className="custom-control custom-radio sd-option-list mb-3">
-                                                <Form.Control type="radio" id="currentPayment3" value="currentPayment3" name="currentPayment"
+                                                <Form.Control type="radio" id="currentPayment3" value="up" name="currentPayment"
                                                                className="custom-control-input" onChange={this.props.handleChange}/>
                                                 {/*<Field type="radio" name="currentPayment" id="currentPayment3" component={MyRadio} valor="currentPayment3"/>*/}
                                                 <Form.Label className="custom-control-label text-col5 font-weight-bold" htmlFor="currentPayment3">

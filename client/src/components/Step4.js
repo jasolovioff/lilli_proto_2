@@ -9,6 +9,7 @@ import diamond from "../static/images/diamond.svg";
 import DetalleCobro from "./DetalleCobro";
 import Collapse from "react-bootstrap/cjs/Collapse";
 import Simulation from "../utils/Simulation";
+import ComparaConLili from "./ComparaConLili";
 
 class Step4 extends Component{
     state = {}
@@ -60,6 +61,8 @@ class Step4 extends Component{
         const red = this.props.upperState.eligered;
         const deductible = this.props.upperState.deducible;
         const cargas = this.props.upperState.cargas;
+        const income = this.props.upperState.income;
+        const currentPayment = this.props.upperState.currentPayment;
         const simulation = new Simulation(age, red, deductible, cargas);
         const monthlyPayment = simulation.calculateTotalPrice(age,red, deductible, cargas);
         return (
@@ -79,20 +82,7 @@ class Step4 extends Component{
                                 <span className="h6 text-black-50 m-0">Paso {this.props.currentStep}</span>
                                 <h2 className="title mb-5">Tu resumen</h2>
 
-                                <Form.Group className="pb-4 mb-5">
-                                    <ul className="list-unstyled mt-md-4">
-                                        <li className="media">
-
-                                            <div className="media-body text-secondary text-center">
-                                                <img src={diamond} className="mh-resulticon" alt="plan diamante"/>
-                                                    <h3 className="title-bold text-dark">Con Lili pagarás más <br/>
-                                                    que tu plan actual,<br/>
-                                                    <span className="text-col1">pero con muchos más beneficios</span>
-                                                    </h3>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </Form.Group>
+                                <ComparaConLili monthlyPayment={monthlyPayment} income={income} currentPayment={currentPayment}/>
 
                                 <Form.Group>
                                     <h4 className="font-weight-bold text-col1">Detalle</h4>

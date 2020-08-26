@@ -2,26 +2,44 @@ const planParams = require('./planParams');
 
 class Simulation {
     GES = planParams.GES;
-    planDetail = {};
+    planDetail = {cotizante: {}, cargas: []};
 
     constructor(age, red, deductible, cargas) {
+        if (typeof (red) == 'undefined'){
+            this.red = "red1"
+        }else{
+            this.red = red;
+        }
+
+        if (typeof (deductible) == 'undefined'){
+            this.deductible = 10
+        }else{
+            this.deductible = deductible
+        }
+        if (typeof (age) == 'undefined'){
+            this.age = 10
+        }else{
+            this.age = age
+        }
+
         this.planDetail = {
             GES : this.GES,
             cotizante : {
-                age,
-                basePrice : planParams.basePrice[red][deductible],
-                ageFactor : planParams.factors.cotizante[this.getAgeRange(age)],
-                finalPrice : this.calculatePrice("cotizante", age, red, deductible)
-            },
-            cargas : []
+                age: this.age,
+                basePrice : planParams.basePrice[this.red][this.deductible],
+                ageFactor : planParams.factors.cotizante[this.getAgeRange(this.age)],
+                finalPrice : this.calculatePrice("cotizante", this.age, this.red, this.deductible)
+            }
         }
-        for(let key in cargas){
-            this.planDetail.cargas.push({
-                age: cargas[key],
-                basePrice : planParams.basePrice[red][deductible],
-                ageFactor : planParams.factors.cotizante[this.getAgeRange(cargas[key])],
-                finalPrice : this.calculatePrice("carga", cargas[key], red, deductible)
-            });
+        if(typeof (this.planDetail.cargas) !== 'undefined'){
+            for(let key in cargas){
+                this.planDetail.cargas.push({
+                    age: cargas[key],
+                    basePrice : planParams.basePrice[this.red][this.deductible],
+                    ageFactor : planParams.factors.cotizante[this.getAgeRange(cargas[key])],
+                    finalPrice : this.calculatePrice("carga", cargas[key], this.red, this.deductible)
+                });
+            }
         }
     }
     getPlanDetail(){
@@ -45,9 +63,9 @@ class Simulation {
         return price;
     }
     calculateTotalPrice(age, red, deductible, cargas){
-        let totalPrice = this.calculatePrice("cotizante", age, red, deductible);
+        let totalPrice = this.calculatePrice("cotizante", this.age, this.red, this.deductible);
         for(let key in cargas){
-            totalPrice += this.calculatePrice("carga", cargas[key], red, deductible);
+            totalPrice += this.calculatePrice("carga", cargas[key], this.red, this.deductible);
         }
         return totalPrice;
     }

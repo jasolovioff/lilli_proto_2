@@ -16,7 +16,7 @@ class DetalleCobro extends Component{
         }
     }
     cargasDetail(){
-        if (this.state.planDetails.cargas.length > 0){
+        if (typeof (this.state.planDetails.cargas) != 'undefined' && this.state.planDetails.cargas.length > 0){
             return _.map(this.state.planDetails.cargas, carga => {
                 return (
                     <Row className="border-bottom py-1" key={"carga"+carga.age}>
