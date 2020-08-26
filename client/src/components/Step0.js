@@ -195,7 +195,7 @@ class Step0 extends Component{
                                 <span className="title-bold display-4 text-white m-0 d-block">¡Lo quiero ahora!</span>
                             </Col>
                             <Col md={3} className="align-self-center">
-                                <a className="btn bg-col5 text-white d-block mx-auto h3 float-md-left my-2 py-3 px-4 shadow-lg mr-1 btn-bubble">
+                                <a className="btn bg-col5 text-white d-block mx-auto h3 float-md-left my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>
                                     Arma tu plan
                                 </a>
                             </Col>
