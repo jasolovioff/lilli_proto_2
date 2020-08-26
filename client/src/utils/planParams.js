@@ -24,7 +24,7 @@ module.exports = {
     },
     factors : {
         ranges : {
-            range1 : [1, 20],
+            range1 : [0, 20],
             range2 : [20, 25],
             range3 : [25, 35],
             range4 : [35, 45],

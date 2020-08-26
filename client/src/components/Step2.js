@@ -126,7 +126,7 @@ class Step2 extends Component {
                                     <div className="label-hv-animate">
                                         <Form.Control type="text" name="age"
                                                        className="form-control rounded-0 text-center control-animate border-0 bg-light"
-                                                       aria-describedby="edad" maxLength="2" placeholder="30" onChange={this.props.handleChange}/>
+                                                       aria-describedby="edad" maxLength="2" onChange={this.props.handleChange}/>
                                         {/*<Field component={ageControl} name="age" type="text"/>*/}
                                     </div>
                                 </Form.Group>
@@ -209,7 +209,7 @@ class Step2 extends Component {
                                 <Form.Group className="mb-5">
                                     <Form.Label className="text-col1 h4">Indícanos tu renta imponible estimada</Form.Label>
                                     <div className="label-hv-animate">
-                                        <Form.Control type="text" name="income" className="rounded-0 text-center control-animate border-0 bg-light" aria-describedby="renta imponible" placeholder="$500.000" onChange={this.props.handleChange}/></div>
+                                        <Form.Control type="text" name="income" className="rounded-0 text-center control-animate border-0 bg-light" aria-describedby="renta imponible" onChange={this.props.handleChange}/></div>
                                 </Form.Group>
 
                                 <div className="form-group mt-5">
