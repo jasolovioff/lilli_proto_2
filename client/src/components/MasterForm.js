@@ -76,15 +76,6 @@ class MasterForm extends Component {
                 break;
             case 4:
                 buttonLabel = "Enviar mis datos";
-                const simulation = new Simulation();
-                const age = this.state.age;
-                const red = this.state.eligered;
-                const deductible = this.state.deducible;
-                const cargas = [];
-                const monthlyPayment = simulation.calculateTotalPrice(age,red, deductible, cargas)
-                this.setState({
-                    monthlyPayment
-                });
                 break;
             default:
                 break;
@@ -185,7 +176,7 @@ class MasterForm extends Component {
                         goToStep={this.goToStep}
                         _prev={this._prev}
                         handleSubmitSimulation={this.handleSubmitSimulation}
-                        monthlyPayment={this.state.monthlyPayment}
+                        upperState={this.state}
                     />
                 </Form>
             </React.Fragment>

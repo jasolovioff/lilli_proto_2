@@ -8,6 +8,7 @@ import Modal from "react-bootstrap/Modal";
 import diamond from "../static/images/diamond.svg";
 import DetalleCobro from "./DetalleCobro";
 import Collapse from "react-bootstrap/cjs/Collapse";
+import Simulation from "../utils/Simulation";
 
 class Step4 extends Component{
     state = {}
@@ -53,6 +54,12 @@ class Step4 extends Component{
         if (this.props.currentStep !== 4) {
             return null;
         }
+        const simulation = new Simulation();
+        const age = this.props.upperState.age;
+        const red = this.props.upperState.eligered;
+        const deductible = this.props.upperState.deducible;
+        const cargas = [];
+        const monthlyPayment = simulation.calculateTotalPrice(age,red, deductible, cargas);
         return (
             <React.Fragment>
                 <Container fluid as="section">
@@ -92,7 +99,7 @@ class Step4 extends Component{
                                     <Row>
                                         <Col xs={12} className="text-col1"><span className="h5">Prima</span></Col>
                                         <Col xs={3}>
-                                            <h3 className="font-weight-bold title text-col1 mb-0">UF {this.props.monthlyPayment}</h3>
+                                            <h3 className="font-weight-bold title text-col1 mb-0">UF {monthlyPayment}</h3>
                                             <h4 className="text-black-50">$197.169</h4>
                                         </Col>
                                         <Col xs={9} className="divisor-right">
@@ -118,7 +125,7 @@ class Step4 extends Component{
                                         <Col xs={12} className="text-col1"><span className="h5">Deducible anual</span>
                                         </Col>
                                         <Col xs={3}>
-                                            <h3 className="font-weight-bold title text-col1 mb-0">UF 10</h3>
+                                            <h3 className="font-weight-bold title text-col1 mb-0">UF {this.props.upperState.deducible}</h3>
                                             <h4 className="text-black-50">$287.000 <small>(individual)</small></h4>
                                         </Col>
                                         <Col xs={9} className="divisor-right">
