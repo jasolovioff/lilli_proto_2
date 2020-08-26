@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { reduxForm, Field } from "redux-form";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -35,6 +36,7 @@ class MasterForm extends Component {
         });
     }
     _prev() {
+        console.log("preving!")
         let currentStep = this.state.currentStep
         currentStep = currentStep <= 0 ? 0 : currentStep - 1;
         this.setState({
@@ -110,19 +112,23 @@ class MasterForm extends Component {
         if (this.state.currentStep === 0){
             return (
                 <a
-                   className="btn float-right border-col5 bg-white text-col5 text-hv-col5 px-4"
+                   className="float-right btn border-col1 bg-white text-col1 text-hv-col1 pt-2 px-4"
                    onClick={this._next}>
-                    Comienza ahora
+                    Arma tu plan
                 </a>
             )
         }
         return null;
     }
 
+    handleSubmitSimulation() {
+        console.log(this);
+    }
+
     render() {
         return(
             <React.Fragment>
-                <header className="container-fluid bg-white pt-3" id="top">
+                <header className="container-fluid pt-3" id="top">
                     <Container>
                         <Row>
                             <Col xs={6}>
@@ -174,10 +180,14 @@ class MasterForm extends Component {
                         handleSubmit={this.handleSubmit}
                         previousButton={this.previousButton}
                         goToStep={this.goToStep}
+                        _prev={this._prev}
+                        handleSubmitSimulation={this.handleSubmitSimulation}
                     />
                 </Form>
             </React.Fragment>
         )
     }
 }
-export default MasterForm;
+export default reduxForm({
+    form: 'surveyForm'
+})(MasterForm);

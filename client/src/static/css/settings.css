@@ -31,6 +31,27 @@
 }
 
 
+@font-face {
+    font-family: 'PlayfairDisplay';
+        src: url('../fonts/PlayfairDisplay-Regular.eot');
+        src: url('../fonts/PlayfairDisplay-Regular.eot?#PlayfairDisplay-Regular') format('embedded-opentype'), 
+        url('../fonts/PlayfairDisplay-Regular.woff2') format('woff2'), 
+        url('../fonts/PlayfairDisplay-Regular.woff') format('woff'), 
+        url('../fonts/PlayfairDisplay-Regular.ttf') format('truetype'), 
+        url('../fonts/PlayfairDisplay-Regular.svg#PlayfairDisplay-Regular') format('svg');
+}
+@font-face {
+    font-family: 'PlayfairDisplay-Bold';
+        src: url('../fonts/PlayfairDisplay-Bold.eot');
+        src: url('../fonts/PlayfairDisplay-Bold.eot?#PlayfairDisplay-Bold') format('embedded-opentype'), 
+        url('../fonts/PlayfairDisplay-Bold.woff2') format('woff2'), 
+        url('../fonts/PlayfairDisplay-Bold.woff') format('woff'), 
+        url('../fonts/PlayfairDisplay-Bold.ttf') format('truetype'), 
+        url('../fonts/PlayfairDisplay-Bold.svg#PlayfairDisplay-Bold') format('svg');
+}
+
+
+
 /*++++++++++++++++++++++++++++++*/
 /*++++++++++++++++++++++++++++++*/
 /*Scroll*/
@@ -62,13 +83,13 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: rgba(0,46,109,1.0);
+  -webkit-tap-highlight-color: rgb(0, 46, 109);
 }
-/*
+
 @-ms-viewport {
   width: device-width;
 }
-*/
+
 
 
 body {
@@ -176,15 +197,15 @@ p. .p {
   }
 
   h4, .h4 {
-    font-size: 1.00em;
+    font-size: 1.20em;
   }
 
   h5, .h5 {
-    font-size: 0.95em;
+    font-size: 1.0em;
   }
 
   h6, .h6 {
-    font-size: 0.8em;
+    font-size: 0.95em;
   }
   p. .p {
     font-size: 1.00em;
@@ -194,11 +215,11 @@ p. .p {
 
 
 .title {
-    font-family: 'Mirage';
+    font-family: 'PlayfairDisplay';
 }
 
 .title-bold {
-    font-family: 'Mirage-Bold';
+    font-family: 'PlayfairDisplay-Bold';
 }
 
 

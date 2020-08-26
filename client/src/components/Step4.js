@@ -4,8 +4,9 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 //import Simulation from "../utils/Simulation";
+import diamond from "../static/images/diamond.svg";
+import DetalleCobro from "./DetalleCobro";
 
 class Step4 extends Component{
     state = {}
@@ -13,7 +14,8 @@ class Step4 extends Component{
         super(props);
         this.state = {
             showModalLoQuiero : false,
-            showModalNoLoQuiero : false
+            showModalNoLoQuiero : false,
+            showDetalleCobro : false
         }
     }
 
@@ -39,6 +41,13 @@ class Step4 extends Component{
         });
     }
 
+    toogleDetalleCobro = () => {
+        console.log("toolging")
+        this.setState({
+            showDetalleCobro : !this.state.showDetalleCobro
+        });
+    }
+
     render() {
         if (this.props.currentStep !== 4) {
             return null;
@@ -57,17 +66,32 @@ class Step4 extends Component{
                                          aria-valuemax="100"></div>
                                 </Row>
 
-                                <span className="h6 text-muted m-0">Paso 3</span>
+                                <span className="h6 text-black-50 m-0">Paso {this.props.currentStep}</span>
                                 <h2 className="title mb-5">Tu resumen</h2>
 
+                                <Form.Group className="pb-4 mb-5">
+                                    <ul className="list-unstyled mt-md-4">
+                                        <li className="media">
+
+                                            <div className="media-body text-secondary text-center">
+                                                <img src={diamond} className="mh-resulticon" alt="plan diamante"/>
+                                                    <h3 className="title-bold text-dark">Con Lili pagarás más <br/>
+                                                    que tu plan actual,<br/>
+                                                    <span className="text-col1">pero con muchos más beneficios</span>
+                                                    </h3>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </Form.Group>
+
                                 <Form.Group>
-                                    <h4 className="font-weight-bold text-col5">Tu plan podría ser:</h4>
+                                    <h4 className="font-weight-bold text-col1">Detalle</h4>
                                 </Form.Group>
                                 <div className="d-block w-100 pb-3 mb-3">
                                     <Row>
-                                        <Col xs={12} className="text-col5"><span className="h5">Prima</span></Col>
+                                        <Col xs={12} className="text-col1"><span className="h5">Prima</span></Col>
                                         <Col xs={3}>
-                                            <h3 className="font-weight-bold title text-col5 mb-0">UF 6,87</h3>
+                                            <h3 className="font-weight-bold title text-col1 mb-0">UF 6,87</h3>
                                             <h4 className="text-black-50">$197.169</h4>
                                         </Col>
                                         <Col xs={9} className="divisor-right">
@@ -78,58 +102,19 @@ class Step4 extends Component{
                                         <Col xs={12} className="text-left">
                                             <a className="h6 text-right text-col5" data-toggle="collapse"
                                                href="#detallecobro" role="button" aria-expanded="false"
-                                               aria-controls="detallecobro">Ver
+                                               aria-controls="detallecobro" onClick={this.toogleDetalleCobro}>Ver
                                                 detalle</a>
                                         </Col>
                                     </Row>
-                                    <div className="collapse" id="detallecobro">
-
-                                        <div className="d-block w-100 pt-2 px-4 h6 bg-light ">
-                                            <Row className="row border-bottom py-1">
-                                                <Col xs={4} className="font-weight-bold text-left text-muted"></Col>
-                                                <Col xs={2} className="font-weight-bold text-left text-muted">Base</Col>
-                                                <Col xs={2} className="font-weight-bold text-left text-muted">Factor</Col>
-                                                <Col xs={2} className="font-weight-bold text-left text-muted">GES</Col>
-                                                <Col xs={2} className="font-weight-bold text-right text-muted">Valor final</Col>
-                                            </Row>
-                                            <Row className="border-bottom py-1">
-                                                <Col xs={4} className="text-left text-muted">Titular</Col>
-                                                <Col xs={2} className="text-left text-muted">2,03</Col>
-                                                <Col xs={2} className="text-left text-muted">1,3</Col>
-                                                <Col xs={2} className="text-left text-muted">0,66</Col>
-                                                <Col xs={2} className="text-right text-muted">3,30</Col>
-                                            </Row>
-                                            <Row className="border-bottom py-1">
-                                                <Col xs={4} className="text-left text-muted">Carga 9 Años</Col>
-                                                <Col xs={2} className="text-left text-muted">2,03</Col>
-                                                <Col xs={2} className="text-left text-muted">1,3</Col>
-                                                <Col xs={2} className="text-left text-muted">0,66</Col>
-                                                <Col xs={2} className="text-right text-muted">3,30</Col>
-                                            </Row>
-                                            <Row className="border-bottom py-1">
-                                                <Col xs={4} className="text-left text-muted">Carga 4 Años</Col>
-                                                <Col xs={2} className="text-left text-muted">2,03</Col>
-                                                <Col xs={2} className="text-left text-muted">0,6</Col>
-                                                <Col xs={2} className="text-left text-muted">0,66</Col>
-                                                <Col xs={2} className="text-right text-muted">1,88</Col>
-                                            </Row>
-                                            <Row className="py-3">
-                                                <Col xs={12}>
-                                                    <h5 className="text-muted font-italic">*Todos los valores estan
-                                                        expresados en UF</h5>
-                                                </Col>
-                                            </Row>
-                                        </div>
-
-                                    </div>
+                                    <DetalleCobro active={this.state.showDetalleCobro}/>
                                 </div>
 
                                 <div className="d-block w-100 pb-3 mb-3">
                                     <Row>
-                                        <Col xs={12} className="text-col5"><span className="h5">Deducible anual</span>
+                                        <Col xs={12} className="text-col1"><span className="h5">Deducible anual</span>
                                         </Col>
                                         <Col xs={3}>
-                                            <h3 className="font-weight-bold title text-col5 mb-0">UF 10</h3>
+                                            <h3 className="font-weight-bold title text-col1 mb-0">UF 10</h3>
                                             <h4 className="text-black-50">$287.000 <small>(individual)</small></h4>
                                         </Col>
                                         <Col xs={9} className="divisor-right">
@@ -143,9 +128,9 @@ class Step4 extends Component{
 
                                 <div className="d-block w-100 pb-3 mb-3">
                                     <Row>
-                                        <Col xs={12} className="text-col5"><span className="h5">Tope anual</span></Col>
+                                        <Col xs={12} className="text-col1"><span className="h5">Tope anual</span></Col>
                                         <Col xs={3}>
-                                            <h3 className="font-weight-bold title text-col5 mb-0">UF 200</h3>
+                                            <h3 className="font-weight-bold title text-col1 mb-0">UF 200</h3>
                                             <h4 className="text-black-50">$5.740.000 <small>(individual)</small></h4>
                                         </Col>
                                         <Col xs={9} className="divisor-right">
@@ -160,13 +145,13 @@ class Step4 extends Component{
                                 <div className="border-top border rounded p-4 bg-light">
 
                                     <Form.Group className="border-bottom">
-                                        <h4 className="font-weight-bold text-col5">Tus coberturas podrían ser:</h4>
+                                        <h4 className="font-weight-bold text-col1">Tus coberturas podrían ser:</h4>
                                     </Form.Group>
 
                                     <div className="d-block w-100 mb-3">
                                         <Row>
                                             <Col xs={3}><h3
-                                                className="font-weight-bold title text-col5 mb-0">100%</h3></Col>
+                                                className="font-weight-bold title text-col1 mb-0">100%</h3></Col>
                                             <Col xs={9} className="divisor-right">
                                                 <p className="text-secondary">
                                                     Médico de cabecera.<br/>
@@ -180,21 +165,7 @@ class Step4 extends Component{
                                     <div className="d-block w-100 mb-3">
                                         <Row>
                                             <Col xs={3}><h3
-                                                className="font-weight-bold title text-col5 mb-0">70%</h3></Col>
-                                            <Col xs={9} className="divisor-right">
-                                                <p className="text-secondary">
-                                                    Consultas, exámenes y procedimientos ambulatorios.<br/>
-                                                    Después de deducible y en Red seleccionada.
-                                                </p>
-                                            </Col>
-                                        </Row>
-                                    </div>
-
-
-                                    <div className="d-block w-100 mb-3">
-                                        <Row>
-                                            <Col xs={3}><h3
-                                                className="font-weight-bold title text-col5 mb-0">80%</h3></Col>
+                                                className="font-weight-bold title text-col1 mb-0">80%</h3></Col>
                                             <Col xs={9} className="divisor-right">
                                                 <p className="text-secondary">
                                                     Hospitalizaciones.<br/>
@@ -204,10 +175,24 @@ class Step4 extends Component{
                                         </Row>
                                     </div>
 
+
                                     <div className="d-block w-100 mb-3">
                                         <Row>
                                             <Col xs={3}><h3
-                                                className="font-weight-bold title text-col5 mb-0">20%</h3></Col>
+                                                className="font-weight-bold title text-col1 mb-0">70%</h3></Col>
+                                            <Col xs={9} className="divisor-right">
+                                                <p className="text-secondary">
+                                                    Consultas, exámenes y procedimientos ambulatorios.<br/>
+                                                    Después de deducible y en Red seleccionada.
+                                                </p>
+                                            </Col>
+                                        </Row>
+                                    </div>
+
+                                    <div className="d-block w-100 mb-3">
+                                        <Row>
+                                            <Col xs={3}><h3
+                                                className="font-weight-bold title text-col1 mb-0">20%</h3></Col>
                                             <Col xs={9} className="divisor-right">
                                                 <p className="text-secondary">
                                                     Derivaciones médico de cabecera.<br/>
@@ -220,11 +205,11 @@ class Step4 extends Component{
                                 </div>
 
                                 <div className="form-group mt-5">
-                                    <a className="btn bg-col5 text-white d-block mx-auto float-md-right my-2 mr-1 py-3 px-4 shadow-lg btn-bubble"
+                                    <a className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 mr-1 py-3 px-4 shadow-lg btn-bubble"
                                        data-toggle="modal" data-target="#siLoQuieroModal" onClick={() => this.handleShowLoQuiero()}>Sí, lo quiero</a>
-                                    <a className="btn border-col5 float-md-right text-col5 text-hv-col5 d-block mx-auto my-2 mr-lg-3 py-3 px-4 btn-bubble"
+                                    <a className="btn border-col1 float-md-right text-col1 text-hv-col1 d-block mx-auto my-2 mr-lg-3 py-3 px-4 btn-bubble"
                                        data-toggle="modal" data-target="#noLoQuieroModal" onClick={() => this.handleShowNoLoQuiero()}>No me interesa</a>
-                                    <a className="btn float-md-right text-col5 text-hv-col5 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</a>
+                                    <a className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</a>
                                 </div>
 
 
@@ -235,13 +220,11 @@ class Step4 extends Component{
                                 <Modal className="fade" id="siLoQuieroModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" show={this.state.showModalLoQuiero} onHide={() => this.handleHideLoQuiero()}>
                                     <Modal.Dialog className="modal-dialog">
                                         <div className="modal-content">
-
                                             <Modal.Header className="modal-header border-0">
                                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => this.handleHideLoQuiero()}>
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </Modal.Header>
-
                                             <Modal.Body className="modal-body">
 
                                                 <div className="d-block w-100">
@@ -264,8 +247,8 @@ class Step4 extends Component{
 
                                             <Modal.Footer className="modal-footer border-0">
                                                 <a href="#"
-                                                   className="btn bg-col5 text-white d-block mx-auto my-2 py-2 px-4 btn-bubble"
-                                                   data-dismiss="modal" onClick={() => this.handleHideLoQuiero()}>Enviar</a>
+                                                   className="btn bg-col1 text-white d-block mx-auto my-2 py-2 px-4 btn-bubble"
+                                                   data-dismiss="modal" onClick={() => this.props.handleSubmitSimulation()}>Enviar</a>
                                             </Modal.Footer>
                                         </div>
                                     </Modal.Dialog>
@@ -288,67 +271,11 @@ class Step4 extends Component{
                                             <Modal.Body>
 
                                                 <div className="d-block w-100">
-                                                    <h2 className="title text-center m-0">Cuéntanos</h2>
-                                                    <h5 className="text-center text-secondary">¿Por qué no te interesa
-                                                        Lili?</h5>
-                                                    <div>
-                                                        <div className="px-4 mt-5">
-                                                            <div
-                                                                className="custom-control custom-radio sd-option-list mb-3">
-                                                                <Form.Control type="radio" id="nomeinteresa1" name="deducible"
-                                                                       className="custom-control-input"/>
-                                                                    <Form.Label
-                                                                        className="custom-control-label text-secondary h5 pt-2"
-                                                                        htmlFor="nomeinteresa1">
-                                                                        Lorem ipsum in dore ement noque porro
-                                                                    </Form.Label>
-                                                            </div>
-
-                                                            <div>
-                                                                className="custom-control custom-radio sd-option-list mb-3">
-                                                                <Form.Control type="radio" id="nomeinteresa2" name="deducible"
-                                                                       className="custom-control-input"/>
-                                                                    <Form.Label
-                                                                        className="custom-control-label text-secondary h5 pt-2"
-                                                                        htmlFor="nomeinteresa2" onClick={() => this.handleHideNoLoQuiero()}>
-                                                                        Lorem ipsum in dore ement
-                                                                    </Form.Label>
-                                                            </div>
-
-                                                            <div>
-                                                                className="custom-control custom-radio sd-option-list mb-3">
-                                                                <Form.Control type="radio" id="nomeinteresa3" name="deducible"
-                                                                       className="custom-control-input"/>
-                                                                    <Form.Label
-                                                                        className="custom-control-label text-secondary h5 pt-2"
-                                                                        htmlFor="nomeinteresa3">
-                                                                        Lorem ipsum in dore ement
-                                                                    </Form.Label>
-                                                            </div>
-
-                                                            <div className="custom-control custom-radio sd-option-list mb-3">
-                                                                <Form.Control type="radio" id="nomeinteresa4" name="deducible"
-                                                                       className="custom-control-input"/>
-                                                                    <Form.Label
-                                                                        className="custom-control-label text-secondary h5 pt-2"
-                                                                        htmlFor="nomeinteresa4">
-                                                                        Otra razón
-                                                                    </Form.Label>
-                                                            </div>
-                                                            <div className="custom-control row mb-3">
-                                                                <div className="label-hv-animate"><textarea
-                                                                    className="form-control border-0 rounded-0 bg-light"
-                                                                    rows="3"
-                                                                    placeholder="Escribe tu comentario aquí..."></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
+                                                    <h2 className="title text-center m-0">Gracias</h2>
                                                     <Modal.Footer className="modal-footer border-0">
                                                         <a href="#"
-                                                           className="btn bg-col5 text-white d-block mx-auto my-2 py-2 px-4 btn-bubble"
-                                                           data-dismiss="modal">Enviar</a>
+                                                           className="btn bg-col1 text-white d-block mx-auto my-2 py-2 px-4 btn-bubble"
+                                                           data-dismiss="modal" onHide={() => this.handleHideNoLoQuiero()}>Salir</a>
                                                     </Modal.Footer>
                                                 </div>
                                             </Modal.Body>

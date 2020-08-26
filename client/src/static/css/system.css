@@ -1,32 +1,32 @@
 /*++++++++++++++++++++++++++++++++++++*/
 /*Colores del sistema (Cursos)*/
-.bg-col1 { background-color: #80aede; } /*Azul oscuro*/
-.bg-col2 { background-color: #ffc107cc } /*Celeste claro*/
-.bg-col3 { background-color: #79cbde; }   /*Celeste oscuro*/
-/*.bg-col4 { background-color: #; }*/
-.bg-col5 { background-color: #ff8700; } /*Naranjo*/
-.bg-col6 { background-color: #ff394e; } /*Rojo*/
+.bg-col1 { background-color: #00dda2; } /*Verde oscuro*/
+.bg-col2 { background-color: #6a7895; } /*Gis Oscuro*/
+.bg-col3 { background-color: #eff3f9; } /*Gris claro*/
+.bg-col4 { background-color: #374162; } /*Azul Oscuro*/
+.bg-col5 { background-color: #e89460; } /*Naranjo*/
+.bg-col6 { background-color: #f75454; } /*Rojo*/
 
-.text-col1 { color: #006aff; } /*Naranjo---*/
-.text-col2 { color: #eaf2f7 }
-.text-col3 { color: #79cbde; }
-/*.text-col4 { color: #; }*/
-.text-col5 { color: #ff8700; }
-.text-col6 { color: #ff394e; }
+.text-col1 { color: #00dda2; } 
+.text-col2 { color: #6a7895; }
+.text-col3 { color: #eff3f9; }
+.text-col4 { color: #374162; }
+.text-col5 { color: #e89460; }
+.text-col6 { color: #f75454; }
 
-.text-hv-col1:hover { color: #80aede; }
-.text-hv-col2:hover { color: #ffc107cc}
-.text-hv-col3:hover { color: #79cbde;}
-/*.text-hv-col4:hover { color: #; }*/
-.text-hv-col5:hover { color: #ff8700; }
-.text-hv-col6:hover { color: #ff394e; }
+.text-hv-col1:hover { color: #00dda2; }
+.text-hv-col2:hover { color: #6a7895; }
+.text-hv-col3:hover { color: #eff3f9; }
+.text-hv-col4:hover { color: #374162; }
+.text-hv-col5:hover { color: #e89460; }
+.text-hv-col6:hover { color: #f75454; }
 
-.border-col1 { border-color:#80aede; }
-.border-col2 { border-color:#ffc107cc; }
-.border-col3 { border-color:#79cbde; }
-/*.border-col4 { border-color:#; }*/
-.border-col5 { border-color:#ff8700; }
-.border-col6 { border-color:#ff394e; }
+.border-col1 { border-color:#00dda2; }
+.border-col2 { border-color:#6a7895; }
+.border-col3 { border-color:#eff3f9; }
+.border-col4 { border-color:#374162; }
+.border-col5 { border-color:#e89460; }
+.border-col6 { border-color:#f75454; }
 
 
 input { height: 55px!important; }
@@ -43,14 +43,6 @@ input { height: 55px!important; }
     margin-left: -24px;
 }
 
-/*****************************/
-/*Rotacion */
-/*****************************/
-/*
-.arrow:after { content: '';
-        posi
-       }
-*/
 
 
 /*****************************/
@@ -60,6 +52,15 @@ input { height: 55px!important; }
 	-ms-transform: rotate(-90deg); /* IE 9 */
      transform: rotate(-90deg);
 }
+
+
+
+/*****************************/
+/* Iconos */
+/*****************************/
+.mh-buleticon  { max-height: 55px; }
+.mh-resulticon { max-height: 75px; }
+
 
 
 /*****************************/
@@ -90,8 +91,8 @@ input { height: 55px!important; }
  }
 
 .custom-control-input:checked~.custom-control-label::before {
-    border-color: #ff8700!important;
-    background-color: #ff8700!important;
+    border-color: #09d2a4!important;
+    background-color: #09d2a4!important;
 }
 
 
@@ -131,7 +132,7 @@ input { height: 55px!important; }
                         
                     }
 .btn-bubble:hover::before { 
-						background-color: rgba(0,0,0,0.25);
+						background-color: rgba(0,0,0,0.15);
                         height: 100%; 
                         width: 100%; 
                         -webkit-border-radius: 0%;
@@ -202,7 +203,7 @@ input { height: 55px!important; }
 							  transition-delay: 0.20s, 0.20s, 0.20s;
 							  background-color: rgba(0,0,0,0.15);   
 						    }
-.label-hv-animate:hover::before { background-color: #ff8700; /*rgba(0,123,255,1);*/  }
+.label-hv-animate:hover::before { background-color: #00dda2; /*rgba(0,123,255,1);*/  }
 
 
 /*
@@ -227,6 +228,17 @@ input { height: 55px!important; }
   100%  { background-color: rgba(255,153,56,1); }
 }
 */
+
+
+
+/*****************************/
+/* Switch Boostrap */
+/*****************************/
+.custom-switch .custom-control-label::before { left: -3.25rem; width: 3.25rem; border-radius: 2rem; }
+.custom-control-label::before { height: 2.25rem; }
+.custom-switch .custom-control-label::after { left: calc(-3.25rem + 2px); width: calc(2.25rem - 4px); height: calc(2.25rem - 4px); border-radius: 1rem; }
+.custom-switch .custom-control-input:checked~.custom-control-label::after { transform: translateX(.95rem); } 
+
 
 /*****************************/
 /* Forma SVG */
@@ -269,3 +281,10 @@ input { height: 55px!important; }
 	             font-size:1.25em;
 
                }
+
+
+.wave0:before  { content: ''; position: absolute; z-index: -2; display: block; height: 50px; width: 200px;background-color: #fbfb0f; /* background-image: url(../images/dm-min.png);*/ }  
+
+.wave1:before { content: ''; position: absolute; top: 20px;  z-index: 0; height: 50px; width: 87px; background-image: url(../images/dm-min.png);}  
+.wave2:before { content: ''; position: absolute; left: -15px; top: 35px;  z-index: -2; display: block; height: 31px; width: 70px; background-image: url(../images/wave.png);}  
+.bg-texture { background-image: url(../images/body-bg.png);}               
