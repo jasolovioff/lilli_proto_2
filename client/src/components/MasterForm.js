@@ -139,6 +139,7 @@ class MasterForm extends Component {
                         currentStep={this.state.currentStep}
                         handleChange={this.handleChange}
                         nextButton={this.nextButton}
+                        _next={this._next}
                     />
                     <Step1
                         currentStep={this.state.currentStep}

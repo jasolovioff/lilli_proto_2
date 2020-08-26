@@ -54,6 +54,7 @@ class Step4 extends Component{
         if (this.props.currentStep !== 4) {
             return null;
         }
+        const UF = 28674.82;
         const simulation = new Simulation();
         const age = this.props.upperState.age;
         const red = this.props.upperState.eligered;
@@ -99,8 +100,8 @@ class Step4 extends Component{
                                     <Row>
                                         <Col xs={12} className="text-col1"><span className="h5">Prima</span></Col>
                                         <Col xs={3}>
-                                            <h3 className="font-weight-bold title text-col1 mb-0">UF {monthlyPayment}</h3>
-                                            <h4 className="text-black-50">$197.169</h4>
+                                            <h3 className="font-weight-bold title text-col1 mb-0">UF {monthlyPayment.toFixed(2)}</h3>
+                                            <h4 className="text-black-50">${monthlyPayment.toFixed(2)*UF}</h4>
                                         </Col>
                                         <Col xs={9} className="divisor-right">
                                             <p className="text-muted">
@@ -126,7 +127,7 @@ class Step4 extends Component{
                                         </Col>
                                         <Col xs={3}>
                                             <h3 className="font-weight-bold title text-col1 mb-0">UF {this.props.upperState.deducible}</h3>
-                                            <h4 className="text-black-50">$287.000 <small>(individual)</small></h4>
+                                            <h4 className="text-black-50">${this.props.upperState.deducible*UF} <small>(individual)</small></h4>
                                         </Col>
                                         <Col xs={9} className="divisor-right">
                                             <p className="text-muted">
