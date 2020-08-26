@@ -35,6 +35,7 @@ class MasterForm extends Component {
         this.setState({
             currentStep
         });
+        window.scrollTo(0, 0);
     }
     _prev() {
         let currentStep = this.state.currentStep
@@ -42,6 +43,7 @@ class MasterForm extends Component {
         this.setState({
             currentStep
         });
+        window.scrollTo(0, 0);
     }
 
     goToStep(step) {

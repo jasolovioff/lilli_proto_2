@@ -13,16 +13,16 @@ class ComparaConLili extends Component{
         super(props);
     }
     comparation(){
-        const lowerBound = this.props.income*0.9;
-        const upperBound = this.props.income*1.1;
+        const lowerBound = this.props.income*0.7*0.95/this.props.UF;
+        const upperBound = this.props.income*0.7*1.05/this.props.UF;
         const monthlyPayment = this.props.monthlyPayment;
         const payRange = this.props.currentPayment;
 
         let phrase;
 
         if(payRange == "bottom"){
-            if(monthlyPayment < lowerBound){
-                phrase = 0;
+            if(monthlyPayment < upperBound){
+                phrase = 1;
             } else {
                 phrase = 2;
             }

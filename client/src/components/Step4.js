@@ -50,7 +50,10 @@ class Step4 extends Component{
             showDetalleCobro : !prevState.showDetalleCobro
         }));
     }
-
+    componentDidMount() {
+        console.log("component did mount");
+        window.scrollTo(0, 0);
+    }
     render() {
         if (this.props.currentStep !== 4) {
             return null;
@@ -82,7 +85,7 @@ class Step4 extends Component{
                                 <span className="h6 text-black-50 m-0">Paso {this.props.currentStep}</span>
                                 <h2 className="title mb-5">Tu resumen</h2>
 
-                                <ComparaConLili monthlyPayment={monthlyPayment} income={income} currentPayment={currentPayment}/>
+                                <ComparaConLili monthlyPayment={monthlyPayment} income={income} currentPayment={currentPayment} UF={UF}/>
 
                                 <Form.Group>
                                     <h4 className="font-weight-bold text-col1">Detalle</h4>

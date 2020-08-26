@@ -63,7 +63,7 @@ class Step1 extends Component {
                                                 {/*<Field type="radio" name="currentPayment" id="currentPayment2" component={MyRadio} valor="currentPayment2"/>*/}
                                                 <Form.Label className="custom-control-label text-col5 font-weight-bold" htmlFor="currentPayment2">
                                                     <small className="row h5 text-secondary font-weight-lighter mt-2 pl-3">
-                                                        Pago el equivalente a mi 7%
+                                                        Pago el cercano a mi 7%
                                                     </small>
                                                 </Form.Label>
                                             </Form.Group>
