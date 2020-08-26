@@ -24,6 +24,7 @@ class MasterForm extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCargasChange = this.handleCargasChange.bind(this)
         this._next = this._next.bind(this);
         this._prev = this._prev.bind(this);
     }
@@ -96,6 +97,11 @@ class MasterForm extends Component {
                 [name] : value
         });
     }
+    handleCargasChange(cargas) {
+        this.setState({
+            cargas
+        });
+    }
     handleSubmit(event) {
         event.preventDefault();
     }
@@ -111,10 +117,6 @@ class MasterForm extends Component {
             )
         }
         return null;
-    }
-
-    handleSubmitSimulation() {
-        console.log(this);
     }
 
     render() {
@@ -134,7 +136,7 @@ class MasterForm extends Component {
                         </Row>
                     </Container>
                 </header>
-                <Form onChange={console.log(this.state)}>
+                <Form >
                     <Step0
                         currentStep={this.state.currentStep}
                         handleChange={this.handleChange}
@@ -154,6 +156,7 @@ class MasterForm extends Component {
                         handleChange={this.handleChange}
                         nextButton={this.nextButton}
                         previousButton={this.previousButton}
+                        handleCargasChange={this.handleCargasChange}
                         _next={this._next}
                         _prev={this._prev}
                     />

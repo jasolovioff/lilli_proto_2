@@ -3,9 +3,34 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import _ from "lodash";
 import Modal from "react-bootstrap/Modal";
+import planParams from "../utils/planParams";
 
 class DetalleCobro extends Component{
+    state = {}
+    constructor(props) {
+        super(props);
+        this.state = {
+            planDetails : this.props.simulation.getPlanDetail()
+        }
+    }
+    cargasDetail(){
+        if (this.state.planDetails.cargas.length > 0){
+            return _.map(this.state.planDetails.cargas, carga => {
+                return (
+                    <Row className="border-bottom py-1" key={"carga"+carga.age}>
+                        <Col xs={4} className="text-left text-muted">Carga {carga.age} Años</Col>
+                        <Col xs={2} className="text-left text-muted">{carga.basePrice}</Col>
+                        <Col xs={2} className="text-left text-muted">{carga.ageFactor}</Col>
+                        <Col xs={2} className="text-left text-muted">{this.state.planDetails.GES}</Col>
+                        <Col xs={2} className="text-right text-muted">{carga.finalPrice.toFixed(2)}</Col>
+                    </Row>
+                )
+            })
+        }
+    }
+
     render() {
         return(
             <div>
@@ -23,29 +48,16 @@ class DetalleCobro extends Component{
                     </Row>
                     <Row className="border-bottom py-1">
                         <Col xs={4} className="text-left text-muted">Titular</Col>
-                        <Col xs={2} className="text-left text-muted">2,03</Col>
-                        <Col xs={2} className="text-left text-muted">1,3</Col>
-                        <Col xs={2} className="text-left text-muted">0,66</Col>
-                        <Col xs={2} className="text-right text-muted">3,30</Col>
+                        <Col xs={2} className="text-left text-muted">{this.state.planDetails.cotizante.basePrice}</Col>
+                        <Col xs={2} className="text-left text-muted">{this.state.planDetails.cotizante.ageFactor}</Col>
+                        <Col xs={2} className="text-left text-muted">{this.state.planDetails.GES}</Col>
+                        <Col xs={2} className="text-right text-muted">{this.state.planDetails.cotizante.finalPrice.toFixed(2)}</Col>
                     </Row>
-                    <Row className="border-bottom py-1">
-                        <Col xs={4} className="text-left text-muted">Carga 9 Años</Col>
-                        <Col xs={2} className="text-left text-muted">2,03</Col>
-                        <Col xs={2} className="text-left text-muted">1,3</Col>
-                        <Col xs={2} className="text-left text-muted">0,66</Col>
-                        <Col xs={2} className="text-right text-muted">3,30</Col>
-                    </Row>
-                    <Row className="border-bottom py-1">
-                        <Col xs={4} className="text-left text-muted">Carga 4 Años</Col>
-                        <Col xs={2} className="text-left text-muted">2,03</Col>
-                        <Col xs={2} className="text-left text-muted">0,6</Col>
-                        <Col xs={2} className="text-left text-muted">0,66</Col>
-                        <Col xs={2} className="text-right text-muted">1,88</Col>
-                    </Row>
+                    {this.cargasDetail()}
                     <Row className="py-3">
                         <Col xs={12}>
                             <h5 className="text-muted font-italic">
-                                *Todos los valores estan expresados en UF
+                                *Todos los valores están expresados en UF
                                 <br/>
                                 Valor final = base * factor + GES
                             </h5>

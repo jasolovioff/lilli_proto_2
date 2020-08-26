@@ -52,6 +52,7 @@ class Step2 extends Component {
         }
         this.showSumarCargas = this.showSumarCargas.bind(this);
         this.appendCarga = this.appendCarga.bind(this);
+        this.handleCargaInput = this.handleCargaInput.bind(this);
     }
     showSumarCargas(){
         let showSumarCargas;
@@ -65,7 +66,7 @@ class Step2 extends Component {
         } else {
             showSumarCargas = true;
             totalCargas = 1;
-            cargas = [{name: "1", value: ""}];
+            cargas = [-1];
         }
         this.setState({
             showSumarCargas,
@@ -76,34 +77,30 @@ class Step2 extends Component {
     appendCarga(){
         this.setState(prevState => (
             {
-                cargas: prevState.cargas.concat(
-                    {
-                        name: (this.state.totalCargas + 1).toString(),
-                        value : ""
-                    }),
+                cargas: prevState.cargas.concat(-1),
                 totalCargas: prevState.totalCargas + 1
             }
             )
         );
     }
     handleCargaInput(event){
-        console.log(event);
         const list = [...this.state.cargas];
-        //list[i].name =
+        list[event.target.name.substr(-1)] = parseInt(event.target.value);
         this.setState({
-
+            cargas: list
         });
+        this.props.handleCargasChange(list);
     }
     handleRemove(i){
         const list =[...this.state.cargas];
-        list.splice(i,1);
+        list.splice(parseInt(i),1);
         this.setState(prevState => ({
             cargas: list,
             totalCargas: prevState.totalCargas - 1
         }));
+        this.props.handleCargasChange(list);
     }
     render() {
-        console.log(this.state);
         if (this.props.currentStep !== 2) {
             return null;
         }
@@ -158,12 +155,11 @@ class Step2 extends Component {
                                                 </Col>
                                             </Form.Group>
 
-                                            {/*this.state.cargas.map((input,i) => <InputCarga name={input.name} value={input.value} i={i} handleRemove={this.handleRemove}/>)*/}
                                             {this.state.cargas.map((input,i)=>
                                                 <Form.Group className="row" key={"fgroup"+i.toString()}>
-                                                    <Form.Label className="col-2 col-form-label h5 text-muted pt-3">Carga {input.name}</Form.Label>
+                                                    <Form.Label className="col-2 col-form-label h5 text-muted pt-3">Carga {i+1}</Form.Label>
                                                     <div className="col-5 input-group">
-                                                        <Form.Control type="text" className="form-control text-center rounded-0 border-0 bg-light" maxLength="2" style={{maxWidth: "100px"}} name={"carga-"+(i).toString()} />
+                                                        <Form.Control type="text" className="form-control text-center rounded-0 border-0 bg-light" maxLength="2" style={{maxWidth: "100px"}} name={"carga-"+(i).toString()} onChange={this.handleCargaInput} value={input == -1 ? "" : input} />
                                                         <div className="input-group-prepend">
                                                             <div className="input-group-text  bg-white border-0">Años</div>
                                                             <div className="input-group-append">

@@ -1,4 +1,5 @@
 module.exports = {
+    GES : 0.69,
     basePrice : {
         red1 : {
             20 : 1.43,

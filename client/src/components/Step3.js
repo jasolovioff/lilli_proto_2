@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 
 class Step3 extends Component{
     render() {
+        const UF = 28674.82;
         if (this.props.currentStep !== 3) {
             return null;
         }

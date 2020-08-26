@@ -54,12 +54,13 @@ class Step4 extends Component{
         if (this.props.currentStep !== 4) {
             return null;
         }
+        var formatter = new Intl.NumberFormat('es-CL', {style: 'currency', currency: 'CLP'});
         const UF = 28674.82;
-        const simulation = new Simulation();
         const age = this.props.upperState.age;
         const red = this.props.upperState.eligered;
         const deductible = this.props.upperState.deducible;
-        const cargas = [];
+        const cargas = this.props.upperState.cargas;
+        const simulation = new Simulation(age, red, deductible, cargas);
         const monthlyPayment = simulation.calculateTotalPrice(age,red, deductible, cargas);
         return (
             <React.Fragment>
@@ -101,7 +102,7 @@ class Step4 extends Component{
                                         <Col xs={12} className="text-col1"><span className="h5">Prima</span></Col>
                                         <Col xs={3}>
                                             <h3 className="font-weight-bold title text-col1 mb-0">UF {monthlyPayment.toFixed(2)}</h3>
-                                            <h4 className="text-black-50">${monthlyPayment.toFixed(2)*UF}</h4>
+                                            <h4 className="text-black-50">{formatter.format(monthlyPayment.toFixed(2)*UF)}</h4>
                                         </Col>
                                         <Col xs={9} className="divisor-right">
                                             <p className="text-muted">
@@ -116,7 +117,7 @@ class Step4 extends Component{
                                     </Row>
                                     <Collapse in={this.state.showDetalleCobro}>
                                         <div id="detallecobro">
-                                            <DetalleCobro />
+                                            <DetalleCobro simulation={simulation} />
                                         </div>
                                     </Collapse>
                                 </div>
@@ -127,7 +128,7 @@ class Step4 extends Component{
                                         </Col>
                                         <Col xs={3}>
                                             <h3 className="font-weight-bold title text-col1 mb-0">UF {this.props.upperState.deducible}</h3>
-                                            <h4 className="text-black-50">${this.props.upperState.deducible*UF} <small>(individual)</small></h4>
+                                            <h4 className="text-black-50">{formatter.format(this.props.upperState.deducible*UF)} <small>(individual)</small></h4>
                                         </Col>
                                         <Col xs={9} className="divisor-right">
                                             <p className="text-muted">
@@ -143,7 +144,7 @@ class Step4 extends Component{
                                         <Col xs={12} className="text-col1"><span className="h5">Tope anual</span></Col>
                                         <Col xs={3}>
                                             <h3 className="font-weight-bold title text-col1 mb-0">UF 200</h3>
-                                            <h4 className="text-black-50">$5.740.000 <small>(individual)</small></h4>
+                                            <h4 className="text-black-50">{formatter.format(200*UF)} <small>(individual)</small></h4>
                                         </Col>
                                         <Col xs={9} className="divisor-right">
                                             <p className="text-muted">
