@@ -10,6 +10,7 @@ class Step1 extends Component {
         if (this.props.currentStep !== 1) {
             return null;
         }
+        console.log(this.state);
         return (
             <React.Fragment>
                 <Container fluid as="section">
@@ -38,8 +39,7 @@ class Step1 extends Component {
 
                                             <Form.Group className="custom-control custom-radio sd-option-list mb-3">
                                                 <Form.Control type="radio" id="currentPayment1" value="bottom" name="currentPayment"
-                                                               className="custom-control-input" onChange={this.props.handleChange}/>
-                                                {/*<Field type="radio" name="currentPayment" id="currentPayment1" component={MyRadio} valor="currentPayment1"/>*/}
+                                                               className="custom-control-input" onChange={this.props.handleChange} checked={this.props.currentPayment === "bottom"}/>
                                                 <Form.Label className="custom-control-label text-col5 font-weight-bold" htmlFor="currentPayment1">
                                                     <small className="row h5 text-secondary font-weight-lighter mt-2 pl-3">
                                                         Pago menos de mi 7% (genero Excedentes)
@@ -49,8 +49,7 @@ class Step1 extends Component {
 
                                             <Form.Group className="custom-control custom-radio sd-option-list mb-3">
                                                 <Form.Control type="radio" id="currentPayment2" value="middle" name="currentPayment"
-                                                               className="custom-control-input" onChange={this.props.handleChange}/>
-                                                {/*<Field type="radio" name="currentPayment" id="currentPayment2" component={MyRadio} valor="currentPayment2"/>*/}
+                                                               className="custom-control-input" onChange={this.props.handleChange} checked={this.props.currentPayment === "middle"}/>
                                                 <Form.Label className="custom-control-label text-col5 font-weight-bold" htmlFor="currentPayment2">
                                                     <small className="row h5 text-secondary font-weight-lighter mt-2 pl-3">
                                                         Pago el cercano a mi 7%
@@ -60,8 +59,7 @@ class Step1 extends Component {
 
                                             <Form.Group className="custom-control custom-radio sd-option-list mb-3">
                                                 <Form.Control type="radio" id="currentPayment3" value="up" name="currentPayment"
-                                                               className="custom-control-input" onChange={this.props.handleChange}/>
-                                                {/*<Field type="radio" name="currentPayment" id="currentPayment3" component={MyRadio} valor="currentPayment3"/>*/}
+                                                               className="custom-control-input" onChange={this.props.handleChange} checked={this.props.currentPayment === "up"}/>
                                                 <Form.Label className="custom-control-label text-col5 font-weight-bold" htmlFor="currentPayment3">
                                                     <small className="row h5 text-secondary font-weight-lighter mt-2 pl-3">
                                                         Pago más de mi 7%
@@ -73,10 +71,8 @@ class Step1 extends Component {
                                     </Form.Group>
 
                                     <Form.Group className="mt-5">
-                                        {/*<Button as="a" href="#" className="bg-col5 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</Button>*/}
-                                        <button className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</button>
-                                        {/*<Button as="a" href="#" className="float-md-right text-col5 text-hv-col5 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</Button>*/}
-                                        <button className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</button>
+                                        <span className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</span>
+                                        <span className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</span>
                                     </Form.Group>
 
                                 </Form.Group>

@@ -91,7 +91,7 @@ class Step2 extends Component {
                                     <div className="label-hv-animate">
                                         <Form.Control type="text" name="age"
                                                        className="form-control rounded-0 text-center control-animate border-0 bg-light"
-                                                       aria-describedby="edad" maxLength="2" onChange={this.props.handleChange}/>
+                                                       aria-describedby="edad" maxLength="2" onChange={this.props.handleChange} value={this.props.age}/>
                                     </div>
                                 </Form.Group>
 

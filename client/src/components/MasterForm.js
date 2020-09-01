@@ -18,7 +18,14 @@ class MasterForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentStep: 0
+            currentStep: 0,
+            currentPaymentChecked: {
+                bottom: false,
+                middle: false,
+                up: false
+            },
+            currentPayment: '',
+            age: ''
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,17 +39,17 @@ class MasterForm extends Component {
             default:
                 return true;
             case 1:
-                if (this.state.currentPayment){
+                if (this.state.currentPayment !== ''){
                     return true;
                 }
                 return false;
             case 2:
-                if (this.state.age){
+                if (this.state.age !== ''){
                     return true;
                 }
                 return false;
             case 3:
-                if (this.state.eligered && this.state.deducible){
+                if (this.state.eligered !== '' && this.state.deducible !== ''){
                     return true;
                 }
                 return false;
@@ -116,8 +123,26 @@ class MasterForm extends Component {
         return null;
     }
 
+    handleCurrentPaymentCheck(option) {
+        this.setState({
+            currentPaymentChecked: {
+                up : false,
+                middle : false,
+                bottom : false
+            }
+        });
+
+        this.setState({
+            currentPaymentChecked : {
+                [option] : true
+            }
+        });
+    }
+
     handleChange(event) {
         const {name, value} = event.target;
+        if(name === 'currentPayment')
+            this.handleCurrentPaymentCheck(value);
         this.setState({
                 [name] : value
         });
@@ -145,6 +170,7 @@ class MasterForm extends Component {
     }
 
     render() {
+        console.log(this.state);
         return(
             <React.Fragment>
                 <header className="container-fluid pt-3" id="top">
@@ -173,6 +199,7 @@ class MasterForm extends Component {
                         handleChange={this.handleChange}
                         nextButton={this.nextButton}
                         previousButton={this.previousButton}
+                        currentPayment={this.state.currentPayment}
                         _next={this._next}
                         _prev={this._prev}
                     />
