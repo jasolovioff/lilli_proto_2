@@ -4,12 +4,9 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
-//import Simulation from "../utils/Simulation";
-import diamond from "../static/images/diamond.svg";
 import DetalleCobro from "./DetalleCobro";
 import Collapse from "react-bootstrap/cjs/Collapse";
 import Simulation from "../utils/Simulation";
-import ComparaConLili from "./ComparaConLili";
 
 class Step4 extends Component{
     state = {}
@@ -50,10 +47,7 @@ class Step4 extends Component{
             showDetalleCobro : !prevState.showDetalleCobro
         }));
     }
-    componentDidMount() {
-        console.log("component did mount");
-        window.scrollTo(0, 0);
-    }
+
     render() {
         if (this.props.currentStep !== 4) {
             return null;
@@ -64,8 +58,6 @@ class Step4 extends Component{
         const red = this.props.upperState.eligered;
         const deductible = this.props.upperState.deducible;
         const cargas = this.props.upperState.cargas;
-        const income = this.props.upperState.income;
-        const currentPayment = this.props.upperState.currentPayment;
         const simulation = new Simulation(age, red, deductible, cargas);
         const monthlyPayment = simulation.calculateTotalPrice(age,red, deductible, cargas);
         return (
@@ -84,9 +76,6 @@ class Step4 extends Component{
 
                                 <span className="h6 text-black-50 m-0">Paso {this.props.currentStep}</span>
                                 <h2 className="title mb-5">Tu resumen</h2>
-
-                                <ComparaConLili monthlyPayment={monthlyPayment} income={income} currentPayment={currentPayment} UF={UF}/>
-
                                 <Form.Group>
                                     <h4 className="font-weight-bold text-col1">Detalle</h4>
                                 </Form.Group>
@@ -103,9 +92,9 @@ class Step4 extends Component{
                                             </p>
                                         </Col>
                                         <Col xs={12} className="text-left">
-                                            <a className="h6 text-right text-col5" data-toggle="collapse" role="button" aria-expanded="false"
+                                            <span className="h6 text-right text-col5" data-toggle="collapse" role="button" aria-expanded="false"
                                                aria-controls="detallecobro" onClick={this.toogleDetalleCobro}>Ver
-                                                detalle</a>
+                                                detalle</span>
                                         </Col>
                                     </Row>
                                     <Collapse in={this.state.showDetalleCobro}>
@@ -211,11 +200,11 @@ class Step4 extends Component{
                                 </div>
 
                                 <div className="form-group mt-5">
-                                    <a className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 mr-1 py-3 px-4 shadow-lg btn-bubble"
-                                       data-toggle="modal" data-target="#siLoQuieroModal" onClick={() => this.handleShowLoQuiero()}>Sí, lo quiero</a>
-                                    <a className="btn border-col1 float-md-right text-col1 text-hv-col1 d-block mx-auto my-2 mr-lg-3 py-3 px-4 btn-bubble"
-                                       data-toggle="modal" data-target="#noLoQuieroModal" onClick={() => this.handleShowNoLoQuiero()}>No me interesa</a>
-                                    <a className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</a>
+                                    <button className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 mr-1 py-3 px-4 shadow-lg btn-bubble"
+                                       data-toggle="modal" data-target="#siLoQuieroModal" onClick={() => this.handleShowLoQuiero()}>Sí, lo quiero</button>
+                                    <button className="btn border-col1 float-md-right text-col1 text-hv-col1 d-block mx-auto my-2 mr-lg-3 py-3 px-4 btn-bubble"
+                                       data-toggle="modal" data-target="#noLoQuieroModal" onClick={() => this.handleShowNoLoQuiero()}>No me interesa</button>
+                                    <button className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</button>
                                 </div>
 
 
@@ -252,9 +241,9 @@ class Step4 extends Component{
                                             </Modal.Body>
 
                                             <Modal.Footer className="modal-footer border-0">
-                                                <a href="#"
+                                                <button href="#"
                                                    className="btn bg-col1 text-white d-block mx-auto my-2 py-2 px-4 btn-bubble"
-                                                   data-dismiss="modal"  onClick={() => this.handleHideLoQuiero()}>Enviar</a>
+                                                   data-dismiss="modal"  onClick={() => this.handleHideLoQuiero()}>Enviar</button>
                                             </Modal.Footer>
                                         </div>
                                     </Modal.Dialog>
@@ -279,9 +268,9 @@ class Step4 extends Component{
                                                 <div className="d-block w-100">
                                                     <h2 className="title text-center m-0">Gracias</h2>
                                                     <Modal.Footer className="modal-footer border-0">
-                                                        <a href="#"
+                                                        <button href="#"
                                                            className="btn bg-col1 text-white d-block mx-auto my-2 py-2 px-4 btn-bubble"
-                                                           data-dismiss="modal" onHide={() => this.handleHideNoLoQuiero()}>Salir</a>
+                                                           data-dismiss="modal" onHide={() => this.handleHideNoLoQuiero()}>Salir</button>
                                                     </Modal.Footer>
                                                 </div>
                                             </Modal.Body>

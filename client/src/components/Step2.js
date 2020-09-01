@@ -1,45 +1,10 @@
-import React, {Component, prevState} from "react";
+import React, {Component} from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
-import {Field, reduxForm} from "redux-form";
-
-class InputCarga extends Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return(
-            <React.Fragment>
-                    <Form.Group className="row">
-                        <Form.Label className="col-2 col-form-label h5 text-muted pt-3">Carga {this.props.name}</Form.Label>
-                        <div className="col-5 input-group">
-                            <Form.Control type="text" className="form-control text-center rounded-0 border-0 bg-light" maxLength="2" placeholder="0" style={{maxWidth: "100px"}} />
-                            <div className="input-group-prepend">
-                                <div className="input-group-text  bg-white border-0">Años</div>
-                                <div className="input-group-append">
-                                    <button className="btn rounded-0 border-0 text-col1" type="button" data-toggle="tooltip" data-placement="top" title="Eliminar carga" onClick={() => this.props.handleRemove(this.props.i)}>
-                                        <i className="ic ic-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </Form.Group>
-            </React.Fragment>
-        )
-    }
-}
-
-class ageControl extends Component {
-    render() {
-        return(
-            <Form.Control type="text" className="form-control rounded-0 text-center control-animate border-0 bg-light" aria-describedby="edad" maxLength="2" placeholder="30"/>
-        )
-    }
-}
+import {reduxForm} from "redux-form";
 
 class Step2 extends Component {
     state = {}
@@ -76,10 +41,10 @@ class Step2 extends Component {
     }
     appendCarga(){
         this.setState(prevState => (
-            {
-                cargas: prevState.cargas.concat(-1),
-                totalCargas: prevState.totalCargas + 1
-            }
+                {
+                    cargas: prevState.cargas.concat(-1),
+                    totalCargas: prevState.totalCargas + 1
+                }
             )
         );
     }
@@ -127,7 +92,6 @@ class Step2 extends Component {
                                         <Form.Control type="text" name="age"
                                                        className="form-control rounded-0 text-center control-animate border-0 bg-light"
                                                        aria-describedby="edad" maxLength="2" onChange={this.props.handleChange}/>
-                                        {/*<Field component={ageControl} name="age" type="text"/>*/}
                                     </div>
                                 </Form.Group>
 
@@ -159,7 +123,7 @@ class Step2 extends Component {
                                                 <Form.Group className="row" key={"fgroup"+i.toString()}>
                                                     <Form.Label className="col-2 col-form-label h5 text-muted pt-3">Carga {i+1}</Form.Label>
                                                     <div className="col-5 input-group">
-                                                        <Form.Control type="text" className="form-control text-center rounded-0 border-0 bg-light" maxLength="2" style={{maxWidth: "100px"}} name={"carga-"+(i).toString()} onChange={this.handleCargaInput} value={input == -1 ? "" : input} />
+                                                        <Form.Control type="text" className="form-control text-center rounded-0 border-0 bg-light" maxLength="2" style={{maxWidth: "100px"}} name={"carga-"+(i).toString()} onChange={this.handleCargaInput} value={input === -1 ? "" : input} />
                                                         <div className="input-group-prepend">
                                                             <div className="input-group-text  bg-white border-0">Años</div>
                                                             <div className="input-group-append">
@@ -206,15 +170,9 @@ class Step2 extends Component {
 
                                 </div>
 
-                                <Form.Group className="mb-5">
-                                    <Form.Label className="text-col1 h4">Indícanos tu renta imponible estimada</Form.Label>
-                                    <div className="label-hv-animate">
-                                        <Form.Control type="text" name="income" className="rounded-0 text-center control-animate border-0 bg-light" aria-describedby="renta imponible" onChange={this.props.handleChange}/></div>
-                                </Form.Group>
-
                                 <div className="form-group mt-5">
-                                    <a className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</a>
-                                    <a className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</a>
+                                    <button className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</button>
+                                    <button className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</button>
                                 </div>
 
                             </Col>

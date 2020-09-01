@@ -1,11 +1,5 @@
 import React, {Component} from "react";
-import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import _ from "lodash";
-import Modal from "react-bootstrap/Modal";
-import planParams from "../utils/planParams";
 import diamond from "../static/images/diamond.svg";
 
 class ComparaConLili extends Component{
@@ -20,13 +14,13 @@ class ComparaConLili extends Component{
 
         let phrase;
 
-        if(payRange == "bottom"){
+        if(payRange === "bottom"){
             if(monthlyPayment < upperBound){
                 phrase = 1;
             } else {
                 phrase = 2;
             }
-        }else if (payRange == "middle"){
+        }else if (payRange === "middle"){
             if(monthlyPayment < lowerBound){
                 phrase = 0;
             } else if (lowerBound <= monthlyPayment && monthlyPayment < upperBound){
@@ -34,7 +28,7 @@ class ComparaConLili extends Component{
             } else {
                 phrase = 2;
             }
-        } else if(payRange == "up"){
+        } else if(payRange === "up"){
             if(monthlyPayment < upperBound){
                 phrase = 0;
             } else {

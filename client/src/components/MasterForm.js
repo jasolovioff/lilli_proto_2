@@ -1,18 +1,16 @@
 import React, {Component} from "react";
-import { reduxForm, Field } from "redux-form";
+import {reduxForm} from "redux-form";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-//import NavbarBrand from "react-bootstrap/NavbarBrand";
 import logoLili from "../static/images/lilichile.png";
 import Step0 from "./Step0";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
-//import Step5 from "./Step5";
 import Simulation from "../utils/Simulation";
 
 class MasterForm extends Component {
@@ -29,13 +27,38 @@ class MasterForm extends Component {
         this._prev = this._prev.bind(this);
     }
 
+    checkFilled() {
+        switch (this.state.currentStep) {
+            default:
+                return true;
+            case 1:
+                if (this.state.currentPayment){
+                    return true;
+                }
+                return false;
+            case 2:
+                if (this.state.age){
+                    return true;
+                }
+                return false;
+            case 3:
+                if (this.state.eligered && this.state.deducible){
+                    return true;
+                }
+                return false;
+        }
+    }
+
     _next() {
         let currentStep = this.state.currentStep
-        currentStep = currentStep >= 4 ? 5 : currentStep + 1;
-        this.setState({
-            currentStep
-        });
-        window.scrollTo(0, 0);
+        if(this.checkFilled()){
+            currentStep = currentStep >= 4 ? 5 : currentStep + 1;
+            this.setState({
+                currentStep
+            });
+            window.scrollTo(0, 0);
+
+        }
     }
     _prev() {
         let currentStep = this.state.currentStep
@@ -111,11 +134,11 @@ class MasterForm extends Component {
     get renderStartButton(){
         if (this.state.currentStep === 0){
             return (
-                <a
+                <button
                    className="float-right btn border-col1 bg-white text-col1 text-hv-col1 pt-2 px-4"
                    onClick={this._next}>
                     Arma tu plan
-                </a>
+                </button>
             )
         }
         return null;

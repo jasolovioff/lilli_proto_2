@@ -1,11 +1,7 @@
 import React, {Component} from "react";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import _ from "lodash";
-import Modal from "react-bootstrap/Modal";
-import planParams from "../utils/planParams";
 
 class DetalleCobro extends Component{
     state = {}

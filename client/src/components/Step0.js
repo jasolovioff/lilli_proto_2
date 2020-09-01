@@ -2,19 +2,10 @@ import React, {Component} from "react";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-//import Carousel from "react-bootstrap/Carousel";
 import LiliCarousel from "./LiliCarousel";
-
 import slider01 from "../static/images/slider01.png";
-//import slider02 from "../static/images/slider02.png";
-//import slider03 from "../static/images/slider03.png";
-//import whatif01 from "../static/images/whatif01.png";
-//import whatif02 from "../static/images/whatif02.png";
 import whatif03 from "../static/images/whatif03.png";
 import whatif04 from "../static/images/whatif04.png";
-import whatif05 from "../static/images/whatif05.png";
-import whatif06 from "../static/images/whatif06.png";
-import whatif07 from "../static/images/whatif07.png";
 import phoneMovile from "../static/images/phone-movile.png";
 import time from "../static/images/time.svg";
 import searchmedical from "../static/images/searchmedical.svg";
@@ -195,9 +186,9 @@ class Step0 extends Component{
                                 <span className="title-bold display-4 text-white m-0 d-block">¡Lo quiero ahora!</span>
                             </Col>
                             <Col md={3} className="align-self-center">
-                                <a className="btn bg-col5 text-white d-block mx-auto h3 float-md-left my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>
+                                <button className="btn bg-col5 text-white d-block mx-auto h3 float-md-left my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>
                                     Arma tu plan
-                                </a>
+                                </button>
                             </Col>
                         </Row>
 

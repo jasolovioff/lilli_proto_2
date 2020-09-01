@@ -6,7 +6,6 @@ import Col from "react-bootstrap/Col";
 
 class Step3 extends Component{
     render() {
-        const UF = 28674.82;
         if (this.props.currentStep !== 3) {
             return null;
         }
@@ -123,8 +122,8 @@ class Step3 extends Component{
                                 <div className="form-group ml-5 mb-3 h6 text-black-50 font-italic">*Valor referencial en pesos.</div>
 
                                 <div className="form-group mt-5">
-                                    <a className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</a>
-                                    <a className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</a>
+                                    <button className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</button>
+                                    <button className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</button>
                                 </div>
 
                             </Col>

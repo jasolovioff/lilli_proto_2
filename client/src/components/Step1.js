@@ -1,19 +1,9 @@
 import React, {Component} from "react";
-import { reduxForm, Field } from "redux-form";
+import {reduxForm} from "redux-form";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import {FormControl} from "react-bootstrap";
-
-class MyRadio extends Component{
-    render() {
-        return (
-            <Form.Control type="radio" name="currentPayment" id={this.props.id} value={this.props.valor}
-                          className="custom-control-input" />
-        )
-    }
-}
 
 class Step1 extends Component {
     render() {
@@ -84,9 +74,9 @@ class Step1 extends Component {
 
                                     <Form.Group className="mt-5">
                                         {/*<Button as="a" href="#" className="bg-col5 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</Button>*/}
-                                        <a className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</a>
+                                        <button className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</button>
                                         {/*<Button as="a" href="#" className="float-md-right text-col5 text-hv-col5 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</Button>*/}
-                                        <a className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</a>
+                                        <button className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</button>
                                     </Form.Group>
 
                                 </Form.Group>
