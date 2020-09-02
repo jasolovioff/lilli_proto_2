@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import logoLili from "../static/images/lilichile.svg";
+import logoLili from "../static/images/lili-chile.svg";
 import Step0 from "./Step0";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
