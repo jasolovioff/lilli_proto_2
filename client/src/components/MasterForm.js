@@ -19,13 +19,9 @@ class MasterForm extends Component {
         super(props);
         this.state = {
             currentStep: 0,
-            currentPaymentChecked: {
-                bottom: false,
-                middle: false,
-                up: false
-            },
             currentPayment: '',
-            age: ''
+            age: '',
+            tengoCargas: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -123,35 +119,22 @@ class MasterForm extends Component {
         return null;
     }
 
-    handleCurrentPaymentCheck(option) {
-        this.setState({
-            currentPaymentChecked: {
-                up : false,
-                middle : false,
-                bottom : false
-            }
-        });
-
-        this.setState({
-            currentPaymentChecked : {
-                [option] : true
-            }
-        });
-    }
-
     handleChange(event) {
-        const {name, value} = event.target;
-        if(name === 'currentPayment')
-            this.handleCurrentPaymentCheck(value);
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
         this.setState({
                 [name] : value
         });
     }
+
     handleCargasChange(cargas) {
         this.setState({
             cargas
         });
     }
+
     handleSubmit(event) {
         event.preventDefault();
     }
@@ -209,6 +192,9 @@ class MasterForm extends Component {
                         nextButton={this.nextButton}
                         previousButton={this.previousButton}
                         handleCargasChange={this.handleCargasChange}
+                        age={this.state.age}
+                        tengoCargas={this.state.tengoCargas}
+                        showSumarCargas={this.state.showSumarCargas}
                         _next={this._next}
                         _prev={this._prev}
                     />

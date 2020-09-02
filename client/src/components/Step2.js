@@ -12,8 +12,8 @@ class Step2 extends Component {
         super(props);
         this.state = {
             showSumarCargas: false,
-            cargas: [],
-            totalCargas: 0
+            cargas: [-1],
+            totalCargas: 1
         }
         this.showSumarCargas = this.showSumarCargas.bind(this);
         this.appendCarga = this.appendCarga.bind(this);
@@ -65,10 +65,21 @@ class Step2 extends Component {
         }));
         this.props.handleCargasChange(list);
     }
+    renderRemoveButton(i){
+        if(this.state.totalCargas > 1){
+            return (
+                <button className="btn rounded-0 border-0 text-col1" type="button" data-toggle="tooltip" data-placement="top" title="Eliminar carga" onClick={() => this.handleRemove(i)}>
+                    <i className="ic ic-trash"></i>
+                </button>
+            )
+        }
+        return null;
+    }
     render() {
         if (this.props.currentStep !== 2) {
             return null;
         }
+        console.log(this.state)
         return (
             <React.Fragment>
                 <Container fluid as="section">
@@ -102,12 +113,14 @@ class Step2 extends Component {
                                             <span className="text-black-50 font-weight-light"> Si las tienes, ingrésalas con sus edades</span>
                                         </Form.Label>
                                         <div className="float-right custom-control custom-switch">
-                                            <Form.Control type="checkbox" className="custom-control-input" id="tengocargas" data-toggle="collapse" data-target="#sumarcargas"
-                                                            onChange={this.showSumarCargas} aria-controls="example-collapse-text" aria-expanded={this.state.showSumarCargas} />
-                                                <label className="custom-control-label" htmlFor="tengocargas"></label>
+                                            <Form.Control type="checkbox" className="custom-control-input" id="tengocargas"
+                                                          data-toggle="collapse" data-target="#sumarcargas" name="tengoCargas"
+                                                          onChange={this.props.handleChange} aria-controls="example-collapse-text"
+                                                          aria-expanded={this.props.tengoCargas} checked={this.props.tengoCargas} />
+                                            <label className="custom-control-label" htmlFor="tengocargas"></label>
                                         </div>
                                     </Form.Group>
-                                    <Collapse in={this.state.showSumarCargas}>
+                                    <Collapse in={this.props.tengoCargas}>
                                         <div id="example-collapse-text">
                                             <Form.Group className="row">
                                                 <Col xs={12}>
@@ -123,13 +136,14 @@ class Step2 extends Component {
                                                 <Form.Group className="row" key={"fgroup"+i.toString()}>
                                                     <Form.Label className="col-2 col-form-label h5 text-muted pt-3">Carga {i+1}</Form.Label>
                                                     <div className="col-5 input-group">
-                                                        <Form.Control type="text" className="form-control text-center rounded-0 border-0 bg-light" maxLength="2" style={{maxWidth: "100px"}} name={"carga-"+(i).toString()} onChange={this.handleCargaInput} value={input === -1 ? "" : input} />
+                                                        <Form.Control type="text" className="form-control text-center rounded-0 border-0 bg-light"
+                                                                      maxLength="2" style={{maxWidth: "100px"}} name={"carga-"+(i).toString()}
+                                                                      onChange={this.handleCargaInput}
+                                                                      value={input === -1 ? "" : input} />
                                                         <div className="input-group-prepend">
                                                             <div className="input-group-text  bg-white border-0">Años</div>
                                                             <div className="input-group-append">
-                                                                <button className="btn rounded-0 border-0 text-col1" type="button" data-toggle="tooltip" data-placement="top" title="Eliminar carga" onClick={() => this.handleRemove(i)}>
-                                                                    <i className="ic ic-trash"></i>
-                                                                </button>
+                                                                {this.renderRemoveButton(i)}
                                                             </div>
                                                         </div>
                                                     </div>
