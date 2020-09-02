@@ -16,7 +16,7 @@ class Step1 extends Component {
                 <Container fluid as="section">
                     <Container>
                         <Row className="justify-content-md-center">
-                            <Col xs={12} lg={6} className="rounded shadow-lg bg-white overflow-hidden p-4 mb-5">
+                            <Col xs={12} lg={7} className="rounded shadow-lg bg-white overflow-hidden p-4 mb-5">
 
                                 <Row className="progress position-relative"
                                      style={{height: "6px", top: "-25px", margin: "0 -26px"}}>
@@ -30,39 +30,52 @@ class Step1 extends Component {
 
 
                                 <Form.Group className="mb-0">
-                                    <Form.Label className="text-col1 h4 mb-0">
-                                        Para tener una referencia,<br/>¿cuánto pagas hoy por tu plan de Salud?
-                                    </Form.Label>
+                                    <h5 className="text-black-50 mb-0">Para tener una referencia</h5>
+                                    <h4 className="">¿Cuánto pagas hoy por tu plan de Salud?</h4>
 
                                     <Form.Group className="mb-5 pb-3">
                                         <Form.Group className="mb-3">
 
-                                            <Form.Group className="custom-control custom-radio sd-option-list mb-3">
+                                            <Form.Group className="custom-control custom-radio sd-option-list mb-4">
                                                 <Form.Control type="radio" id="currentPayment1" value="bottom" name="currentPayment"
                                                                className="custom-control-input" onChange={this.props.handleChange} checked={this.props.currentPayment === "bottom"}/>
-                                                <Form.Label className="custom-control-label text-col5 font-weight-bold" htmlFor="currentPayment1">
-                                                    <small className="row h5 text-secondary font-weight-lighter mt-2 pl-3">
-                                                        Pago menos de mi 7% (genero Excedentes)
+                                                <Form.Label className="custom-control-label text-col1 h4" htmlFor="currentPayment1">
+                                                    Menos de UF 2
+                                                    <small className="row text-black-50 font-weight-lighter pl-3">
+                                                        $57.350
                                                     </small>
                                                 </Form.Label>
                                             </Form.Group>
 
-                                            <Form.Group className="custom-control custom-radio sd-option-list mb-3">
+                                            <Form.Group className="custom-control custom-radio sd-option-list mb-4">
                                                 <Form.Control type="radio" id="currentPayment2" value="middle" name="currentPayment"
                                                                className="custom-control-input" onChange={this.props.handleChange} checked={this.props.currentPayment === "middle"}/>
-                                                <Form.Label className="custom-control-label text-col5 font-weight-bold" htmlFor="currentPayment2">
-                                                    <small className="row h5 text-secondary font-weight-lighter mt-2 pl-3">
-                                                        Pago el cercano a mi 7%
+                                                <Form.Label className="custom-control-label text-col1 h4" htmlFor="currentPayment2">
+                                                    Entre UF 2 y 3
+                                                    <small className="row text-black-50 font-weight-lighter pl-3">
+                                                        $57.350 a $86.030
                                                     </small>
                                                 </Form.Label>
                                             </Form.Group>
 
-                                            <Form.Group className="custom-control custom-radio sd-option-list mb-3">
+                                            <Form.Group className="custom-control custom-radio sd-option-list mb-4">
                                                 <Form.Control type="radio" id="currentPayment3" value="up" name="currentPayment"
                                                                className="custom-control-input" onChange={this.props.handleChange} checked={this.props.currentPayment === "up"}/>
-                                                <Form.Label className="custom-control-label text-col5 font-weight-bold" htmlFor="currentPayment3">
-                                                    <small className="row h5 text-secondary font-weight-lighter mt-2 pl-3">
-                                                        Pago más de mi 7%
+                                                <Form.Label className="custom-control-label text-col1 h4" htmlFor="currentPayment3">
+                                                    Entre UF 3 a 4
+                                                    <small className="row text-black-50 font-weight-lighter pl-3">
+                                                        $86.030 a $114.700
+                                                    </small>
+                                                </Form.Label>
+                                            </Form.Group>
+
+                                            <Form.Group className="custom-control custom-radio sd-option-list mb-4">
+                                                <Form.Control type="radio" id="currentPayment4" value="other" name="currentPayment"
+                                                              className="custom-control-input" onChange={this.props.handleChange} checked={this.props.currentPayment === "other"}/>
+                                                <Form.Label className="custom-control-label text-col1 h4" htmlFor="currentPayment4">
+                                                    Más de UF 4
+                                                    <small className="row text-black-50 font-weight-lighter pl-3">
+                                                        $114.700
                                                     </small>
                                                 </Form.Label>
                                             </Form.Group>
