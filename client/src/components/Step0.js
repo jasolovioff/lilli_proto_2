@@ -55,7 +55,7 @@ class Step0 extends Component{
                     </div>
 
 
-                    <Container id="explora">
+                    <Container id="explora" className="px-0 px-mb-1">
 
                         <Row className="pt-4">
                             <Col className="col-12">
@@ -93,7 +93,11 @@ class Step0 extends Component{
                     <Container>
                         <Row className="py-5 my-4">
                             <Col xs={12} md={{span:6, order:2}} xl={5}>
-                                <img src={whatif04} className="d-block w-100" alt="Precios y coberturas a tu medida"/>
+                                {/*<img src={whatif04} className="d-block w-100" alt="Precios y coberturas a tu medida"/>*/}
+                                <iframe className="rounded shadow-lg playvideo"
+                                        src="https://www.youtube.com/embed/FMeSWrwVxok" frameBorder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen></iframe>
                             </Col>
                             <Col xs={12} md={{span:6, order:1}} xl={7} className="text-center text-md-left align-self-center">
                                 <h2 className="title wave2"><span className="title-bold text-col1">Precios y coberturas</span><br/> a tu medida</h2>

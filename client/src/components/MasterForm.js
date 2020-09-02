@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import logoLili from "../static/images/lilichile.png";
+import logoLili from "../static/images/lilichile.svg";
 import Step0 from "./Step0";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
@@ -161,7 +161,7 @@ class MasterForm extends Component {
                         <Row>
                             <Col xs={6}>
                                 <a className="navbar-brand" href="/">
-                                    <img src={logoLili} alt="Logo Lili"/>
+                                    <img src={logoLili} alt="Logo Lili" className="h-40px"/>
                                 </a>
                             </Col>
                             <div className="col-6">
