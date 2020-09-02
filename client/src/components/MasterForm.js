@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import qs from "qs";
 import logoLili from "../static/images/lili-chile.svg";
 import Step0 from "./Step0";
 import Step1 from "./Step1";
@@ -17,11 +18,13 @@ class MasterForm extends Component {
     state = {};
     constructor(props) {
         super(props);
+        const owid = qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).owid
         this.state = {
             currentStep: 0,
             currentPayment: '',
             age: '',
-            tengoCargas: false
+            tengoCargas: false,
+            owid: owid
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -153,6 +156,7 @@ class MasterForm extends Component {
     }
 
     render() {
+        //console.log(qs.parse(this.props.location.search, {ignoreQueryPrefix: true}));
         console.log(this.state);
         return(
             <React.Fragment>
@@ -216,6 +220,7 @@ class MasterForm extends Component {
                         _prev={this._prev}
                         handleSubmitSimulation={this.handleSubmitSimulation}
                         upperState={this.state}
+                        owid={this.state.owid}
                     />
                 </Form>
             </React.Fragment>

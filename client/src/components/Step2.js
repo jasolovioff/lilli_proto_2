@@ -79,7 +79,6 @@ class Step2 extends Component {
         if (this.props.currentStep !== 2) {
             return null;
         }
-        console.log(this.state)
         return (
             <React.Fragment>
                 <Container fluid as="section">
@@ -129,7 +128,7 @@ class Step2 extends Component {
                                                     <a className="float-right btn text-col1 text-hv-col1 h6 pr-0"
                                                        data-toggle="collapse" href="#carga2" role="button"
                                                        aria-expanded="false" aria-controls="collapseExample" onClick={this.appendCarga}>
-                                                        <i class="ic ic-user"></i> Incluir cargas
+                                                        <i className="ic ic-user"></i> Incluir cargas
                                                     </a>
                                                 </Col>
                                             </Form.Group>

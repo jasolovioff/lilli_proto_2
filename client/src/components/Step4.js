@@ -9,7 +9,8 @@ import Collapse from "react-bootstrap/cjs/Collapse";
 import Simulation from "../utils/Simulation";
 
 class Step4 extends Component{
-    state = {}
+    state = {};
+    owid = "testOWID";
     constructor(props) {
         super(props);
         this.state = {
@@ -200,83 +201,9 @@ class Step4 extends Component{
                                 </div>
 
                                 <div className="form-group mt-5">
-                                    <button className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 mr-1 py-3 px-4 shadow-lg btn-bubble"
-                                       data-toggle="modal" data-target="#siLoQuieroModal" onClick={() => this.handleShowLoQuiero()}>Sí, lo quiero</button>
-                                    <button className="btn border-col1 float-md-right text-col1 text-hv-col1 d-block mx-auto my-2 mr-lg-3 py-3 px-4 btn-bubble"
-                                       data-toggle="modal" data-target="#noLoQuieroModal" onClick={() => this.handleShowNoLoQuiero()}>No me interesa</button>
+                                    <a href={"http://google.com?owid=" + this.props.owid} className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Continuar</a>
                                     <button className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</button>
                                 </div>
-
-
-                                {/*!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-                                Modal - Lo quiero
-                                    ************************************************************** --*/}
-                                   
-                                <Modal className="fade" id="siLoQuieroModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" show={this.state.showModalLoQuiero} onHide={() => this.handleHideLoQuiero()}>
-                                    <Modal.Dialog className="modal-dialog">
-                                        <div className="modal-content">
-                                            <Modal.Header className="modal-header border-0">
-                                                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => this.handleHideLoQuiero()}>
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </Modal.Header>
-                                            <Modal.Body className="modal-body">
-
-                                                <div className="d-block w-100">
-                                                    <h2 className="title text-center ">¡Listo!</h2>
-                                                    <h5 className="text-center text-secondary">Por favor, ingresa tu email para continuar con el proceso.</h5>
-                                                </div>
-
-                                                <div className="px-4 mt-5">
-                                                    <div className="d-block w-100 my-5">
-                                                        <div className="label-hv-animate col-8 mx-auto p-0">
-                                                            <Form.Control type="email"
-                                                                   className="form-control rounded-0 text-center w-100 border-0 bg-light"
-                                                                   aria-describedby="mail"
-                                                                   placeholder="(Ejm.) minombre@ejemplo.com"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </Modal.Body>
-
-                                            <Modal.Footer className="modal-footer border-0">
-                                                <button href="#"
-                                                   className="btn bg-col1 text-white d-block mx-auto my-2 py-2 px-4 btn-bubble"
-                                                   data-dismiss="modal"  onClick={() => this.handleHideLoQuiero()}>Enviar</button>
-                                            </Modal.Footer>
-                                        </div>
-                                    </Modal.Dialog>
-                                </Modal>
-
-
-                                {/*!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-                                Modal - No me interesa
-                                    ************************************************************** --*/}
-                                <Modal className="fade" id="noLoQuieroModal" tabIndex="-1" aria-hidden="true" show={this.state.showModalNoLoQuiero}  onHide={() => this.handleHideNoLoQuiero()}>
-                                    <Modal.Dialog>
-                                        <div className="modal-content">
-
-                                            <Modal.Header className="border-0">
-                                                <button type="button" className="close" data-dismiss="modal"
-                                                        aria-label="Close" onClick={() => this.handleHideNoLoQuiero()}>
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </Modal.Header>
-                                            <Modal.Body>
-
-                                                <div className="d-block w-100">
-                                                    <h2 className="title text-center m-0">Gracias</h2>
-                                                    <Modal.Footer className="modal-footer border-0">
-                                                        <button href="#"
-                                                           className="btn bg-col1 text-white d-block mx-auto my-2 py-2 px-4 btn-bubble"
-                                                           data-dismiss="modal" onHide={() => this.handleHideNoLoQuiero()}>Salir</button>
-                                                    </Modal.Footer>
-                                                </div>
-                                            </Modal.Body>
-                                        </div>
-                                    </Modal.Dialog>
-                                </Modal>
 
                             </Col>
                         </Row>

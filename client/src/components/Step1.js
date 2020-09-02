@@ -10,7 +10,6 @@ class Step1 extends Component {
         if (this.props.currentStep !== 1) {
             return null;
         }
-        console.log(this.state);
         return (
             <React.Fragment>
                 <Container fluid as="section">
