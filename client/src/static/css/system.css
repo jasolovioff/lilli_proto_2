@@ -270,6 +270,12 @@ input { height: 55px!important; }
 
 
 /*****************************/
+/* checkbox Boostrap */
+/*****************************/
+.input-control-checkbox { z-index: 2; }
+.label-control-checkbox::before {height: 1.15rem!important;}
+
+/*****************************/
 /* Forma SVG */
 /*****************************/
 .shape-before {
@@ -345,12 +351,12 @@ input { height: 55px!important; }
 .nav-tabs .active:before  {
      content: '';
      position: absolute;
-     top: 40px;
+     bottom: -17px;
      width: 0;
       height: 0;
-      border-left:  15px solid transparent;
-      border-right: 15px solid transparent;
-      border-top:   15px solid #FFF;
+      border-left:  20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top:   20px solid #FFF;
 }
 
 
