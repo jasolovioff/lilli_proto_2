@@ -19,6 +19,16 @@ class Step2 extends Component {
         this.appendCarga = this.appendCarga.bind(this);
         this.handleCargaInput = this.handleCargaInput.bind(this);
     }
+
+    resetCargasCount(){
+        console.log("reseting...")
+        if (this.props.tengoCargas){
+            this.props.handleCargasChange([]);
+        } else {
+            this.props.handleCargasChange([-1]);
+        }
+    }
+
     showSumarCargas(){
         let showSumarCargas;
         let totalCargas;
@@ -48,25 +58,29 @@ class Step2 extends Component {
             )
         );
     }
+
     handleCargaInput(event){
-        const list = [...this.state.cargas];
+        const list = [...this.props.cargas];
         list[event.target.name.substr(-1)] = parseInt(event.target.value);
         this.setState({
             cargas: list
         });
         this.props.handleCargasChange(list);
     }
+
     handleRemove(i){
-        const list =[...this.state.cargas];
+        const list =[...this.props.cargas];
         list.splice(parseInt(i),1);
         this.setState(prevState => ({
             cargas: list,
             totalCargas: prevState.totalCargas - 1
         }));
+        console.log(list);
         this.props.handleCargasChange(list);
     }
+
     renderRemoveButton(i){
-        if(this.state.totalCargas > 1){
+        if(this.props.cargas.length > 1){
             return (
                 <button className="btn rounded-0 border-0 text-col1" type="button" data-toggle="tooltip" data-placement="top" title="Eliminar carga" onClick={() => this.handleRemove(i)}>
                     <i className="ic ic-trash"></i>
@@ -112,7 +126,7 @@ class Step2 extends Component {
                                             <div className="float-right custom-control custom-switch">
                                                 <Form.Control type="checkbox" className="custom-control-input" id="tengocargas"
                                                               data-toggle="collapse" data-target="#sumarcargas" name="tengoCargas"
-                                                              onChange={this.props.handleChange} aria-controls="example-collapse-text"
+                                                              onChange={(event) => {this.props.handleChange(event); this.resetCargasCount()}} aria-controls="example-collapse-text"
                                                               aria-expanded={this.props.tengoCargas} checked={this.props.tengoCargas} />
                                                 <label className="custom-control-label" htmlFor="tengocargas"></label>
                                             </div>
@@ -127,13 +141,13 @@ class Step2 extends Component {
                                                 <Col xs={12}>
                                                     <a className="float-right btn text-col1 text-hv-col1 h6 pr-0"
                                                        data-toggle="collapse" href="#carga2" role="button"
-                                                       aria-expanded="false" aria-controls="collapseExample" onClick={this.appendCarga}>
+                                                       aria-expanded="false" aria-controls="collapseExample" onClick={this.props.appendCarga}>
                                                         <i className="ic ic-user"></i> Incluir cargas
                                                     </a>
                                                 </Col>
                                             </Form.Group>
 
-                                            {this.state.cargas.map((input,i)=>
+                                            {this.props.cargas.map((input,i)=>
                                                 <Form.Group className="row justify-content-center" key={"fgroup"+i.toString()}>
                                                     <Form.Label className="col-4 col-md-2 col-form-label h5 text-muted text-right pt-3">Carga {i+1}</Form.Label>
                                                     <div className="col-6 col-md-5 input-group">
@@ -159,8 +173,8 @@ class Step2 extends Component {
                                     </Collapse>
 
                                 <div className="form-group mt-5">
-                                    <button className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</button>
-                                    <button className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</button>
+                                    <span className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</span>
+                                    <span className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</span>
                                 </div>
 
                             </Col>
