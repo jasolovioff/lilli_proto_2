@@ -4,7 +4,10 @@ class Simulation {
     GES = planParams.GES;
     planDetail = {cotizante: {}, cargas: []};
 
-    constructor(age, red, deductible, cargas) {
+    constructor() {
+    }
+
+    calculatePlanDetail(age, red, deductible, cargas) {
 
         if (typeof (age) == 'undefined'){
             this.age = 10;
@@ -49,9 +52,11 @@ class Simulation {
                 });
         }
     }
+
     getPlanDetail(){
         return this.planDetail;
     }
+
     getAgeRange(age){
         const ranges = planParams.factors.ranges;
         for (let range in ranges){
@@ -70,9 +75,9 @@ class Simulation {
         return price;
     }
     calculateTotalPrice(age, red, deductible, cargas){
-        let totalPrice = this.calculatePrice("cotizante", this.age, this.red, this.deductible);
-        for(let key in this.cargas){
-            totalPrice += this.calculatePrice("carga", this.cargas[key], this.red, this.deductible);
+        let totalPrice = this.calculatePrice("cotizante", age, red, deductible);
+        for(let key in cargas){
+            totalPrice += this.calculatePrice("carga", cargas[key], red, deductible);
         }
         return totalPrice;
     }

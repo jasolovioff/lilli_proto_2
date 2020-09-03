@@ -16,6 +16,7 @@ import Simulation from "../utils/Simulation";
 
 class MasterForm extends Component {
     state = {};
+    UF = 28674.82;
     constructor(props) {
         super(props);
         const owid = qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).owid
@@ -207,6 +208,8 @@ class MasterForm extends Component {
                         handleChange={this.handleChange}
                         nextButton={this.nextButton}
                         previousButton={this.previousButton}
+                        age={this.state.age}
+                        UF={this.UF}
                         _next={this._next}
                         _prev={this._prev}
                     />
