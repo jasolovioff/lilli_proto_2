@@ -4,12 +4,43 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import redes from "../utils/redes";
+import Simulation from "../utils/Simulation";
 
 class Step3 extends Component{
+    simulation = new Simulation();
+    premiums = [...redes];
+    constructor(props) {
+        super(props);
+    }
+    calculatePremium() {
+
+        redes.forEach((red,i)=>{
+            const uf10 = this.simulation.calculateTotalPrice(this.props.age, red.tag, 10, []);
+            const uf15 = this.simulation.calculateTotalPrice(this.props.age, red.tag, 15, []);
+            const uf20 = this.simulation.calculateTotalPrice(this.props.age, red.tag, 20, []);
+            this.premiums[i].premiums = {
+                10: {
+                    uf: uf10,
+                    clp: uf10*this.props.UF
+                },
+                15: {
+                    uf: uf15,
+                    clp: uf15*this.props.UF
+                },
+                20: {
+                    uf: uf20,
+                    clp: uf20*this.props.UF
+                }
+            }
+        });
+        console.log(this.premiums);
+    }
     render() {
         if (this.props.currentStep !== 3) {
             return null;
         }
+        let formatter = new Intl.NumberFormat('es-CL', {style: 'currency', currency: 'CLP'});
+        this.calculatePremium();
         return (
             <React.Fragment>
                 <Container as="section" fluid>
@@ -43,14 +74,14 @@ class Step3 extends Component{
                                         <Col xs={3} className="text-center text-col1 h6">Deducible UF 20</Col>
                                     </Row>
 
-                                    {redes.map((input, i)=>
-                                        <Row className="line-redydedusible">
+                                    {this.premiums.map((input, i)=>
+                                        <Row className="line-redydedusible" key={input.tag}>
                                             <Col xs={3} className="position-relative">
                                                 <span className="red-title h3 text-col1">{input.name}</span>
                                                 <ul className="d-block text-black-50 font-weight-lighter h6 list-red"
                                                     style={{left: "30px", height: "auto"}}>
                                                     {input.clinics.map((clinica, j)=>
-                                                        <li>{clinica}</li>
+                                                        <li key={j}>{clinica}</li>
                                                     )}
                                                 </ul>
                                             </Col>
@@ -59,8 +90,8 @@ class Step3 extends Component{
                                                         aria-pressed="false" data-original-title="">
                                                 <Form.Control type="radio" name="options" value="1" />
                                                 <div className="position-absolute center-absolute">
-                                                    <span className="font-weight-bold h4">UF 1,61</span>
-                                                    <small className="d-block text-black-50 font-weight-lighter">$46.172</small>
+                                                    <span className="font-weight-bold h4">UF {input.premiums["10"].uf.toFixed(2)}</span>
+                                                    <small className="d-block text-black-50 font-weight-lighter">{formatter.format(input.premiums["10"].clp.toFixed(2))}</small>
                                                 </div>
                                             </Form.Label>
                                             <Form.Label className="btn col-3 btn-secondary" role="button"
@@ -68,8 +99,8 @@ class Step3 extends Component{
                                                         aria-pressed="false" data-original-title="">
                                                 <Form.Control type="radio" name="options" value="2" />
                                                 <div className="position-absolute center-absolute">
-                                                    <span className="font-weight-bold h4">UF 1,52</span>
-                                                    <small className="d-block text-black-50 font-weight-lighter">$43.591</small>
+                                                    <span className="font-weight-bold h4">UF {input.premiums["15"].uf.toFixed(2)}</span>
+                                                    <small className="d-block text-black-50 font-weight-lighter">{formatter.format(input.premiums["15"].clp.toFixed(2))}</small>
                                                 </div>
                                             </Form.Label>
                                             <Form.Label className="btn col-3 btn-secondary" role="button"
@@ -77,14 +108,13 @@ class Step3 extends Component{
                                                         aria-pressed="false" data-original-title="">
                                                 <Form.Control type="radio" name="options" value="3" />
                                                 <div className="position-absolute center-absolute">
-                                                    <span className="font-weight-bold h4">UF 1,43</span>
+                                                    <span className="font-weight-bold h4">UF {input.premiums["20"].uf.toFixed(2)}</span>
                                                     <small
-                                                        className="d-block text-black-50 font-weight-lighter">$41.010</small>
+                                                        className="d-block text-black-50 font-weight-lighter">{formatter.format(input.premiums["20"].clp.toFixed(2))}</small>
                                                 </div>
                                             </Form.Label>
                                         </Row>
                                     )}
-
                                 </div>
 
 
