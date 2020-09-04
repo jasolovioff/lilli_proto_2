@@ -102,7 +102,7 @@ class Step0 extends Component{
                                 <span className="h4 text-secondary">
                                     <b>Lili es más conveniente porque usa deducible. Mientras más alto sea, más bajo será el valor mensual del plan. ¡Tú eliges!</b>
                                       <br/><br/>
-                                      El deducible es monto de copago acumulado que tienes que pagar en el año, antes de que se activen las coberturas adicionales.
+                                      El deducible es el monto que tienes que pagar en el año, antes de que se activen las coberturas adicionales.
                                       <br/><br/>
                                       Tu financias tus gastos médicos (después de la cobertura mínima legal) hasta completar el deducible; después, nosotros nos hacemos cargo de hasta el 100%, según donde te atiendas y si fuiste derivado por tu médico de cabecera.
                                      </span>
@@ -144,23 +144,19 @@ class Step0 extends Component{
                                     <li className="media">
                                         <img src={time} className="mh-buleticon  mr-3" alt="..."/>
                                             <div className="media-body text-secondary">
-                                                Lili es simple, todos los trámites se realizan en pocos pasos y usando
-                                                nuestra plataforma. Nunca tendrás que ir a una sucursal.
+                                                Lili es simple, todos los trámites se realizan en pocos pasos y usando nuestra plataforma. Nunca tendrás que ir a una sucursal.
                                             </div>
                                     </li>
                                     <li className="media my-4">
                                         <img src={searchmedical} className="mh-buleticon mr-3" alt="..."/>
                                             <div className="media-body text-secondary">
-                                                Lili es claro, nuestro plan está diseñado para que lo entiendas y sepas
-                                                como usarlo. Sin letra chica.
+                                                Lili es claro, nuestro plan está diseñado para que lo entiendas y sepas como usarlo. Sin letra chica.
                                             </div>
                                     </li>
                                     <li className="media">
                                         <img src={secure} className="mh-buleticon mr-3" alt="..."/>
                                             <div className="media-body text-secondary">
-                                                Al igual que tú, queremos que estés sano y no gastes de más en lograrlo.
-                                                Lili es claro, escucha a tu médico de cabecera y usa tu Red cuando la
-                                                necesites.
+                                                Al igual que tú, queremos que estés sano y no gastes de más en lograrlo. Lili es claro, escucha a tu médico de cabecera y usa tu Red cuando la necesites.
                                             </div>
                                     </li>
                                 </ul>
