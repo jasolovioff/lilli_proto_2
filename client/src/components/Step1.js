@@ -38,7 +38,7 @@ class Step1 extends Component {
                                             <InputGroup.Prepend>
                                                 <InputGroup.Text className="bg-white border-0">$</InputGroup.Text>
                                             </InputGroup.Prepend>
-                                            <Form.Control name="currentPayment" type="text" className="text-center bg-light rounded" onChange={this.props.handleChange} value={this.props.currentPayment}/>
+                                            <Form.Control name="currentPayment" type="number" className="text-center bg-light rounded" onChange={this.props.handleChange} value={this.props.currentPayment}/>
                                         </InputGroup>
                                     </Col>
                                 </Form.Group>
