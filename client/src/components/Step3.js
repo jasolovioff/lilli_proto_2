@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import redes from "../utils/redes";
 import Simulation from "../utils/Simulation";
+import heart from "../static/images/heart.svg";
 
 class Step3 extends Component{
     simulation = new Simulation();
@@ -57,13 +58,35 @@ class Step3 extends Component{
                                 <span className="h6 text-black-50 m-0">Paso 3</span>
                                 <h2 className="title mb-5">Elige tus preferencias </h2>
 
-                                <div className="form-group">
+                                <Form.Group>
                                     <h5 className="text-black-50">
                                         A continuación, te invitamos a elegir tus preferencias haciendo click en la
                                         combinación de tu interés en la siguiente tabla.
                                     </h5>
-                                </div>
+                                </Form.Group>
 
+                                <Form.Group>
+                                    <Row className="alert" role="alert">
+                                        <Col xs={3} xl={2} className="align-self-sm-center">
+                                            <img src={heart} className="mx-auto d-block w-50px"
+                                                 alt="Atención Red y Deducible"/>
+                                        </Col>
+                                        <ul className="col-9 col-xl-10 mb-0 list-red h6 text-black-50">
+                                            <li>
+                                                <span className="text-col1 font-weight-bold">Red:</span><br/>
+                                                Grupo de clínicas en donde se activarán las coberturas de tu plan.
+                                            </li>
+
+                                            <li className="mb-0">
+                                                <span className="text-col1 font-weight-bold">Deducible:</span><br/>
+                                                Es el monto de copago acumulado que tienes que pagar por persona en el
+                                                año antes de que se activen las coberturas. Eso significa que tú
+                                                financias todo hasta completarlo, y después de eso, Lili se encarga.
+                                                Mientras más alto sea el deducible, más bajo será tu pago mensual.
+                                            </li>
+                                        </ul>
+                                    </Row>
+                                </Form.Group>
 
                                 <div className="d-block px-3 btn-group-toggle">
                                     <Row className="row line-redydedusible-head">
