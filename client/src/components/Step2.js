@@ -115,7 +115,7 @@ class Step2 extends Component {
                                     <div className="col-3">
                                         <Form.Control type="text" name="age"
                                                        className="rounded text-center control-animate border bg-light"
-                                                       aria-describedby="edad" maxLength="2" onChange={this.props.handleChange} value={this.props.age}/>
+                                                       aria-describedby="edad" maxLength="3" onChange={this.props.handleChange} value={this.props.age}/>
                                     </div>
                                 </Form.Group>
 
