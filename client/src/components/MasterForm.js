@@ -78,14 +78,6 @@ class MasterForm extends Component {
         window.scrollTo(0, 0);
     }
 
-    goToStep(step) {
-        step = step < 0 ? 0 : step;
-        step = step >= 4 ? 4 : step;
-        this.setState({
-            currentStep: step
-        });
-    }
-
     get previousButton() {
         let currentStep = this.state.currentStep;
         if(currentStep !== 0){
@@ -242,6 +234,7 @@ class MasterForm extends Component {
                         nextButton={this.nextButton}
                         handleSubmit={this.handleSubmit}
                         previousButton={this.previousButton}
+                        UF={this.UF}
                         _prev={this._prev}
                         handleSubmitSimulation={this.handleSubmitSimulation}
                         upperState={this.state}

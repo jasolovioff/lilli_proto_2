@@ -32,9 +32,9 @@ class DetalleCobro extends Component{
 
     render() {
         return(
-            <div>
-                <Row className="bg-light">
-                    <Row className="b-block w-100 pt-3 px-3 h6">
+            <Row className="bg-light  overflow-hidden">
+                <div className="b-block w-100 pt-3 px-sm-3 h6 ">
+                    <Row className="border-bottom py-1 px-2">
                         <Col xs={5} className="font-weight-bold text-left text-muted"></Col>
                         <Col xs={1} className="font-weight-bold text-left text-muted">Precio Base</Col>
                         <Col xs={1} className="text-right text-muted"></Col>
@@ -55,9 +55,9 @@ class DetalleCobro extends Component{
                         <Col xs={1} className="text-center text-muted">{this.state.planDetails.cotizante.finalPrice.toFixed(2)}</Col>
                     </Row>
                     {this.cargasDetail()}
-                    <Row className="pt-3">
-                        <Col xs={12} className="text-right font-weight-bold px-0">
-                            Total: 6,87
+                    <Row className="justify-content-end pt-3">
+                        <Col xs={12} className="text-md-right font-weight-bold pr-2">
+                            Total: {this.props.totalPrice.toFixed(2)}
                         </Col>
                     </Row>
                     <Row className="py-3">
@@ -67,8 +67,8 @@ class DetalleCobro extends Component{
                             </h5>
                         </Col>
                     </Row>
-                </Row>
-            </div>
+                </div>
+            </Row>
         )
     }
 }
