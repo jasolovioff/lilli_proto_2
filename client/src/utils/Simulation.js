@@ -47,7 +47,7 @@ class Simulation {
                 this.planDetail.cargas.push({
                     age: cargas[key],
                     basePrice : planParams.basePrice[this.red][this.deductible],
-                    ageFactor : planParams.factors.cotizante[this.getAgeRange(cargas[key])],
+                    ageFactor : planParams.factors.carga[this.getAgeRange(cargas[key])],
                     finalPrice : this.calculatePrice("carga", cargas[key], this.red, this.deductible)
                 });
         }
