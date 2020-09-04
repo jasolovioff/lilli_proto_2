@@ -5,6 +5,7 @@ import _ from "lodash";
 
 class DetalleCobro extends Component{
     state = {}
+    floatFormat = new Intl.NumberFormat('es-CL');
     constructor(props) {
         super(props);
         this.state = {
@@ -17,13 +18,13 @@ class DetalleCobro extends Component{
                 return (
                     <Row className="border-bottom py-1 px-2" key={"carga"+carga.age}>
                         <Col xs={5} className="text-left text-muted">Carga {carga.age} Años</Col>
-                        <Col xs={1} className="text-center text-muted">{carga.basePrice}</Col>
+                        <Col xs={1} className="text-center text-muted">{this.floatFormat.format(carga.basePrice)}</Col>
                         <Col xs={1} className="text-center text-muted">X</Col>
-                        <Col xs={1} className="text-center text-muted">{carga.ageFactor}</Col>
+                        <Col xs={1} className="text-center text-muted">{this.floatFormat.format(carga.ageFactor)}</Col>
                         <Col xs={1} className="text-center text-muted">+</Col>
-                        <Col xs={1} className="text-center text-muted">{this.state.planDetails.GES}</Col>
+                        <Col xs={1} className="text-center text-muted">{this.floatFormat.format(this.state.planDetails.GES)}</Col>
                         <Col xs={1} className="text-center text-muted">=</Col>
-                        <Col xs={1} className="text-center text-muted">{carga.finalPrice.toFixed(2)}</Col>
+                        <Col xs={1} className="text-center text-muted">{this.floatFormat.format(carga.finalPrice.toFixed(2))}</Col>
                     </Row>
                 )
             })
@@ -31,6 +32,7 @@ class DetalleCobro extends Component{
     }
 
     render() {
+        let floatFormat = new Intl.NumberFormat('es-CL');
         return(
             <Row className="bg-light  overflow-hidden">
                 <div className="b-block w-100 pt-3 px-sm-3 h6 ">
@@ -46,18 +48,18 @@ class DetalleCobro extends Component{
                     </Row>
                     <Row className="border-bottom py-1 px-2">
                         <Col xs={5} className="text-left text-muted">Titular</Col>
-                        <Col xs={1} className="text-center text-muted">{this.state.planDetails.cotizante.basePrice}</Col>
+                        <Col xs={1} className="text-center text-muted">{this.floatFormat.format(this.state.planDetails.cotizante.basePrice)}</Col>
                         <Col xs={1} className="text-center text-muted">X</Col>
-                        <Col xs={1} className="text-center text-muted">{this.state.planDetails.cotizante.ageFactor}</Col>
+                        <Col xs={1} className="text-center text-muted">{this.floatFormat.format(this.state.planDetails.cotizante.ageFactor)}</Col>
                         <Col xs={1} className="text-center text-muted">+</Col>
-                        <Col xs={1} className="text-center text-muted">{this.state.planDetails.GES}</Col>
+                        <Col xs={1} className="text-center text-muted">{this.floatFormat.format(this.state.planDetails.GES)}</Col>
                         <Col xs={1} className="text-center text-muted">=</Col>
-                        <Col xs={1} className="text-center text-muted">{this.state.planDetails.cotizante.finalPrice.toFixed(2)}</Col>
+                        <Col xs={1} className="text-center text-muted">{this.floatFormat.format(this.state.planDetails.cotizante.finalPrice.toFixed(2))}</Col>
                     </Row>
                     {this.cargasDetail()}
                     <Row className="justify-content-end pt-3">
                         <Col xs={12} className="text-md-right font-weight-bold pr-2">
-                            Total: {this.props.totalPrice.toFixed(2)}
+                            Total: {floatFormat.format(this.props.totalPrice.toFixed(2))}
                         </Col>
                     </Row>
                     <Row className="py-3">

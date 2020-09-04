@@ -85,16 +85,15 @@ class Step0 extends Component{
 
                     <Row>
                         <Col xs={12}>
-                            <h2 className="title-bold text-center">¿Qué <span className="text-col5">beneficios</span> tiene Lili para ti?</h2>
+                            <h2 className="title-bold text-center">¿Qué <span className="text-col1">beneficios</span> tiene Lili para ti?</h2>
                         </Col>
                     </Row>
 
                     <Container>
                         <Row className="py-5 my-4">
                             <Col xs={12} md={{span:6, order:2}} xl={5}>
-                                {/*<img src={whatif04} className="d-block w-100" alt="Precios y coberturas a tu medida"/>*/}
                                 <iframe className="rounded shadow-lg playvideo"
-                                        src="https://www.youtube.com/embed/FMeSWrwVxok" frameBorder="0"
+                                        src="https://www.youtube.com/embed/XnULQGhDbRU" frameBorder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen></iframe>
                             </Col>

@@ -46,7 +46,8 @@ class Step4 extends Component{
             return null;
         }
         console.log(this.state);
-        var formatter = new Intl.NumberFormat('es-CL', {style: 'currency', currency: 'CLP'});
+        let formatter = new Intl.NumberFormat('es-CL', {style: 'currency', currency: 'CLP'});
+        let floatFormat = new Intl.NumberFormat('es-CL');
         const UF = this.props.UF;
         const age = this.props.upperState.age;
         const preference = this.props.upperState.preference.split('-');
@@ -80,7 +81,7 @@ class Step4 extends Component{
                                     <Row>
                                         <Col xs={6} sm={6} className="text-center align-self-center">
                                                 <span className="h4 text-col1">Tu pago mensual</span>
-                                                <h2 className="font-weight-bold title text-col1 mb-0">UF {totalPrice.toFixed(2)}</h2>
+                                                <h2 className="font-weight-bold title text-col1 mb-0">UF {floatFormat.format(totalPrice.toFixed(2))}</h2>
                                                 <h5 className="text-black-50">{formatter.format(totalPrice.toFixed(2)*UF)}</h5>
                                                 <span className="h4 text-right text-col5 text-hv-col5"
                                                       data-toggle="collapse" role="button"

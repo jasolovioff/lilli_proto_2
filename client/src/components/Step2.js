@@ -164,11 +164,11 @@ class Step2 extends Component {
                                                     </div>
                                                 </Form.Group>
                                             )}
-                                            <div className="form-group row">
-                                                <div className="col-12 text-center">
-                                                    <small className="text-black-50 font-italic float-left">*Si tu carga es menor a "1 año", indica “0 años”.</small>
-                                                </div>
-                                            </div>
+                                            <Form.Group className="row">
+                                                <Col xs={12} className="text-center">
+                                                    <small className="text-black-50 font-italic">*Si tu carga es menor a "1 año", indica “0 años”.</small>
+                                                </Col>
+                                            </Form.Group>
                                         </div>
                                     </Collapse>
 

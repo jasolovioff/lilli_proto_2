@@ -40,6 +40,7 @@ class Step3 extends Component{
             return null;
         }
         let formatter = new Intl.NumberFormat('es-CL', {style: 'currency', currency: 'CLP'});
+        let floatFormat = new Intl.NumberFormat('es-CL');
         this.calculatePremium();
         return (
             <React.Fragment>
@@ -110,21 +111,21 @@ class Step3 extends Component{
                                             <Form.Label className={(this.props.preference === input.tag + "-10") ? "btn col-3 text-center position-relative redydedusible" : "btn col-3 text-center position-relative btn-secondary"} role="button">
                                                 <Form.Control type="radio" name="preference" value={input.tag + "-10"} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "-10"} />
                                                 <div className="position-absolute center-absolute">
-                                                    <span className="font-weight-bold h4">UF {input.premiums["10"].uf.toFixed(2)}</span>
+                                                    <span className="font-weight-bold h4">UF {floatFormat.format(input.premiums["10"].uf.toFixed(2))}</span>
                                                     <small className="d-block text-black-50 font-weight-lighter">{formatter.format(input.premiums["10"].clp.toFixed(2))}</small>
                                                 </div>
                                             </Form.Label>
                                             <Form.Label className={(this.props.preference === input.tag + "-15") ? "btn col-3 redydedusible" : "btn col-3 btn-secondary"} role="button">
                                                 <Form.Control type="radio" name="preference" value={input.tag + "-15"} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "-15"} />
                                                 <div className="position-absolute center-absolute">
-                                                    <span className="font-weight-bold h4">UF {input.premiums["15"].uf.toFixed(2)}</span>
+                                                    <span className="font-weight-bold h4">UF {floatFormat.format(input.premiums["15"].uf.toFixed(2))}</span>
                                                     <small className="d-block text-black-50 font-weight-lighter">{formatter.format(input.premiums["15"].clp.toFixed(2))}</small>
                                                 </div>
                                             </Form.Label>
                                             <Form.Label className={(this.props.preference === input.tag + "-20") ? "btn col-3 redydedusible" : "btn col-3 btn-secondary"} role="button">
                                                 <Form.Control type="radio" name="preference" value={input.tag + "-20"} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "20"} />
                                                 <div className="position-absolute center-absolute">
-                                                    <span className="font-weight-bold h4">UF {input.premiums["20"].uf.toFixed(2)}</span>
+                                                    <span className="font-weight-bold h4">UF {floatFormat.format(input.premiums["20"].uf.toFixed(2))}</span>
                                                     <small
                                                         className="d-block text-black-50 font-weight-lighter">{formatter.format(input.premiums["20"].clp.toFixed(2))}</small>
                                                 </div>
@@ -135,8 +136,8 @@ class Step3 extends Component{
 
 
                                 <div className="form-group mt-5">
-                                    <button className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</button>
-                                    <button className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</button>
+                                    <span className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</span>
+                                    <span className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</span>
                                 </div>
 
 
