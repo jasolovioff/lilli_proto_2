@@ -26,6 +26,7 @@ class MasterForm extends Component {
             tengoCargas: false,
             cargas: [],
             preference: '',
+            noLoRecuerdo: false,
             owid: owid
         }
         this.handleChange = this.handleChange.bind(this);
@@ -41,7 +42,7 @@ class MasterForm extends Component {
             default:
                 return true;
             case 1:
-                if (this.state.currentPayment !== ''){
+                if (this.state.currentPayment !== '' || this.state.noLoRecuerdo){
                     return true;
                 }
                 return false;
@@ -199,6 +200,7 @@ class MasterForm extends Component {
                         nextButton={this.nextButton}
                         previousButton={this.previousButton}
                         currentPayment={this.state.currentPayment}
+                        noLoRecuerdo={this.state.noLoRecuerdo}
                         _next={this._next}
                         _prev={this._prev}
                     />

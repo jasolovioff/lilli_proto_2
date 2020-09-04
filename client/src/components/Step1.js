@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import InputGroup from "react-bootstrap/InputGroup";
 
 class Step1 extends Component {
     render() {
@@ -27,66 +28,38 @@ class Step1 extends Component {
                                 <span className="h6 text-black-50 m-0">Paso {this.props.currentStep}</span>
                                 <h2 className="title mb-5">Comencemos</h2>
 
+                                <Form.Group className="row mb-5">
+                                    <Col xs={7} sm={8}>
+                                        <h5 className="text-black-50 mb-0">Para tener una referencia</h5>
+                                        <h4 className="">¿Cuánto pagas hoy por tu plan de Salud?</h4>
+                                    </Col>
+                                    <Col xs={5} sm={4}>
+                                        <InputGroup className="is-invalid">
+                                            <InputGroup.Prepend>
+                                                <InputGroup.Text className="bg-white border-0">$</InputGroup.Text>
+                                            </InputGroup.Prepend>
+                                            <Form.Control name="currentPayment" type="text" className="text-center bg-light rounded" onChange={this.props.handleChange} value={this.props.currentPayment}/>
+                                        </InputGroup>
+                                    </Col>
+                                </Form.Group>
+                                <Form.Group className="row">
+                                    <Col xs={12} className="mb-3">
+                                        <Form.Check
+                                            name="noLoRecuerdo"
+                                            type="checkbox"
+                                            id="noLoRecuerdo"
+                                            className="input-control-checkbox"
+                                            label="No lo recuerdo"
+                                            custom
+                                            onChange={this.props.handleChange}
+                                            checked={this.props.noLoRecuerdo}
+                                        />
+                                    </Col>
+                                </Form.Group>
 
-                                <Form.Group className="mb-0">
-                                    <h5 className="text-black-50 mb-0">Para tener una referencia</h5>
-                                    <h4 className="">¿Cuánto pagas hoy por tu plan de Salud?</h4>
-
-                                    <Form.Group className="mb-5 pb-3">
-                                        <Form.Group className="mb-3">
-
-                                            <Form.Group className="custom-control custom-radio sd-option-list mb-4">
-                                                <Form.Control type="radio" id="currentPayment1" value="bottom" name="currentPayment"
-                                                               className="custom-control-input" onChange={this.props.handleChange} checked={this.props.currentPayment === "bottom"}/>
-                                                <Form.Label className="custom-control-label text-col1 h4" htmlFor="currentPayment1">
-                                                    Menos de UF 2
-                                                    <small className="row text-black-50 font-weight-lighter pl-3">
-                                                        $57.350
-                                                    </small>
-                                                </Form.Label>
-                                            </Form.Group>
-
-                                            <Form.Group className="custom-control custom-radio sd-option-list mb-4">
-                                                <Form.Control type="radio" id="currentPayment2" value="middle" name="currentPayment"
-                                                               className="custom-control-input" onChange={this.props.handleChange} checked={this.props.currentPayment === "middle"}/>
-                                                <Form.Label className="custom-control-label text-col1 h4" htmlFor="currentPayment2">
-                                                    Entre UF 2 y 3
-                                                    <small className="row text-black-50 font-weight-lighter pl-3">
-                                                        $57.350 a $86.030
-                                                    </small>
-                                                </Form.Label>
-                                            </Form.Group>
-
-                                            <Form.Group className="custom-control custom-radio sd-option-list mb-4">
-                                                <Form.Control type="radio" id="currentPayment3" value="up" name="currentPayment"
-                                                               className="custom-control-input" onChange={this.props.handleChange} checked={this.props.currentPayment === "up"}/>
-                                                <Form.Label className="custom-control-label text-col1 h4" htmlFor="currentPayment3">
-                                                    Entre UF 3 a 4
-                                                    <small className="row text-black-50 font-weight-lighter pl-3">
-                                                        $86.030 a $114.700
-                                                    </small>
-                                                </Form.Label>
-                                            </Form.Group>
-
-                                            <Form.Group className="custom-control custom-radio sd-option-list mb-4">
-                                                <Form.Control type="radio" id="currentPayment4" value="other" name="currentPayment"
-                                                              className="custom-control-input" onChange={this.props.handleChange} checked={this.props.currentPayment === "other"}/>
-                                                <Form.Label className="custom-control-label text-col1 h4" htmlFor="currentPayment4">
-                                                    Más de UF 4
-                                                    <small className="row text-black-50 font-weight-lighter pl-3">
-                                                        $114.700
-                                                    </small>
-                                                </Form.Label>
-                                            </Form.Group>
-
-                                        </Form.Group>
-                                    </Form.Group>
-
-                                    <Form.Group className="mt-5">
-                                        <span className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</span>
-                                        <span className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</span>
-                                    </Form.Group>
-
+                                <Form.Group className="mt-5">
+                                    <span className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</span>
+                                    <span className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</span>
                                 </Form.Group>
                             </Col>
                         </Row>

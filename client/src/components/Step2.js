@@ -143,15 +143,15 @@ class Step2 extends Component {
                                                     <a className="float-right btn text-col1 text-hv-col1 h6 pr-0"
                                                        data-toggle="collapse" href="#carga2" role="button"
                                                        aria-expanded="false" aria-controls="collapseExample" onClick={this.props.appendCarga}>
-                                                        <i className="ic ic-user"></i> Incluir cargas
+                                                        + Incluir cargas
                                                     </a>
                                                 </Col>
                                             </Form.Group>
 
                                             {this.props.cargas.map((input,i)=>
                                                 <Form.Group className="row justify-content-center" key={"fgroup"+i.toString()}>
-                                                    <Form.Label className="col-4 col-md-2 col-form-label h5 text-muted text-right pt-3">Carga {i+1}</Form.Label>
-                                                    <div className="col-6 col-md-5 input-group">
+                                                    <Form.Label className="col-3 col-sm-2 col-form-label h5 text-muted text-right pt-3">Carga {i+1}</Form.Label>
+                                                    <div className="col-8 col-sm-5 input-group">
                                                         <Form.Control type="text" className="form-control text-center rounded-0 border-0 bg-light"
                                                                       maxLength="2" style={{maxWidth: "100px"}} name={"carga-"+(i).toString()}
                                                                       onChange={this.handleCargaInput}
