@@ -149,7 +149,6 @@ class MasterForm extends Component {
         this.setState({
             cargas: list
         });
-        //this.props.handleCargasChange(list);
     }
 
     handleSubmit(event) {
@@ -157,7 +156,7 @@ class MasterForm extends Component {
     }
 
     get renderStartButton(){
-        if (this.state.currentStep === 0){
+        if (this.state.currentStep === 0 && false){
             return (
                 <button
                    className="float-right btn border-col1 bg-white text-col1 text-hv-col1 pt-2 px-4"
