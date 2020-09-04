@@ -15,9 +15,9 @@ class Step3 extends Component{
     calculatePremium() {
 
         redes.forEach((red,i)=>{
-            const uf10 = this.simulation.calculateTotalPrice(this.props.age, red.tag, 10, []);
-            const uf15 = this.simulation.calculateTotalPrice(this.props.age, red.tag, 15, []);
-            const uf20 = this.simulation.calculateTotalPrice(this.props.age, red.tag, 20, []);
+            const uf10 = this.simulation.calculateTotalPrice(this.props.age, red.tag, 10, this.props.cargas);
+            const uf15 = this.simulation.calculateTotalPrice(this.props.age, red.tag, 15, this.props.cargas);
+            const uf20 = this.simulation.calculateTotalPrice(this.props.age, red.tag, 20, this.props.cargas);
             this.premiums[i].premiums = {
                 10: {
                     uf: uf10,
@@ -33,7 +33,6 @@ class Step3 extends Component{
                 }
             }
         });
-        console.log(this.premiums);
     }
     render() {
         if (this.props.currentStep !== 3) {
@@ -85,28 +84,22 @@ class Step3 extends Component{
                                                     )}
                                                 </ul>
                                             </Col>
-                                            <Form.Label className="btn col-3 text-center position-relative btn-secondary" role="button"
-                                                        data-twbs-toggle-buttons-class-active="redydedusible"
-                                                        aria-pressed="false" data-original-title="">
-                                                <Form.Control type="radio" name="options" value="1" />
+                                            <Form.Label className={(this.props.preference === input.tag + "-10") ? "btn col-3 text-center position-relative redydedusible" : "btn col-3 text-center position-relative btn-secondary"} role="button">
+                                                <Form.Control type="radio" name="preference" value={input.tag + "-10"} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "-10"} />
                                                 <div className="position-absolute center-absolute">
                                                     <span className="font-weight-bold h4">UF {input.premiums["10"].uf.toFixed(2)}</span>
                                                     <small className="d-block text-black-50 font-weight-lighter">{formatter.format(input.premiums["10"].clp.toFixed(2))}</small>
                                                 </div>
                                             </Form.Label>
-                                            <Form.Label className="btn col-3 btn-secondary" role="button"
-                                                        data-twbs-toggle-buttons-class-active="redydedusible"
-                                                        aria-pressed="false" data-original-title="">
-                                                <Form.Control type="radio" name="options" value="2" />
+                                            <Form.Label className={(this.props.preference === input.tag + "-15") ? "btn col-3 redydedusible" : "btn col-3 btn-secondary"} role="button">
+                                                <Form.Control type="radio" name="preference" value={input.tag + "-15"} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "-15"} />
                                                 <div className="position-absolute center-absolute">
                                                     <span className="font-weight-bold h4">UF {input.premiums["15"].uf.toFixed(2)}</span>
                                                     <small className="d-block text-black-50 font-weight-lighter">{formatter.format(input.premiums["15"].clp.toFixed(2))}</small>
                                                 </div>
                                             </Form.Label>
-                                            <Form.Label className="btn col-3 btn-secondary" role="button"
-                                                        data-twbs-toggle-buttons-class-active="redydedusible"
-                                                        aria-pressed="false" data-original-title="">
-                                                <Form.Control type="radio" name="options" value="3" />
+                                            <Form.Label className={(this.props.preference === input.tag + "-20") ? "btn col-3 redydedusible" : "btn col-3 btn-secondary"} role="button">
+                                                <Form.Control type="radio" name="preference" value={input.tag + "-20"} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "20"} />
                                                 <div className="position-absolute center-absolute">
                                                     <span className="font-weight-bold h4">UF {input.premiums["20"].uf.toFixed(2)}</span>
                                                     <small

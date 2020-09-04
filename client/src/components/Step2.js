@@ -126,7 +126,8 @@ class Step2 extends Component {
                                             <div className="float-right custom-control custom-switch">
                                                 <Form.Control type="checkbox" className="custom-control-input" id="tengocargas"
                                                               data-toggle="collapse" data-target="#sumarcargas" name="tengoCargas"
-                                                              onChange={(event) => {this.props.handleChange(event); this.resetCargasCount()}} aria-controls="example-collapse-text"
+                                                              onChange={(event) => {this.props.handleChange(event); this.resetCargasCount()}}
+                                                              aria-controls="example-collapse-text"
                                                               aria-expanded={this.props.tengoCargas} checked={this.props.tengoCargas} />
                                                 <label className="custom-control-label" htmlFor="tengocargas"></label>
                                             </div>

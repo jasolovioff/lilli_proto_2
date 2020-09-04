@@ -12,7 +12,6 @@ import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
-import Simulation from "../utils/Simulation";
 
 class MasterForm extends Component {
     state = {};
@@ -25,11 +24,14 @@ class MasterForm extends Component {
             currentPayment: '',
             age: '',
             tengoCargas: false,
+            cargas: [],
+            preference: '',
             owid: owid
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleCargasChange = this.handleCargasChange.bind(this)
+        this.handleCargasChange = this.handleCargasChange.bind(this);
+        this.appendCarga = this.appendCarga.bind(this);
         this._next = this._next.bind(this);
         this._prev = this._prev.bind(this);
     }
@@ -139,6 +141,24 @@ class MasterForm extends Component {
         });
     }
 
+    appendCarga(){
+        this.setState(prevState => (
+                {
+                    cargas: prevState.cargas.concat(-1)
+                }
+            )
+        );
+    }
+
+    handleCargaInput(event){
+        const list = [...this.state.cargas];
+        list[event.target.name.substr(-1)] = parseInt(event.target.value);
+        this.setState({
+            cargas: list
+        });
+        //this.props.handleCargasChange(list);
+    }
+
     handleSubmit(event) {
         event.preventDefault();
     }
@@ -157,11 +177,10 @@ class MasterForm extends Component {
     }
 
     render() {
-        //console.log(qs.parse(this.props.location.search, {ignoreQueryPrefix: true}));
         console.log(this.state);
         return(
             <React.Fragment>
-                <header className="container-fluid pt-3" id="top">
+                <Container as="header" fluid className="pt-3 mb-3" id="top">
                     <Container>
                         <Row>
                             <Col xs={6}>
@@ -174,7 +193,7 @@ class MasterForm extends Component {
                             </div>
                         </Row>
                     </Container>
-                </header>
+                </Container>
                 <Form >
                     <Step0
                         currentStep={this.state.currentStep}
@@ -200,6 +219,8 @@ class MasterForm extends Component {
                         age={this.state.age}
                         tengoCargas={this.state.tengoCargas}
                         showSumarCargas={this.state.showSumarCargas}
+                        cargas={this.state.cargas}
+                        appendCarga={this.appendCarga}
                         _next={this._next}
                         _prev={this._prev}
                     />
@@ -210,6 +231,8 @@ class MasterForm extends Component {
                         previousButton={this.previousButton}
                         age={this.state.age}
                         UF={this.UF}
+                        preference={this.state.preference}
+                        cargas={this.state.cargas}
                         _next={this._next}
                         _prev={this._prev}
                     />
@@ -219,7 +242,6 @@ class MasterForm extends Component {
                         nextButton={this.nextButton}
                         handleSubmit={this.handleSubmit}
                         previousButton={this.previousButton}
-                        goToStep={this.goToStep}
                         _prev={this._prev}
                         handleSubmitSimulation={this.handleSubmitSimulation}
                         upperState={this.state}

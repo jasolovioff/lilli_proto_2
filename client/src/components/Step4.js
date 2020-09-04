@@ -1,11 +1,10 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Modal from "react-bootstrap/Modal";
+import Collapse from "react-bootstrap/Collapse";
 import DetalleCobro from "./DetalleCobro";
-import Collapse from "react-bootstrap/cjs/Collapse";
 import Simulation from "../utils/Simulation";
 
 class Step4 extends Component{
@@ -14,36 +13,13 @@ class Step4 extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            showModalLoQuiero : false,
-            showModalNoLoQuiero : false,
             showDetalleCobro : false
         }
         this.toogleDetalleCobro = this.toogleDetalleCobro.bind(this);
     }
 
-    handleShowLoQuiero() {
-        this.setState({
-            showModalLoQuiero : true
-        });
-    }
-    handleHideLoQuiero() {
-        this.setState({
-            showModalLoQuiero : false
-        });
-    }
-
-    handleShowNoLoQuiero() {
-        this.setState({
-            showModalNoLoQuiero : true
-        });
-    }
-    handleHideNoLoQuiero() {
-        this.setState({
-            showModalNoLoQuiero : false
-        });
-    }
-
     toogleDetalleCobro = () => {
+        console.log("toggelin!")
         this.setState(prevState => ({
             showDetalleCobro : !prevState.showDetalleCobro
         }));
@@ -53,14 +29,17 @@ class Step4 extends Component{
         if (this.props.currentStep !== 4) {
             return null;
         }
+        console.log(this.state);
         var formatter = new Intl.NumberFormat('es-CL', {style: 'currency', currency: 'CLP'});
         const UF = 28674.82;
         const age = this.props.upperState.age;
-        const red = this.props.upperState.eligered;
-        const deductible = this.props.upperState.deducible;
+        const preference = this.props.upperState.preference.split('-');
+        const red = preference[0];
+        const deductible = preference[1];
         const cargas = this.props.upperState.cargas;
-        const simulation = new Simulation(age, red, deductible, cargas);
-        //const monthlyPayment = simulation.calculateTotalPrice(age,red, deductible, cargas);
+        const simulation = new Simulation();
+        simulation.calculatePlanDetail(age, red, deductible, cargas);
+        const planDetail = simulation.getPlanDetail();
         return (
             <React.Fragment>
                 <Container fluid as="section">
@@ -81,71 +60,29 @@ class Step4 extends Component{
 
                                 <Form.Group>
                                     <Row>
-                                        <Col xs={12} sm={5} className="text-center text-sm-left align-self-center">
-                                            <span>
-                                                <span className="h5 text-col1">Prima</span>
+                                        <Col xs={6} sm={6} className="text-center align-self-center">
+                                                <span className="h5 text-col1">Tu pago mensual</span>
                                                 <h2 className="font-weight-bold title text-col1 mb-0">UF 6,87</h2>
                                                 <h5 className="text-black-50">$197.169</h5>
-                                            </span>
+                                                <span className="h4 text-right text-col5 text-hv-col5"
+                                                      data-toggle="collapse" role="button"
+                                                      onClick={this.toogleDetalleCobro}
+                                                      aria-controls="detallecobro"
+                                                      aria-expanded={this.state.showDetalleCobro} >
+                                                Ver el detalle aquí
+                                                </span>
                                         </Col>
-                                        <Col xs={12} sm={7} className="text-center align-self-center">
-                                            <span className="end-msg d-block mb-0 title-bold text-col4">
-                                                Tu pago mensual
-                                            </span>
-                                            <a className="h3 text-right text-col5 text-hv-col5" data-toggle="collapse" href="#detallecobro" role="button" aria-expanded="false" aria-controls="detallecobro">
-                                             Ver el detalle aquí
-                                            </a>
+                                        <Col xs={6} sm={6} className="text-center border-left">
+                                            <span className="h4 text-muted">Tu deducible</span>
+                                            <h2 className="font-weight-bold title text-col4 mb-0">UF 10</h2>
+                                            <h5 className="text-black-50">$286.813</h5>
                                         </Col>
                                     </Row>
-
-                                    <Row className="bg-light collapse" id="detallecobro">
-                                        <div className="b-block w-100 pt-3 px-3 h6 ">
-                                            <Row className="row border-bottom py-1 px-2">
-                                                <Col xs={5} className="font-weight-bold text-left text-muted"></Col>
-                                                <Col xs={1} className="font-weight-bold text-left text-muted">Precio Base</Col>
-                                                <Col xs={1} className="text-right text-muted"></Col>
-                                                <Col xs={1} className="font-weight-bold text-center text-muted">Factor etario</Col>
-                                                <Col xs={1} className="text-right text-muted"></Col>
-                                                <Col xs={1} className="font-weight-bold text-center text-muted">Valor <br/>GES</Col>
-                                                <Col xs={1} className="text-right text-muted"></Col>
-                                                <Col xs={1} className="font-weight-bold text-center text-muted">Valor final</Col>
-                                            </Row>
-                                            <Row className="row border-bottom py-1 px-2">
-                                                <Col xs={5} className="text-left text-muted">Titular</Col>
-                                                <Col xs={1} className="text-center text-muted">2,03</Col>
-                                                <Col xs={1} className="text-center text-muted">X</Col>
-                                                <Col xs={1} className="text-center text-muted">1,3</Col>
-                                                <Col xs={1} className="text-center text-muted">+</Col>
-                                                <Col xs={1} className="text-center text-muted">0,66</Col>
-                                                <Col xs={1} className="text-center text-muted">=</Col>
-                                                <Col xs={1} className="text-center text-muted">3,30</Col>
-                                            </Row>
-                                            <Row className="row border-bottom py-1 px-2">
-                                                <Col xs={5} className="text-left text-muted">Carga 9 Años</Col>
-                                                <Col xs={1} className="text-center text-muted">2,03</Col>
-                                                <Col xs={1} className="text-center text-muted">X</Col>
-                                                <Col xs={1} className="text-center text-muted">1,3</Col>
-                                                <Col xs={1} className="text-center text-muted">+</Col>
-                                                <Col xs={1} className="text-center text-muted">0,66</Col>
-                                                <Col xs={1} className="text-center text-muted">=</Col>
-                                                <Col xs={1} className="text-center text-muted">3,30</Col>
-                                            </Row>
-                                            <Row className="row pt-3">
-                                                <Col className="col-12 text-right font-weight-bold px-0">
-                                                    Total: 6,87
-                                                </Col>
-                                            </Row>
-                                            <Row className="py-3">
-                                                <Col xs={11}>
-                                                    <h5 className="text-muted font-italic">
-                                                        *Todos los valores estan expresados en UF
-                                                    </h5>
-                                                </Col>
-                                            </Row>
+                                    <Collapse in={this.state.showDetalleCobro}>
+                                        <div id="detallecobro">
+                                            <DetalleCobro planDetail={planDetail}/>
                                         </div>
-                                    </Row>
-
-
+                                    </Collapse>
 
                                 <Row className="mt-5">
                                     <Col xs={12}>

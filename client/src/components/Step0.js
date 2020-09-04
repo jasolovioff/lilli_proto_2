@@ -5,7 +5,6 @@ import Row from "react-bootstrap/Row";
 import LiliCarousel from "./LiliCarousel";
 import slider01 from "../static/images/slider01.png";
 import whatif03 from "../static/images/whatif03.png";
-import whatif04 from "../static/images/whatif04.png";
 import phoneMovile from "../static/images/phone-movile.png";
 import time from "../static/images/time.svg";
 import searchmedical from "../static/images/searchmedical.svg";
@@ -36,7 +35,7 @@ class Step0 extends Component{
                                     Precio y cobertura a tu medida.
                                 </p>
                                 <a href="#explora"
-                                   className="col-12 col-md-6 btn shadow-lg bg-col1 text-white mt-2 py-3 font-weight-bold btn-bubble">
+                                   className="col-12 col-md-6 btn shadow-lg bg-col1 text-white mt-2 py-3 font-weight-bold btn-bubble anchoranim">
                                     Conoce Lili
                                 </a>
                             </Col>
@@ -191,12 +190,12 @@ class Step0 extends Component{
                             </Col>
                             <Col md={3} className="align-self-center">
                                 <button className="btn bg-col5 text-white d-block mx-auto h3 float-md-left my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>
-                                    Arma tu plan
+                                    Continuar
                                 </button>
                             </Col>
                         </Row>
 
-                        <a className="rounded-circle position-absolute shadow bg-white text-primary text-white text-center dynamicanchor-footer h3"  href="#top"><i className="ic ic-arrowright rotate-m90"></i></a>
+                        <a className="rounded-circle position-absolute shadow bg-white text-primary text-white text-center dynamicanchor-footer h3 anchoranim"  href="#top"><i className="ic ic-arrowright rotate-m90"></i></a>
 
                     </Container>
 
