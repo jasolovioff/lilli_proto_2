@@ -61,7 +61,12 @@ class Step2 extends Component {
 
     handleCargaInput(event){
         const list = [...this.props.cargas];
-        list[event.target.name.substr(-1)] = parseInt(event.target.value);
+        if (event.target.value !== ""){
+            list[event.target.name.substr(-1)] = parseInt(event.target.value);
+        } else {
+            list[event.target.name.substr(-1)] = "";
+        }
+
         this.setState({
             cargas: list
         });
@@ -151,7 +156,7 @@ class Step2 extends Component {
                                                 <Form.Group className="row justify-content-center" key={"fgroup"+i.toString()}>
                                                     <Form.Label className="col-3 col-sm-2 col-form-label h5 text-muted text-right pt-3">Carga {i+1}</Form.Label>
                                                     <div className="col-8 col-sm-5 input-group">
-                                                        <Form.Control type="text" className="form-control text-center rounded-0 border-0 bg-light"
+                                                        <Form.Control type="number" className="form-control text-center rounded-0 border bg-light"
                                                                       maxLength="2" style={{maxWidth: "100px"}} name={"carga-"+(i).toString()}
                                                                       onChange={this.handleCargaInput}
                                                                       value={input === -1 ? "" : input} />

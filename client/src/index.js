@@ -13,6 +13,7 @@ import "./static/css/settings.css";
 import "./static/css/animations.css";
 import "./static/css/icon.css";
 import "./static/css/system.css";
+import "./static/css/special.css";
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 ReactDOM.render(
