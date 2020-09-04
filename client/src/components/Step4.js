@@ -160,7 +160,7 @@ class Step4 extends Component{
                                                                 className="title-bold text-col4 h3 mr-3 w-80px">80%</span>
                                                             <div className="media-body">
                                                                 <h5 className="mt-0 mb-1 text-white">
-                                                                    <span className="font-weight-bold">Cobertura hospitalaria en Red 1</span><br/>
+                                                                    <span className="font-weight-bold">Cobertura hospitalaria en {redDetail.name}</span><br/>
                                                                     + 20% cobertura adicional por derivaciones médico de
                                                                     cabecera
                                                                 </h5>
@@ -171,7 +171,7 @@ class Step4 extends Component{
                                                                 className="title-bold text-col4 h3 mr-3 w-80px">70%</span>
                                                             <div className="media-body">
                                                                 <h5 className="mt-0 mb-1 text-white">
-                                                                    <span className="font-weight-bold">Cobertura ambulatoria en Red 1</span><br/>
+                                                                    <span className="font-weight-bold">Cobertura ambulatoria en {redDetail.name}</span><br/>
                                                                     +20% cobertura adicional por derivaciones médico de
                                                                     cabecera
                                                                 </h5>
@@ -183,7 +183,7 @@ class Step4 extends Component{
                                                             <div className="media-body">
                                                                 <h5 className="mt-0 mb-1 text-white">
                                                                     Mínima legal para todas las prestaciones realizadas
-                                                                    fuera de la Red 1
+                                                                    fuera de la {redDetail.name}
                                                                 </h5>
                                                             </div>
                                                         </li>
