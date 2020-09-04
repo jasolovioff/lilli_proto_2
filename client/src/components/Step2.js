@@ -114,14 +114,13 @@ class Step2 extends Component {
                                     <Form.Label className="col col-9 h4">¿Cuál es tu edad?</Form.Label>
                                     <div className="col-3">
                                         <Form.Control type="text" name="age"
-                                                       className="form-control rounded-0 text-center control-animate border-0 bg-light"
+                                                       className="rounded text-center control-animate border bg-light"
                                                        aria-describedby="edad" maxLength="2" onChange={this.props.handleChange} value={this.props.age}/>
                                     </div>
                                 </Form.Group>
 
-
                                     <Form.Group className="row">
-                                        <Form.Label className="col-9 mb-0 col">¿Tienes cargas?</Form.Label>
+                                        <Form.Label className="col-9 mb-0 col h4">¿Tienes cargas?</Form.Label>
                                         <div className="col-3 mb-0">
                                             <div className="float-right custom-control custom-switch">
                                                 <Form.Control type="checkbox" className="custom-control-input" id="tengocargas"
