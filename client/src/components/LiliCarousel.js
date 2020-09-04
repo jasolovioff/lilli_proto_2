@@ -20,7 +20,7 @@ class LiliCarousel extends Component{
                             <ul className="h4">
                                 <li className="mb-3">
                                     Lili te ofrece sin costo la guía personalizada de un médico de familia que
-                                    cuidará tu salud y la de tu familia con un enfoque de atención integral.
+                                    cuidará de tu salud y la de tu familia con un enfoque de atención integral.
                                 </li>
                                 <li className="mb-3">
                                     Este médico de cabecera podrá ayudarte a resolver la mayoría de tus consultas
@@ -42,7 +42,7 @@ class LiliCarousel extends Component{
                         <Col xs={12} md={{span: 6, order: 2}} lg={7} className="text-center text-md-left align-self-center text-white">
                             <span className="d-block pb-4 h2 title">A través de tu cuenta podrás:</span>
                             <ul className="h4">
-                                <li className="mb-3">Agendar las consultas con tu médico de cabeceraen
+                                <li className="mb-3">Agendar las consultas con tu médico de cabecera en
                                     modo presencial o telemedicina.
                                 </li>
                                 <li className="mb-3">Preguntar o solicitar orientación a nuestro equipo de médicos que
