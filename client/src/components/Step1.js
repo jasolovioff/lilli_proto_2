@@ -11,6 +11,7 @@ class Step1 extends Component {
         if (this.props.currentStep !== 1) {
             return null;
         }
+        const formatter = new Intl.NumberFormat('es-CL');
         return (
             <React.Fragment>
                 <Container fluid as="section">
@@ -40,7 +41,10 @@ class Step1 extends Component {
                                             <InputGroup.Prepend>
                                                 <InputGroup.Text className="bg-white border-0">$</InputGroup.Text>
                                             </InputGroup.Prepend>
-                                            <Form.Control name="currentPayment" type="number" className="text-center bg-light rounded" onChange={this.props.handleChange} value={this.props.currentPayment}/>
+                                            <Form.Control name="currentPayment" type="number"
+                                                          className="text-center bg-light rounded"
+                                                          onChange={this.props.handleChange}
+                                                          value={this.props.currentPayment}/>
                                         </InputGroup>
                                     </Col>
                                 </Form.Group>

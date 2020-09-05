@@ -16,6 +16,7 @@ import Step4 from "./Step4";
 class MasterForm extends Component {
     state = {};
     UF = 28674.82;
+    formatter = new Intl.NumberFormat('es-CL');
     constructor(props) {
         super(props);
         const owid = qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).owid
@@ -137,9 +138,10 @@ class MasterForm extends Component {
 
     handleChange(event) {
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        let value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-
+        if(name === "currentPayment"){
+        }
         this.setState({
                 [name] : value
         });
