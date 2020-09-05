@@ -26,7 +26,9 @@ class Step1 extends Component {
                                 </Row>
 
                                 <span className="h6 text-black-50 m-0">Paso {this.props.currentStep}</span>
-                                <h2 className="title mb-5">Comencemos</h2>
+                                <h2 className="title mb-0">Comencemos</h2>
+                                <h5 className="text-secondary mb-5">Para avanzar al siguiente paso debes seleccionar a
+                                    lo menos una opción para continuar </h5>
 
                                 <Form.Group className="row mb-5">
                                     <Col xs={7} sm={8}>
@@ -51,6 +53,13 @@ class Step1 extends Component {
                                            checked={this.props.noLoRecuerdo} />
                                     <Form.Label className="custom-control-label label-control-checkbox"
                                            htmlFor="noLoRecuerdo">No lo recuerdo</Form.Label>
+                                </Form.Group>
+
+                                <Form.Group className="mt-5 mb-0 text-right">
+                                    <span className=" h6 text-col6">
+                                        <i className="ic ic-alertbubble mr-1"></i>
+                                        Debes seleccionar una opción para continuar
+                                    </span>
                                 </Form.Group>
 
                                 <Form.Group className="mt-5">
