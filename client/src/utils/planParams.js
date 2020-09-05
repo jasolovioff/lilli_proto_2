@@ -30,7 +30,7 @@ module.exports = {
             range4 : [35, 45],
             range5 : [45, 55],
             range6 : [55, 65],
-            range7 : [65, 120]
+            range7 : [65, 999]
         },
         cotizante : {
             range1 : 0.6,
