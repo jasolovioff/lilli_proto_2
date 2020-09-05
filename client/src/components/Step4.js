@@ -81,7 +81,9 @@ class Step4 extends Component{
                                 </Row>
 
                                 <span className="h6 text-black-50 m-0">Paso {this.props.currentStep}</span>
-                                <h2 className="title mb-5">Tu resumen</h2>
+                                <h2 className="title mb-0">Tu resumen</h2>
+                                <h5 className="text-secondary mb-5">Para avanzar al siguiente paso debes seleccionar a
+                                    lo menos una opción para continuar </h5>
 
 
                                 <Form.Group>
@@ -104,116 +106,118 @@ class Step4 extends Component{
                                             <h5 className="text-black-50">{formatter.format(deductible.toFixed(2)*UF)}</h5>
                                         </Col>
                                     </Row>
+
+                                </Form.Group>
+
                                     <Collapse in={this.state.showDetalleCobro}>
-                                        <div id="detallecobro">
+                                        <Form.Group id="detallecobro">
                                             <DetalleCobro planDetail={planDetail} totalPrice={totalPrice}/>
-                                        </div>
+                                        </Form.Group>
                                     </Collapse>
 
-                                <Row className="mt-5">
-                                    <Col xs={12}>
-                                        <Tab.Container defaultActiveKey="antes-tab">
-                                            <Nav variant="tabs" className="border-0 d-flex bd-highlight row">
+                                <Form.Group>
+                                    <Row className="mt-5">
+                                        <Col xs={12}>
+                                            <Tab.Container defaultActiveKey="antes-tab">
+                                                <Nav variant="tabs" className="border-0 d-flex bd-highlight row">
                                                 <span className="col-12 col-sm-auto flex-grow-1 bd-highlight">
                                                     <h4 className="title-bold text-col1 text-center text-sm-left pt-1" >Coberturas</h4>
                                                 </span>
-                                                <Nav.Item className="col-6 col-sm-auto pr-md-0 bd-highlight" role="presentation">
-                                                    <Nav.Link className="border-0 text-muted text-center text-sm-left position-relative" eventKey="antes-tab">Antes de deducible</Nav.Link>
-                                                </Nav.Item>
-                                                <Nav.Item className="col-6 col-sm-auto pr-md-0 bd-highlight">
-                                                    <Nav.Link className="border-0 text-center text-sm-left position-relative text-muted" eventKey="despues-tab">Después de deducible</Nav.Link>
-                                                </Nav.Item>
-                                            </Nav>
-                                            <Tab.Content className="shadow rounded-lg border-top border-bottom bg-col1 mt-1 py-5">
-                                                <Tab.Pane className="px-3 fade" eventKey="antes-tab">
-                                                    <ul className="list-unstyled">
-                                                        <li className="media">
+                                                    <Nav.Item className="col-6 col-sm-auto pr-md-0 bd-highlight" role="presentation">
+                                                        <Nav.Link className="border-0 text-muted text-center text-sm-left position-relative" eventKey="antes-tab">Antes de deducible</Nav.Link>
+                                                    </Nav.Item>
+                                                    <Nav.Item className="col-6 col-sm-auto pr-md-0 bd-highlight">
+                                                        <Nav.Link className="border-0 text-center text-sm-left position-relative text-muted" eventKey="despues-tab">Después de deducible</Nav.Link>
+                                                    </Nav.Item>
+                                                </Nav>
+                                                <Tab.Content className="shadow rounded-lg border-top border-bottom bg-col1 mt-1 py-5">
+                                                    <Tab.Pane className="px-3 fade" eventKey="antes-tab">
+                                                        <ul className="list-unstyled">
+                                                            <li className="media">
                                                             <span
                                                                 className="title-bold text-col4 h3 mr-3 w-80px">100%</span>
-                                                            <div className="media-body">
-                                                                <h5 className="mt-0 mb-1 text-white">
-                                                                    <span className=" font-weight-bold">Médico de cabecera.</span><br/>
-                                                                    Atención personalizada y sin costo de un médico de
-                                                                    familia
-                                                                </h5>
-                                                            </div>
-                                                        </li>
-                                                        <li className="media my-4">
+                                                                <div className="media-body">
+                                                                    <h5 className="mt-0 mb-1 text-white">
+                                                                        <span className=" font-weight-bold">Médico de cabecera.</span><br/>
+                                                                        Atención personalizada y sin costo de un médico de
+                                                                        familia
+                                                                    </h5>
+                                                                </div>
+                                                            </li>
+                                                            <li className="media my-4">
                                                             <span
                                                                 className="title-bold text-col4 h3 mr-3 w-80px">20%</span>
-                                                            <div className="media-body mt-2">
-                                                                <h5 className="mt-0 mb-1 text-white">
-                                                                    Mínima legal para todas las prestaciones
-                                                                    independiente de la Red
-                                                                </h5>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </Tab.Pane>
-                                                <Tab.Pane className="px-3 fade" eventKey="despues-tab">
-                                                    <ul className="list-unstyled">
-                                                        <li className="media">
-                                                            <span className="title-bold text-col4 h3 mr-3 w-80px">100%</span>
-                                                            <div className="media-body">
-                                                                <h5 className="mt-0 mb-1 text-white">
-                                                                    <span className="font-weight-bold">Médico de cabecera.</span><br/>
-                                                                    Atención personalizada y sin costo de un médico de
-                                                                    familia
-                                                                </h5>
-                                                            </div>
-                                                        </li>
-                                                        <li className="media my-4">
+                                                                <div className="media-body mt-2">
+                                                                    <h5 className="mt-0 mb-1 text-white">
+                                                                        Mínima legal para todas las prestaciones
+                                                                        independiente de la Red
+                                                                    </h5>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </Tab.Pane>
+                                                    <Tab.Pane className="px-3 fade" eventKey="despues-tab">
+                                                        <ul className="list-unstyled">
+                                                            <li className="media">
+                                                                <span className="title-bold text-col4 h3 mr-3 w-80px">100%</span>
+                                                                <div className="media-body">
+                                                                    <h5 className="mt-0 mb-1 text-white">
+                                                                        <span className="font-weight-bold">Médico de cabecera.</span><br/>
+                                                                        Atención personalizada y sin costo de un médico de
+                                                                        familia
+                                                                    </h5>
+                                                                </div>
+                                                            </li>
+                                                            <li className="media my-4">
                                                             <span
                                                                 className="title-bold text-col4 h3 mr-3 w-80px">80%</span>
-                                                            <div className="media-body">
-                                                                <h5 className="mt-0 mb-1 text-white">
-                                                                    <span className="font-weight-bold">Cobertura hospitalaria en {redDetail.name}</span><br/>
-                                                                    + 20% cobertura adicional por derivaciones médico de
-                                                                    cabecera
-                                                                </h5>
-                                                            </div>
-                                                        </li>
-                                                        <li className="media">
+                                                                <div className="media-body">
+                                                                    <h5 className="mt-0 mb-1 text-white">
+                                                                        <span className="font-weight-bold">Cobertura hospitalaria en {redDetail.name}</span><br/>
+                                                                        + 20% cobertura adicional por derivaciones médico de
+                                                                        cabecera
+                                                                    </h5>
+                                                                </div>
+                                                            </li>
+                                                            <li className="media">
                                                             <span
                                                                 className="title-bold text-col4 h3 mr-3 w-80px">70%</span>
-                                                            <div className="media-body">
-                                                                <h5 className="mt-0 mb-1 text-white">
-                                                                    <span className="font-weight-bold">Cobertura ambulatoria en {redDetail.name}</span><br/>
-                                                                    +20% cobertura adicional por derivaciones médico de
-                                                                    cabecera
-                                                                </h5>
-                                                            </div>
-                                                        </li>
-                                                        <li className="media mt-4">
+                                                                <div className="media-body">
+                                                                    <h5 className="mt-0 mb-1 text-white">
+                                                                        <span className="font-weight-bold">Cobertura ambulatoria en {redDetail.name}</span><br/>
+                                                                        +20% cobertura adicional por derivaciones médico de
+                                                                        cabecera
+                                                                    </h5>
+                                                                </div>
+                                                            </li>
+                                                            <li className="media mt-4">
                                                             <span
                                                                 className="title-bold text-col4 h3 mr-3 w-80px">20%</span>
-                                                            <div className="media-body">
-                                                                <h5 className="mt-0 mb-1 text-white">
-                                                                    Mínima legal para todas las prestaciones realizadas
-                                                                    fuera de la {redDetail.name}
-                                                                </h5>
-                                                            </div>
-                                                        </li>
-                                                        <li className="media mt-4">
+                                                                <div className="media-body">
+                                                                    <h5 className="mt-0 mb-1 text-white">
+                                                                        Mínima legal para todas las prestaciones realizadas
+                                                                        fuera de la {redDetail.name}
+                                                                    </h5>
+                                                                </div>
+                                                            </li>
+                                                            <li className="media mt-4">
                                                             <span
                                                                 className="title-bold text-col4 h3 mr-3 w-80px">{redDetail.name}</span>
-                                                            <div className="media-body">
-                                                                <h5 className="mt-0 mb-1 text-white">
-                                                                    {redDetail.clinics.map((clinic, k)=>
-                                                                    <span key={k}>{clinic}<br/></span>
-                                                                    )}
-                                                                </h5>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </Tab.Pane>
-                                            </Tab.Content>
-                                        </Tab.Container>
-                                    </Col>
-                                </Row>
-
-                            </Form.Group>
-
+                                                                <div className="media-body">
+                                                                    <h5 className="mt-0 mb-1 text-white">
+                                                                        {redDetail.clinics.map((clinic, k)=>
+                                                                            <span key={k}>{clinic}<br/></span>
+                                                                        )}
+                                                                    </h5>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </Tab.Pane>
+                                                </Tab.Content>
+                                            </Tab.Container>
+                                        </Col>
+                                    </Row>
+                                </Form.Group>
 
                                 <div className="form-group mt-5">
                                     <a href={"http://surveys-online.surveytaking.com/index.php/265219?lang=es&newtest=Y&owid=" + this.props.owid} className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Continuar</a>
