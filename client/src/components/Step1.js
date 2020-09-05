@@ -42,19 +42,15 @@ class Step1 extends Component {
                                         </InputGroup>
                                     </Col>
                                 </Form.Group>
-                                <Form.Group className="row">
-                                    <Col xs={12} className="mb-3">
-                                        <Form.Check
-                                            name="noLoRecuerdo"
-                                            type="checkbox"
-                                            id="noLoRecuerdo"
-                                            className="input-control-checkbox"
-                                            label="No lo recuerdo"
-                                            custom
-                                            onChange={this.props.handleChange}
-                                            checked={this.props.noLoRecuerdo}
-                                        />
-                                    </Col>
+                                <Form.Group className="custom-control custom-checkbox">
+                                    <Form.Control type="checkbox"
+                                                  name="noLoRecuerdo"
+                                                  id="noLoRecuerdo"
+                                           className="custom-control-input input-control-checkbox"
+                                           onChange={this.props.handleChange}
+                                           checked={this.props.noLoRecuerdo} />
+                                    <Form.Label className="custom-control-label label-control-checkbox"
+                                           htmlFor="noLoRecuerdo">No lo recuerdo</Form.Label>
                                 </Form.Group>
 
                                 <Form.Group className="mt-5">
