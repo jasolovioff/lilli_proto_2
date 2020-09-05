@@ -113,7 +113,9 @@ class Step2 extends Component {
                                 </Row>
 
                                 <span className="h6 text-black-50 m-0">Paso {this.props.currentStep}</span>
-                                <h2 className="title mb-5">Datos personales</h2>
+                                <h2 className="title mb-0">Datos personales</h2>
+                                <h5 className="text-secondary mb-5">Para avanzar al siguiente paso debes seleccionar a
+                                    lo menos una opción para continuar </h5>
 
                                 <Form.Group className="mb-5 row">
                                     <Form.Label className="col col-9 h4">¿Cuál es tu edad?</Form.Label>
@@ -126,6 +128,10 @@ class Step2 extends Component {
 
                                     <Form.Group className="row">
                                         <Form.Label className="col-9 mb-0 col h4">¿Tienes cargas?</Form.Label>
+                                        <Col xs={9}>
+                                            <Form.Label className="w-100 mb-0  col-form-label h4">¿Tienes cargas?</Form.Label>
+                                            <span className="text-black-50 font-weight-light"> Si las tienes, ingrésalas con sus edades</span>
+                                        </Col>
                                         <div className="col-3 mb-0">
                                             <div className="float-right custom-control custom-switch">
                                                 <Form.Control type="checkbox" className="custom-control-input" id="tengocargas"
@@ -135,8 +141,6 @@ class Step2 extends Component {
                                                               aria-expanded={this.props.tengoCargas} checked={this.props.tengoCargas} />
                                                 <label className="custom-control-label" htmlFor="tengocargas"></label>
                                             </div>
-                                        </div>
-                                        <div className="col-12"><span className="text-black-50 font-weight-light"> Si las tienes, ingrésalas con sus edades</span>
                                         </div>
                                     </Form.Group>
 
@@ -154,7 +158,7 @@ class Step2 extends Component {
 
                                             {this.props.cargas.map((input,i)=>
                                                 <Form.Group className="row justify-content-center" key={"fgroup"+i.toString()}>
-                                                    <Form.Label className="col-3 col-sm-2 col-form-label h5 text-muted text-right pt-3">Carga {i+1}</Form.Label>
+                                                    <Form.Label className="col-4 col-sm-2 col-form-label h5 text-muted text-right pt-3">Carga {i+1}</Form.Label>
                                                     <div className="col-8 col-sm-5 input-group">
                                                         <Form.Control type="number" className="form-control text-center rounded-0 border bg-light"
                                                                       maxLength="2" style={{maxWidth: "100px"}} name={"carga-"+(i).toString()}
@@ -177,7 +181,13 @@ class Step2 extends Component {
                                         </div>
                                     </Collapse>
 
-                                <div className="form-group mt-5">
+                                <Form.Group className="mt-5 mb-0 text-right">
+                                    <span className=" h6 text-col6">
+                                        <i className="ic ic-alertbubble mr-1"></i>
+                                        Debes seleccionar una opción para continuar
+                                    </span>
+                                </Form.Group>
+                                <div className="form-group">
                                     <span className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</span>
                                     <span className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</span>
                                 </div>
