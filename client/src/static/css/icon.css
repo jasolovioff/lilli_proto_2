@@ -145,6 +145,8 @@
 
 
 
+
+
 /*a*/
 .ic-rewind:before {content: "\0061";}
 
@@ -353,3 +355,9 @@
 
 /*-*/
 .ic-appliedbook:before {content: "\00C7";}
+
+
+
+/*È*/
+.ic-alertbubble:before {content: "\00C8";}
+
