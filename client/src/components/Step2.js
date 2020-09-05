@@ -187,10 +187,10 @@ class Step2 extends Component {
                                         Debes seleccionar una opción para continuar
                                     </span>
                                 </Form.Group>
-                                <div className="form-group">
+                                <Form.Group>
                                     <span className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</span>
                                     <span className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</span>
-                                </div>
+                                </Form.Group>
 
                             </Col>
                         </Row>
