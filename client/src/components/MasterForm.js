@@ -52,15 +52,32 @@ class MasterForm extends Component {
                 }
                 return false;
             case 3:
-                if (this.state.eligered !== '' && this.state.deducible !== ''){
+                if (this.state.preference !== ''){
                     return true;
                 }
                 return false;
         }
     }
 
+    executeBeforeNext(){
+        switch (this.state.currentStep) {
+            default:
+                break;
+            case 2:
+                let filtered = this.state.cargas.filter(
+                                                    function(value, index, arr){
+                                                        return value !== "" && value !== -1;
+                                                    });
+                this.setState({
+                    cargas : filtered
+                })
+                break;
+        }
+    }
+
     _next() {
-        let currentStep = this.state.currentStep
+        let currentStep = this.state.currentStep;
+        this.executeBeforeNext();
         if(this.checkFilled()){
             currentStep = currentStep >= 4 ? 5 : currentStep + 1;
             this.setState({
