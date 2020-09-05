@@ -94,6 +94,21 @@ class Step2 extends Component {
         }
         return null;
     }
+
+    get showAlert() {
+        if (this.props.alertStep2){
+            return (
+                <Form.Group className="mt-5 mb-0 text-right">
+                                    <span className=" h6 text-col6">
+                                        <i className="ic ic-alertbubble mr-1"></i>
+                                        Debes seleccionar una opción para continuar
+                                    </span>
+                </Form.Group>
+            )
+        }
+        return null;
+    }
+
     render() {
         if (this.props.currentStep !== 2) {
             return null;
@@ -127,7 +142,6 @@ class Step2 extends Component {
                                 </Form.Group>
 
                                     <Form.Group className="row">
-                                        <Form.Label className="col-9 mb-0 col h4">¿Tienes cargas?</Form.Label>
                                         <Col xs={9}>
                                             <Form.Label className="w-100 mb-0  col-form-label h4">¿Tienes cargas?</Form.Label>
                                             <span className="text-black-50 font-weight-light"> Si las tienes, ingrésalas con sus edades</span>
@@ -181,12 +195,8 @@ class Step2 extends Component {
                                         </div>
                                     </Collapse>
 
-                                <Form.Group className="mt-5 mb-0 text-right">
-                                    <span className=" h6 text-col6">
-                                        <i className="ic ic-alertbubble mr-1"></i>
-                                        Debes seleccionar una opción para continuar
-                                    </span>
-                                </Form.Group>
+                                {this.showAlert}
+
                                 <Form.Group>
                                     <span className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</span>
                                     <span className="btn float-md-right text-col1 text-hv-col1 d-block mx-auto mr-md-2 my-2 py-3 px-4 btn-bubble" onClick={this.props._prev}>Volver</span>

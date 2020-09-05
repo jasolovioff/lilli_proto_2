@@ -7,6 +7,22 @@ import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 
 class Step1 extends Component {
+    constructor(props) {
+        super(props);
+    }
+    get showAlert() {
+        if (this.props.alertStep1){
+            return (
+                <Form.Group className="mt-5 mb-0 text-right">
+                                    <span className=" h6 text-col6">
+                                        <i className="ic ic-alertbubble mr-1"></i>
+                                        Debes seleccionar una opción para continuar
+                                    </span>
+                </Form.Group>
+            )
+        }
+        return null;
+    }
     render() {
         if (this.props.currentStep !== 1) {
             return null;
@@ -59,12 +75,7 @@ class Step1 extends Component {
                                            htmlFor="noLoRecuerdo">No lo recuerdo</Form.Label>
                                 </Form.Group>
 
-                                <Form.Group className="mt-5 mb-0 text-right">
-                                    <span className=" h6 text-col6">
-                                        <i className="ic ic-alertbubble mr-1"></i>
-                                        Debes seleccionar una opción para continuar
-                                    </span>
-                                </Form.Group>
+                                {this.showAlert}
 
                                 <Form.Group className="mt-5">
                                     <span className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</span>

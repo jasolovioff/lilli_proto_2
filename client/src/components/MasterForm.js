@@ -16,7 +16,7 @@ import Step4 from "./Step4";
 class MasterForm extends Component {
     state = {};
     UF = 28674.82;
-    formatter = new Intl.NumberFormat('es-CL');
+    //formatter = new Intl.NumberFormat('es-CL');
     constructor(props) {
         super(props);
         const owid = qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).owid
@@ -28,7 +28,10 @@ class MasterForm extends Component {
             cargas: [],
             preference: '',
             noLoRecuerdo: false,
-            owid: owid
+            owid: owid,
+            alertStep1: false,
+            alertStep2: false,
+            alertStep3: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,18 +47,24 @@ class MasterForm extends Component {
                 return true;
             case 1:
                 if (this.state.currentPayment !== '' || this.state.noLoRecuerdo){
+                    this.setState({alertStep1: false});
                     return true;
                 }
+                this.setState({alertStep1: true});
                 return false;
             case 2:
                 if (this.state.age !== ''){
+                    this.setState({alertStep2: false});
                     return true;
                 }
+                this.setState({alertStep2: true});
                 return false;
             case 3:
                 if (this.state.preference !== ''){
+                    this.setState({alertStep3: false});
                     return true;
                 }
+                this.setState({alertStep3: true});
                 return false;
         }
     }
@@ -219,6 +228,7 @@ class MasterForm extends Component {
                         previousButton={this.previousButton}
                         currentPayment={this.state.currentPayment}
                         noLoRecuerdo={this.state.noLoRecuerdo}
+                        alertStep1={this.state.alertStep1}
                         _next={this._next}
                         _prev={this._prev}
                     />
@@ -233,6 +243,7 @@ class MasterForm extends Component {
                         showSumarCargas={this.state.showSumarCargas}
                         cargas={this.state.cargas}
                         appendCarga={this.appendCarga}
+                        alertStep2={this.state.alertStep2}
                         _next={this._next}
                         _prev={this._prev}
                     />
@@ -245,6 +256,7 @@ class MasterForm extends Component {
                         UF={this.UF}
                         preference={this.state.preference}
                         cargas={this.state.cargas}
+                        alertStep3={this.state.alertStep3}
                         _next={this._next}
                         _prev={this._prev}
                     />

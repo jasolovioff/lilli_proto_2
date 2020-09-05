@@ -35,6 +35,21 @@ class Step3 extends Component{
             }
         });
     }
+
+    get showAlert() {
+        if (this.props.alertStep3){
+            return (
+                <Form.Group className="mt-5 mb-0 text-right">
+                                    <span className=" h6 text-col6">
+                                        <i className="ic ic-alertbubble mr-1"></i>
+                                        Debes seleccionar una opción para continuar
+                                    </span>
+                </Form.Group>
+            )
+        }
+        return null;
+    }
+
     render() {
         if (this.props.currentStep !== 3) {
             return null;
@@ -136,12 +151,7 @@ class Step3 extends Component{
                                     )}
                                 </div>
 
-                                <Form.Group className="mt-5 mb-0 text-right">
-                                    <span className=" h6 text-col6">
-                                        <i className="ic ic-alertbubble mr-1"></i>
-                                        Debes seleccionar una opción para continuar
-                                      </span>
-                                </Form.Group>
+                                {this.showAlert}
 
                                 <Form.Group>
                                     <span className="btn bg-col1 text-white d-block mx-auto float-md-right my-2 py-3 px-4 shadow-lg mr-1 btn-bubble" onClick={this.props._next}>Siguiente</span>
