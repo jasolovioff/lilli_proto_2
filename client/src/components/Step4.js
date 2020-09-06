@@ -82,9 +82,6 @@ class Step4 extends Component{
 
                                 <span className="h6 text-black-50 m-0">Paso {this.props.currentStep}</span>
                                 <h2 className="title mb-0">Tu resumen</h2>
-                                <h5 className="text-secondary mb-5">Para avanzar al siguiente paso debes seleccionar a
-                                    lo menos una opción para continuar </h5>
-
 
                                 <Form.Group>
                                     <Row>
