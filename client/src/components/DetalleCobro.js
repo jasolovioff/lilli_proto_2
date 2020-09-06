@@ -24,7 +24,7 @@ class DetalleCobro extends Component{
                         <Col xs={1} sm={1} className="text-center text-muted">+</Col>
                         <Col xs={1} sm={1} className="text-center text-muted">{this.floatFormat.format(this.state.planDetails.GES)}</Col>
                         <Col xs={1} sm={1} className="text-center text-muted">=</Col>
-                        <Col xs={1} sm={2} className="text-center text-muted">{this.floatFormat.format(carga.finalPrice.toFixed(2))}</Col>
+                        <Col xs={1} sm={2} className="text-left text-muted">{this.floatFormat.format(carga.finalPrice.toFixed(2))}</Col>
                     </Row>
                 )
             })
@@ -53,7 +53,7 @@ class DetalleCobro extends Component{
                         <Col xs={1} sm={1} className="text-center text-muted">+</Col>
                         <Col xs={1} sm={1} className="text-center text-muted">{this.floatFormat.format(this.state.planDetails.GES)}</Col>
                         <Col xs={1} sm={1} className="text-center text-muted">=</Col>
-                        <Col xs={1} sm={2} className="text-center text-muted">{this.floatFormat.format(this.state.planDetails.cotizante.finalPrice.toFixed(2))}</Col>
+                        <Col xs={1} sm={2} className="text-left text-muted">{this.floatFormat.format(this.state.planDetails.cotizante.finalPrice.toFixed(2))}</Col>
                     </Row>
                     {this.cargasDetail()}
                     <Row className="row-fluid bg-light  pt-3">
