@@ -129,8 +129,7 @@ class Step2 extends Component {
 
                                 <span className="h6 text-black-50 m-0">Paso {this.props.currentStep}</span>
                                 <h2 className="title mb-0">Datos personales</h2>
-                                <h5 className="text-secondary mb-5">Para avanzar al siguiente paso debes seleccionar a
-                                    lo menos una opción para continuar </h5>
+                                <h5 className="text-secondary mb-5">Para avanzar al siguiente paso ingresa tu edad y tus cargas si aplica </h5>
 
                                 <Form.Group className="mb-5 row">
                                     <Form.Label className="col col-9 h4">¿Cuál es tu edad?</Form.Label>
