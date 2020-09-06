@@ -56,7 +56,7 @@ class MasterForm extends Component {
                 let invalidCarga = false;
                 if(this.state.cargas.length > 0){
                     this.state.cargas.forEach((edadCarga)=>{
-                        if(edadCarga > 150 && edadCarga < 0){
+                        if(edadCarga > 150 || edadCarga < 0){
                             invalidCarga = true;
                         }
                     });
