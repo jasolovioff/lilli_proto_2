@@ -53,7 +53,15 @@ class MasterForm extends Component {
                 this.setState({alertStep1: true});
                 return false;
             case 2:
-                if (this.state.age !== ''){
+                let invalidCarga = false;
+                if(this.state.cargas.length > 0){
+                    this.state.cargas.forEach((edadCarga)=>{
+                        if(edadCarga > 150){
+                            invalidCarga = true;
+                        }
+                    });
+                }
+                if (this.state.age !== '' && parseInt(this.state.age) < 150 && !invalidCarga){
                     this.setState({alertStep2: false});
                     return true;
                 }
@@ -79,8 +87,13 @@ class MasterForm extends Component {
                                                         return value !== "" && value !== -1;
                                                     });
                 this.setState({
-                    cargas : filtered
+                    cargas : filtered,
                 })
+                if (filtered.length === 0){
+                    this.setState({
+                        tengoCargas: false,
+                    })
+                }
                 break;
         }
     }

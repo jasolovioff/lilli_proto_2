@@ -135,7 +135,7 @@ class Step2 extends Component {
                                 <Form.Group className="mb-5 row">
                                     <Form.Label className="col col-9 h4">¿Cuál es tu edad?</Form.Label>
                                     <div className="col-3">
-                                        <Form.Control type="number" name="age"
+                                        <Form.Control type="number" name="age" min="0" step="1" pattern="\d+" max="200"
                                                        className="rounded text-center control-animate border bg-light"
                                                        aria-describedby="edad" maxLength="3" onChange={this.props.handleChange} value={this.props.age}/>
                                     </div>

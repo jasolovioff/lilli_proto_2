@@ -59,6 +59,7 @@ class Step1 extends Component {
                                             </InputGroup.Prepend>
                                             <Form.Control name="currentPayment" type="number"
                                                           className="text-center bg-light rounded"
+                                                          min="0" step="1" pattern="\d+"
                                                           onChange={this.props.handleChange}
                                                           value={this.props.currentPayment}/>
                                         </InputGroup>
