@@ -110,6 +110,7 @@ class MasterForm extends Component {
                     red: "aqui va la red",
                     monthlyPayment: 5,
                 }
+                console.log("persisting simulation...");
                 submitSimulation(simulation);
                 break;
         }
