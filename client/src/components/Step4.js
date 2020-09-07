@@ -65,6 +65,7 @@ class Step4 extends Component{
         simulation.calculatePlanDetail(age, red, deductible, cargas);
         const planDetail = simulation.getPlanDetail();
         const totalPrice = simulation.calculateTotalPrice(age, red, deductible, cargas);
+
         const redDetail = this.getRedDetail(red);
         return (
             <React.Fragment>

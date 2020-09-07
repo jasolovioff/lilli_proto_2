@@ -30,6 +30,9 @@ class MasterForm extends Component {
             tengoCargas: false,
             cargas: [],
             preference: '',
+            deductible: '',
+            red: '',
+            monthlyPayment: '',
             alertStep1: false,
             alertStep2: false,
             alertStep3: false
@@ -38,6 +41,7 @@ class MasterForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleCargasChange = this.handleCargasChange.bind(this);
         this.appendCarga = this.appendCarga.bind(this);
+        this.updateMonthlyPayment = this.updateMonthlyPayment.bind(this);
         this._next = this._next.bind(this);
         this._prev = this._prev.bind(this);
     }
@@ -106,8 +110,8 @@ class MasterForm extends Component {
                     cargas : this.state.cargas,
                     preference: this.state.preference,
                     deductible: this.state.deductible,
-                    red: "aqui va la red",
-                    monthlyPayment: 5,
+                    red: this.state.red,
+                    monthlyPayment: this.state.monthlyPayment
                 }
                 console.log("persisting simulation...");
                 const simu = new Simulation();
@@ -176,11 +180,22 @@ class MasterForm extends Component {
         return null;
     }
 
+    updateMonthlyPayment(monthlyPayment){
+        this.setState({
+            monthlyPayment
+        })
+    }
+
     handleChange(event) {
         const target = event.target;
         let value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-        if(name === "currentPayment"){
+        if(name === "preference"){
+            let preferences  = value.split('-');
+            this.setState({
+                red : preferences[0],
+                deductible : preferences[1]
+            })
         }
         this.setState({
                 [name] : value
@@ -228,6 +243,7 @@ class MasterForm extends Component {
     }
 
     render() {
+        console.log(this.state);
         return(
             <React.Fragment>
                 <Container as="header" fluid className="pt-3 mb-3" id="top">
@@ -296,6 +312,7 @@ class MasterForm extends Component {
                         nextButton={this.nextButton}
                         handleSubmit={this.handleSubmit}
                         previousButton={this.previousButton}
+                        updateMonthlyPayment={this.updateMonthlyPayment}
                         UF={this.UF}
                         _prev={this._prev}
                         handleSubmitSimulation={this.handleSubmitSimulation}

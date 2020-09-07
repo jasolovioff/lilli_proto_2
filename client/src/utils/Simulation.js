@@ -1,4 +1,5 @@
 import axios from 'axios';
+const qs = require('qs');
 const planParams = require('./planParams');
 
 class Simulation {
@@ -85,10 +86,12 @@ class Simulation {
     }
 
     async submitSimulation(simulation){
-        console.log(simulation);
-        console.log("-- submitSimulation --");
-        const res = await axios.post('/api/simulation', {post: "posteando", porfavor: "porfolo"});
-        console.log(res);
+        let res = await fetch('http://localhost:5000/api/simulation?' + qs.stringify(simulation), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            }
+        })
     }
 }
 
