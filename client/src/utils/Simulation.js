@@ -87,7 +87,7 @@ class Simulation {
     async submitSimulation(simulation){
         console.log(simulation);
         console.log("-- submitSimulation --");
-        const res = await axios.post('/api/simulation', simulation);
+        const res = await axios.post('/api/simulation', {post: "posteando", porfavor: "porfolo"});
         console.log(res);
     }
 }
