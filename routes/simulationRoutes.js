@@ -8,7 +8,7 @@ module.exports = (app) => {
         console.log(req);
         const {owid, currentPayment, noLoRecuerdo, age, tengoCargas, cargas, preference, deductible, red, monthlyPayment} = req.body;
 
-        const simulation = Simulation({
+        const simulation = new Simulation({
             owid,
             currentPayment,
             noLoRecuerdo,
