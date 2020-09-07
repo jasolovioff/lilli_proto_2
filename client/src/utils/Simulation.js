@@ -86,7 +86,7 @@ class Simulation {
     }
 
     async submitSimulation(simulation){
-        let res = await fetch('http://localhost:5000/api/simulation?' + qs.stringify(simulation), {
+        let res = await fetch('/api/simulation?' + qs.stringify(simulation), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
