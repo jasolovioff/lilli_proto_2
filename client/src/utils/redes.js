@@ -3,7 +3,7 @@ module.exports = [
         name: "Red 1",
         tag: "red1",
         clinics: [
-            "Red Salud Stgo. y Providencia",
+            "Red Salud Stgo. y Prov.",
             "Clínica Dávila",
             "Clínica Vespucio"
         ]
@@ -23,7 +23,7 @@ module.exports = [
         tag: "red3",
         clinics: [
             "Christus San Carlos",
-            "Universidad de los Andes",
+            "Clínica U. de los Andes",
             "Meds"
         ]
     },
