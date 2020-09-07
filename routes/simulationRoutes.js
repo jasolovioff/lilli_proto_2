@@ -5,8 +5,8 @@ const planParams = require('../util/planParams');
 module.exports = (app) => {
     app.post('/api/simulation', async (req, res) => {
         console.log("saving simulation");
-        console.log(req.query);
-        const {owid, currentPayment, noLoRecuerdo, age, tengoCargas, cargas, preference, deductible, red, monthlyPayment} = req.query;
+        console.log(req.body);
+        const {owid, currentPayment, noLoRecuerdo, age, tengoCargas, cargas, preference, deductible, red, monthlyPayment} = req.body;
 
         const simulation = Simulation({
             owid,

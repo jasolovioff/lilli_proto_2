@@ -228,7 +228,6 @@ class MasterForm extends Component {
     }
 
     render() {
-        console.log(this.state);
         return(
             <React.Fragment>
                 <Container as="header" fluid className="pt-3 mb-3" id="top">
