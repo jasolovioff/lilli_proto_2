@@ -1,3 +1,4 @@
+import axios from 'axios';
 const planParams = require('./planParams');
 
 class Simulation {
@@ -74,12 +75,18 @@ class Simulation {
         let price =  currentBasePrice*currentFactor + this.GES;
         return price;
     }
+
     calculateTotalPrice(age, red, deductible, cargas){
         let totalPrice = this.calculatePrice("cotizante", age, red, deductible);
         for(let key in cargas){
             totalPrice += this.calculatePrice("carga", cargas[key], red, deductible);
         }
         return totalPrice;
+    }
+
+    async submitSimulation(simulation){
+        console.log("-- submitSimulation --");
+        const res = await axios.post('/api/simulation', simulation);
     }
 }
 

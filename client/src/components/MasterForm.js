@@ -12,8 +12,7 @@ import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
-import * as actions from "../actions/index";
-import {submitSimulation} from "../actions/index";
+import Simulation from "../utils/Simulation";
 
 class MasterForm extends Component {
     state = {};
@@ -21,7 +20,7 @@ class MasterForm extends Component {
     //formatter = new Intl.NumberFormat('es-CL');
     constructor(props) {
         super(props);
-        const owid = qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).owid !== "" ? qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).owid : "ADA-test";
+        const owid = typeof (qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).owid) !== "undefined" ? qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).owid : "ADA-test";
         this.state = {
             currentStep: 0,
             owid: owid,
@@ -97,7 +96,7 @@ class MasterForm extends Component {
                     })
                 }
                 break;
-            case 4:
+            case 3:
                 const simulation = {
                     owid: this.state.owid,
                     currentPayment: this.state.currentPayment,
@@ -111,7 +110,8 @@ class MasterForm extends Component {
                     monthlyPayment: 5,
                 }
                 console.log("persisting simulation...");
-                submitSimulation(simulation);
+                const simu = new Simulation();
+                simu.submitSimulation(simulation);
                 break;
         }
     }
