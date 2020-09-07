@@ -10,9 +10,7 @@ import heart from "../static/images/heart.svg";
 class Step3 extends Component{
     simulation = new Simulation();
     premiums = [...redes];
-    constructor(props) {
-        super(props);
-    }
+
     calculatePremium() {
 
         redes.forEach((red,i)=>{
@@ -124,22 +122,22 @@ class Step3 extends Component{
                                                     )}
                                                 </ul>
                                             </Col>
-                                            <Form.Label className={(this.props.preference === input.tag + "-10") ? "btn col-3 text-center position-relative redydedusible" : "btn col-3 text-center position-relative btn-secondary"} role="button">
-                                                <Form.Control type="radio" name="preference" value={input.tag + "-10"} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "-10"} />
+                                            <Form.Label className={(this.props.preference === input.tag + "-10-" + input.premiums["10"].uf.toFixed(2)) ? "btn col-3 text-center position-relative redydedusible" : "btn col-3 text-center position-relative btn-secondary"} role="button">
+                                                <Form.Control type="radio" name="preference" value={input.tag + "-10-" + input.premiums["10"].uf.toFixed(2)} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "-10-" + input.premiums["10"].uf.toFixed(2)} />
                                                 <div className="position-absolute center-absolute">
                                                     <span className="font-weight-bold h4">UF {floatFormat.format(input.premiums["10"].uf.toFixed(2))}</span>
                                                     <small className="d-block text-black-50 font-weight-lighter">{formatter.format(input.premiums["10"].clp.toFixed(2))}</small>
                                                 </div>
                                             </Form.Label>
-                                            <Form.Label className={(this.props.preference === input.tag + "-15") ? "btn col-3 redydedusible" : "btn col-3 btn-secondary"} role="button">
-                                                <Form.Control type="radio" name="preference" value={input.tag + "-15"} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "-15"} />
+                                            <Form.Label className={(this.props.preference === input.tag + "-15-" + input.premiums["15"].uf.toFixed(2)) ? "btn col-3 redydedusible" : "btn col-3 btn-secondary"} role="button">
+                                                <Form.Control type="radio" name="preference" value={input.tag + "-15-" + input.premiums["15"].uf.toFixed(2)} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "-15-" + input.premiums["15"].uf.toFixed(2)} />
                                                 <div className="position-absolute center-absolute">
                                                     <span className="font-weight-bold h4">UF {floatFormat.format(input.premiums["15"].uf.toFixed(2))}</span>
                                                     <small className="d-block text-black-50 font-weight-lighter">{formatter.format(input.premiums["15"].clp.toFixed(2))}</small>
                                                 </div>
                                             </Form.Label>
-                                            <Form.Label className={(this.props.preference === input.tag + "-20") ? "btn col-3 redydedusible" : "btn col-3 btn-secondary"} role="button">
-                                                <Form.Control type="radio" name="preference" value={input.tag + "-20"} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "20"} />
+                                            <Form.Label className={(this.props.preference === input.tag + "-20-" + input.premiums["20"].uf.toFixed(2)) ? "btn col-3 redydedusible" : "btn col-3 btn-secondary"} role="button">
+                                                <Form.Control type="radio" name="preference" value={input.tag + "-20-" + input.premiums["20"].uf.toFixed(2)} onChange={this.props.handleChange} checked={this.props.preference === input.tag + "-20-" + input.premiums["20"].uf.toFixed(2)} />
                                                 <div className="position-absolute center-absolute">
                                                     <span className="font-weight-bold h4">UF {floatFormat.format(input.premiums["20"].uf.toFixed(2))}</span>
                                                     <small

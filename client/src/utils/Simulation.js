@@ -1,13 +1,9 @@
-import axios from 'axios';
 const qs = require('qs');
 const planParams = require('./planParams');
 
 class Simulation {
     GES = planParams.GES;
     planDetail = {cotizante: {}, cargas: []};
-
-    constructor() {
-    }
 
     calculatePlanDetail(age, red, deductible, cargas) {
 

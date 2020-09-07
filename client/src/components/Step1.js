@@ -7,9 +7,7 @@ import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 
 class Step1 extends Component {
-    constructor(props) {
-        super(props);
-    }
+
     get showAlert() {
         if (this.props.alertStep1){
             return (
@@ -27,7 +25,6 @@ class Step1 extends Component {
         if (this.props.currentStep !== 1) {
             return null;
         }
-        const formatter = new Intl.NumberFormat('es-CL');
         return (
             <React.Fragment>
                 <Container fluid as="section">

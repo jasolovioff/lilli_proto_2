@@ -95,7 +95,8 @@ class Step0 extends Component{
                                 <iframe className="rounded shadow-lg playvideo"
                                         src="https://www.youtube.com/embed/XnULQGhDbRU" frameBorder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen></iframe>
+                                        allowFullScreen
+                                        title="Lili"></iframe>
                             </Col>
                             <Col xs={12} md={{span:6, order:1}} xl={7} className="text-center text-md-left align-self-center">
                                 <h2 className="title wave2"><span className="title-bold text-col1">Precios y coberturas</span><br/> a tu medida</h2>

@@ -194,7 +194,8 @@ class MasterForm extends Component {
             let preferences  = value.split('-');
             this.setState({
                 red : preferences[0],
-                deductible : preferences[1]
+                deductible : preferences[1],
+                currentPayment : preferences[2]
             })
         }
         this.setState({
@@ -243,7 +244,7 @@ class MasterForm extends Component {
     }
 
     render() {
-        console.log(this.state);
+        //console.log(this.state);
         return(
             <React.Fragment>
                 <Container as="header" fluid className="pt-3 mb-3" id="top">

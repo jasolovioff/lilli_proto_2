@@ -1,10 +1,9 @@
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Collapse from "react-bootstrap/Collapse";
-import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import DetalleCobro from "./DetalleCobro";
