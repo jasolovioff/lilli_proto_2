@@ -6,16 +6,19 @@ module.exports = (app) => {
     app.post('/api/simulation', async (req, res) => {
         console.log("saving simulation");
         console.log(req.query);
-        const {age, charges, income, deductible, network, monthlyPayment, email} = req.query;
+        const {owid, currentPayment, noLoRecuerdo, age, tengoCargas, cargas, preference, deductible, red, monthlyPayment} = req.query;
 
         const simulation = Simulation({
+            owid,
+            currentPayment,
+            noLoRecuerdo,
             age,
-            charges,
-            income,
+            tengoCargas,
+            cargas,
+            preference,
             deductible,
-            network,
+            red,
             monthlyPayment,
-            email,
             created: Date.now()
         });
 

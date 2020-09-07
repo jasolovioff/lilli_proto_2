@@ -2,13 +2,16 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const simulationSchema = new Schema({
+    owid: String,
+    currentPayment: String,
+    noLoRecuerdo: Boolean,
     age: Number,
-    charges : JSON,
-    income: Number,
+    tengoCargas: Boolean,
+    cargas : Array,
+    preference: String,
     deductible: Number,
-    network: String,
+    red: String,
     monthlyPayment: Number,
-    email: String,
     created: Date
 });
 mongoose.model('simulations', simulationSchema);

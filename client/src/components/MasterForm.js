@@ -12,6 +12,8 @@ import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
+import * as actions from "../actions/index";
+import {submitSimulation} from "../actions/index";
 
 class MasterForm extends Component {
     state = {};
@@ -19,16 +21,16 @@ class MasterForm extends Component {
     //formatter = new Intl.NumberFormat('es-CL');
     constructor(props) {
         super(props);
-        const owid = qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).owid
+        const owid = qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).owid !== "" ? qs.parse(this.props.location.search, {ignoreQueryPrefix: true}).owid : "ADA-test";
         this.state = {
             currentStep: 0,
+            owid: owid,
             currentPayment: '',
+            noLoRecuerdo: false,
             age: '',
             tengoCargas: false,
             cargas: [],
             preference: '',
-            noLoRecuerdo: false,
-            owid: owid,
             alertStep1: false,
             alertStep2: false,
             alertStep3: false
@@ -94,6 +96,21 @@ class MasterForm extends Component {
                         tengoCargas: false,
                     })
                 }
+                break;
+            case 4:
+                const simulation = {
+                    owid: this.state.owid,
+                    currentPayment: this.state.currentPayment,
+                    noLoRecuerdo: this.state.noLoRecuerdo,
+                    age: this.state.age,
+                    tengoCargas: this.state.tengoCargas,
+                    cargas : this.state.cargas,
+                    preference: this.state.preference,
+                    deductible: this.state.deductible,
+                    red: "aqui va la red",
+                    monthlyPayment: 5,
+                }
+                submitSimulation(simulation);
                 break;
         }
     }
