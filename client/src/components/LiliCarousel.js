@@ -64,7 +64,7 @@ class LiliCarousel extends Component{
                             <span className="d-block pb-4 h2 title">Beneficios especiales</span>
                             <ul className="h4">
                                 <li className="mb-3">
-                                    Las prestaciones indicadas por tu médico de cabera tienen un 20% de cobertura
+                                    Las prestaciones indicadas por tu médico de cabecera tienen un 20% de cobertura
                                     adicional, después del deducible de tu plan (te explicaremos de eso en la siguiente
                                     sección).
                                 </li>

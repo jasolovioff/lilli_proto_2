@@ -45,7 +45,7 @@ class Step1 extends Component {
                                 <span className="h6 text-black-50 m-0">Paso {this.props.currentStep}</span>
                                 <h2 className="title mb-0">Comencemos</h2>
                                 <h5 className="text-secondary mb-5">Para avanzar al siguiente paso debes seleccionar a
-                                    lo menos una opción para continuar </h5>
+                                    lo menos una opción </h5>
 
                                 <Form.Group className="row mb-5">
                                     <Col xs={7} sm={8}>

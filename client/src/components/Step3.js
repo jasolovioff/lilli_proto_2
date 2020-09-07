@@ -74,7 +74,7 @@ class Step3 extends Component{
                                 <span className="h6 text-black-50 m-0">Paso 3</span>
                                 <h2 className="title mb-0">Elige tus preferencias </h2>
                                 <h5 className="text-secondary mb-5">Para avanzar al siguiente paso debes seleccionar a
-                                    lo menos una opción para continuar </h5>
+                                    lo menos una opción </h5>
 
                                 <Form.Group>
                                     <h5 className="text-black-50">
